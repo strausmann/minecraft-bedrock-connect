@@ -1,0 +1,1 @@
+docker run --rm -d -it -p 19132:19132 --name=brc strausmann/minecraft-bedrock-connect
