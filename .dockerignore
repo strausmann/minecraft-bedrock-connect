@@ -1,0 +1,6 @@
+.gp
+docs/*
+.gitpod.yml
+CHANGELOG.md
+LICENSE.md
+README.md
