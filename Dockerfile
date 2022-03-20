@@ -1,6 +1,5 @@
 FROM openjdk:19-ea-11-slim-bullseye
 
-ARG GIT_COMMIT=unspecified
 ARG ARCH=amd64
 ARG EASY_ADD_VERSION=0.7.1
 ARG BRC_VERSION=unspecified
@@ -9,7 +8,6 @@ ARG APT_UPDATE=20220313.2
 # Label docker image
 LABEL org.opencontainers.image.authors="Björn Strausmann <bjoern@strausmann.net>"
 LABEL org.opencontainers.image.source="https://git.isp-serverfarm.de/minecraft/bedrock-connect"
-LABEL org.opencontainers.image.version="0.0.1"
 LABEL org.opencontainers.image.vendor="strausmann"
 LABEL org.opencontainers.image.licenses="MIT"
 LABEL org.opencontainers.image.documentation="https://git.isp-serverfarm.de/minecraft/bedrock-connect"
