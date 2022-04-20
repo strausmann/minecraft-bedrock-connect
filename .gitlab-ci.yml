@@ -15,7 +15,6 @@ variables:
   http_proxy: ""
   https_proxy: ""
   no_proxy: ""
-  #BRC_VERSION: ${VARNAME:-latest}
 
 # Use this if your GitLab runner does not use socket binding
 # services:
@@ -48,7 +47,7 @@ Build:
       --build-arg https_proxy=$https_proxy
       --build-arg no_proxy=$no_proxy
       --cache-from $CI_REGISTRY_IMAGE:latest
-      --build-arg BRC_VERSION=$BRC_VERSION
+      --build-arg BRC_VERSION=${BRC_VERSION:-latest}
       --label "org.opencontainers.image.title=$CI_PROJECT_TITLE"
       --label "org.opencontainers.image.url=$CI_PROJECT_URL"
       --label "org.opencontainers.image.created=$CI_JOB_STARTED_AT"
