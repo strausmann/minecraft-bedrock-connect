@@ -29,6 +29,17 @@ before_script:
   - echo -n $DOCKER_REGISTRY_PASSWORD | docker login -u $DOCKER_REGISTRY_USER --password-stdin
   - echo $CI_REGISTRY_IMAGE
 
+on-schedule:
+  stage: build
+  tags:
+    - "dind"
+  only:
+    - schedules
+  script:
+    - git remote add api-origin https://oauth2:${GITLAB_ACCESS_TOKEN}@gitlab.com/${CI_PROJECT_PATH}
+    - git tag -a "Release_$(date +%Y-%m-%d)" -m "Auto-Release"
+    - git push api-origin "Release_$(date +%Y-%m-%d)"
+
 Build:
   stage: build
   tags:
