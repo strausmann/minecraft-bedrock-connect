@@ -2,7 +2,7 @@ FROM openjdk:19-ea-11-slim-bullseye
 
 ARG ARCH=amd64
 ARG EASY_ADD_VERSION=0.7.1
-ARG BRC_VERSION=unspecified
+ARG BRC_VERSION=latest
 ARG APT_UPDATE=20220313.2
 
 # Label docker image
@@ -39,7 +39,7 @@ RUN easy-add --var version=0.10.6 --var app=mc-monitor --file {{.app}} --from ht
 # Get set-property
 RUN easy-add --var version=0.1.1 --var app=set-property --file {{.app}} --from https://github.com/itzg/{{.app}}/releases/download/{{.version}}/{{.app}}_{{.version}}_linux_${ARCH}.tar.gz
 # Download Bedrock Connect
-ADD https://github.com/Pugmatt/BedrockConnect/releases/download/${BRC_VERSION}/BedrockConnect-1.0-SNAPSHOT.jar /docker/brc/BedrockConnect.jar
+ADD https://github.com/Pugmatt/BedrockConnect/releases/${BRC_VERSION}/download/BedrockConnect-1.0-SNAPSHOT.jar /docker/brc/BedrockConnect.jar
 
 CMD ["java", "-Xms256M", "-Xmx256M", "-jar", "BedrockConnect.jar", "nodb=true"]
 
