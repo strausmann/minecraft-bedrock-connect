@@ -15,7 +15,7 @@ variables:
   http_proxy: ""
   https_proxy: ""
   no_proxy: ""
-  BRC_VERSION: ${VARNAME:-latest}
+  #BRC_VERSION: ${VARNAME:-latest}
 
 # Use this if your GitLab runner does not use socket binding
 # services:
