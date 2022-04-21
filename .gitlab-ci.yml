@@ -108,7 +108,11 @@ Push tag:
     - docker pull $CI_REGISTRY_IMAGE:$CI_COMMIT_SHA
     # Then we tag it.
     - docker tag $CI_REGISTRY_IMAGE:$CI_COMMIT_SHA $CI_REGISTRY_IMAGE:$CI_COMMIT_REF_NAME # GitLab Registry
-    - docker tag $CI_REGISTRY_IMAGE:$CI_COMMIT_SHA $DOCKERHUB_IMAGE:$CI_COMMIT_REF_NAME # GitLab Registry
+    - docker tag $CI_REGISTRY_IMAGE:$CI_COMMIT_SHA $CI_REGISTRY_IMAGE:1 # GitLab Registry
+    - docker tag $CI_REGISTRY_IMAGE:$CI_COMMIT_SHA $DOCKERHUB_IMAGE:$CI_COMMIT_REF_NAME # Docker Hub Registry
+    - docker tag $CI_REGISTRY_IMAGE:$CI_COMMIT_SHA $DOCKERHUB_IMAGE:1 # Docker Hub Registry
     # Annnd we push it.
     - docker push $CI_REGISTRY_IMAGE:$CI_COMMIT_REF_NAME # GitLab Registry
-    - docker push $DOCKERHUB_IMAGE:$CI_COMMIT_REF_NAME # GitLab Registry
+    - docker push $CI_REGISTRY_IMAGE:1 # GitLab Registry
+    - docker push $DOCKERHUB_IMAGE:$CI_COMMIT_REF_NAME # Dockewr Hub Registry
+    - docker push $DOCKERHUB_IMAGE:1 # Dockewr Hub Registry
