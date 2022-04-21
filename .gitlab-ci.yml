@@ -28,6 +28,12 @@ before_script:
   - echo -n $CI_REGISTRY_PASSWORD | docker login -u $CI_REGISTRY_USER --password-stdin $CI_REGISTRY
   - echo -n $DOCKER_REGISTRY_PASSWORD | docker login -u $DOCKER_REGISTRY_USER --password-stdin
   - echo $CI_REGISTRY_IMAGE
+  - apt-get update && \
+    DEBIAN_FRONTEND=noninteractive apt-get install -y \
+    curl \
+    unzip \
+    jq \
+    nano
   - BRC_VERSION=$(curl --silent "https://api.github.com/repos/Pugmatt/BedrockConnect/releases/latest" | jq -r .tag_name)
 
 on-schedule:
