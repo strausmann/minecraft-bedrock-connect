@@ -28,6 +28,7 @@ before_script:
   - echo -n $CI_REGISTRY_PASSWORD | docker login -u $CI_REGISTRY_USER --password-stdin $CI_REGISTRY
   - echo -n $DOCKER_REGISTRY_PASSWORD | docker login -u $DOCKER_REGISTRY_USER --password-stdin
   - echo $CI_REGISTRY_IMAGE
+  - BRC_VERSION=$(curl --silent "https://api.github.com/repos/Pugmatt/BedrockConnect/releases/latest" | jq -r .tag_name)
 
 on-schedule:
   stage: build
@@ -58,7 +59,7 @@ Build:
       --build-arg https_proxy=$https_proxy
       --build-arg no_proxy=$no_proxy
       --cache-from $CI_REGISTRY_IMAGE:latest
-      --build-arg BRC_VERSION=${BRC_VERSION:-latest}
+      --build-arg BRC_VERSION=${BRC_VERSION:-1.16}
       --label "org.opencontainers.image.title=$CI_PROJECT_TITLE"
       --label "org.opencontainers.image.url=$CI_PROJECT_URL"
       --label "org.opencontainers.image.created=$CI_JOB_STARTED_AT"
