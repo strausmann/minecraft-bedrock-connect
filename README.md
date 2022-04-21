@@ -20,8 +20,6 @@ https://minecraft-bedrock-connect.git-pages.com
 |beta, *-beta.*	| Beta. New features preview or help to test. It could be unstable. |
 |nightly* |	development build, very unstable |
 
-- 
-
 ## Quick reference
 - Documentation:
    - [Install 1.x using Docker](https://wiki.strausmann.net/docker/bedrock-connect/install)
