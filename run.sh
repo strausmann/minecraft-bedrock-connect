@@ -1,1 +1,3 @@
-docker run --rm -d -it -p 19132:19132 --name=brc strausmann/minecraft-bedrock-connect
+docker run  --rm --init -it -e NODB=true -e MYSQL_DB=Bjoern -e NODB=true -e WHITELIST=/config/whitelist.txt -e CUSTOM_SERVERS=/config/custom_servers.json -e UID=33333 -e GID=33333 -e SERVER_LIMIT=85 -v /workspace/bedrock-connect/volume:/config --name=brc strausmann/minecraft-bedrock-connect
+
+#docker run  --rm --init -it -e NODB=true -e MYSQL_DB=Bjoern -e NODB=true -e SERVER_LIMIT=85 --name=brc strausmann/minecraft-bedrock-connect
