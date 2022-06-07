@@ -18,4 +18,7 @@ java_xmx=${JAVA_XMX:-256M}
 [[ ! -z "$WHITELIST" ]] && whitelist="whitelist=${WHITELIST}" && echo "whitelist set to ${WHITELIST}" || echo "whitelist disabled"
 [[ ! -z "$CUSTOM_SERVERS" ]] && custom_servers="custom_servers=${CUSTOM_SERVERS}" && echo "custom_servers set to ${CUSTOM_SERVERS}" || echo "custom_servers disabled"
 
+echo "Bedrock Connect Version: ${BRC_VERSION}"
+echo "Last APT Update run: ${APT_UPDATE}"
+
 java -Xms${java_xms} -Xmx${java_xmx} -jar /data/BedrockConnect.jar server_limit=${server_limit} mysql_host=${mysql_host} mysql_db=${mysql_db} mysql_user=$mysql_user mysql_pass=$mysql_pass kick_inactive=$kick_inactive user_servers=$user_servers featured_servers=$featured_servers nodb=$nodb $custom_servers fetch_featured_ips=$fetch_featured_ips ${whitelist}
