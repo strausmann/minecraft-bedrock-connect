@@ -1,9 +1,17 @@
 #!/bin/bash
 
+set -eo pipefail
+
+if [[ ${DEBUG^^} = TRUE ]]; then
+  set -x
+  echo "DEBUG: running as $(id -a) with $(ls -ld /data)"
+fi
+
 mysql_host=${MYSQL_HOST:-localhost}
 mysql_db=${MYSQL_DB:-bedrock-connect}
 mysql_user=${MYSQL_USER:-bedrock}
 mysql_pass=${MYSQL_PASS:-bedrock}
+brc_version=${BRC_VERSION:-latest}
 server_limit=${SERVER_LIMIT:-100}
 nodb=${NODB:-false}
 generatedns=false
@@ -18,7 +26,15 @@ java_xmx=${JAVA_XMX:-256M}
 [[ ! -z "$WHITELIST" ]] && whitelist="whitelist=${WHITELIST}" && echo "whitelist set to ${WHITELIST}" || echo "whitelist disabled"
 [[ ! -z "$CUSTOM_SERVERS" ]] && custom_servers="custom_servers=${CUSTOM_SERVERS}" && echo "custom_servers set to ${CUSTOM_SERVERS}" || echo "custom_servers disabled"
 
-echo "Bedrock Connect Version: ${BRC_VERSION}"
-echo "Last APT Update run: ${APT_UPDATE}"
+if [ "$brc_version" = "latest" ]; then
+    BRC_VERSION=$(curl --silent "https://api.github.com/repos/Pugmatt/BedrockConnect/releases/latest" | jq -r .tag_name)
+    echo "Latest Bedrock Connect version is: $BRC_VERSION"
+fi
 
-java -Xms${java_xms} -Xmx${java_xmx} -jar /data/BedrockConnect.jar server_limit=${server_limit} mysql_host=${mysql_host} mysql_db=${mysql_db} mysql_user=$mysql_user mysql_pass=$mysql_pass kick_inactive=$kick_inactive user_servers=$user_servers featured_servers=$featured_servers nodb=$nodb $custom_servers fetch_featured_ips=$fetch_featured_ips ${whitelist}
+echo "Downloading now Bedrock Connect JAR"
+easy-add --var version=$BRC_VERSION --from https://github.com/Pugmatt/BedrockConnect/releases/download/{{.version}}/BedrockConnect-setup.zip --file BedrockConnect-1.0-SNAPSHOT.jar -to /docker/brc
+chmod 664 /docker/brc/BedrockConnect-1.0-SNAPSHOT.jar
+
+echo "Bedrock Connect Version: ${BRC_VERSION}"
+
+java -Xms${java_xms} -Xmx${java_xmx} -jar /docker/brc/BedrockConnect-1.0-SNAPSHOT.jar server_limit=${server_limit} mysql_host=${mysql_host} mysql_db=${mysql_db} mysql_user=$mysql_user mysql_pass=$mysql_pass kick_inactive=$kick_inactive user_servers=$user_servers featured_servers=$featured_servers nodb=$nodb $custom_servers fetch_featured_ips=$fetch_featured_ips ${whitelist}

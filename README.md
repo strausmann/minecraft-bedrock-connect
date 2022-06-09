@@ -42,6 +42,7 @@ The following arguments can be placed in the startup command to ajust settings:
 
 | Argument  | Description | Default Value |
 | ------------- | ------------- | ------------- |
+| BRC_VERSION | The Bedrock Connect version is used when the container is started. For example, 1.15 for the Bedrock Connect version 1.15. It does not mean the Minecraft server version. | latest |
 | MYSQL_HOST  | MySQL Host  | localhost |
 | MYSQL_DB | MySQL Database Name  | bedrock-connect |
 | MYSQL_USER | MySQL Username  | root |
