@@ -30,6 +30,8 @@ before_script:
   - echo $CI_REGISTRY_IMAGE
   - apk update && apk add curl jq
   - BRC_VERSION=$(curl --silent "https://api.github.com/repos/Pugmatt/BedrockConnect/releases/latest" | jq -r .tag_name)
+  - MAJOR_VERSION=$(echo "$CI_COMMIT_TAG" | awk -F'.' '{print $1}')
+  - MAJOR_MINOR_VERSION=$(echo "$CI_COMMIT_TAG" | awk -F'.' '{print $1"."$2}')
 
 on-schedule:
   stage: build
@@ -108,11 +110,27 @@ Push tag:
     - docker pull $CI_REGISTRY_IMAGE:$CI_COMMIT_SHA
     # Then we tag it.
     - docker tag $CI_REGISTRY_IMAGE:$CI_COMMIT_SHA $CI_REGISTRY_IMAGE:$CI_COMMIT_REF_NAME # GitLab Registry
-    - docker tag $CI_REGISTRY_IMAGE:$CI_COMMIT_SHA $CI_REGISTRY_IMAGE:1 # GitLab Registry
     - docker tag $CI_REGISTRY_IMAGE:$CI_COMMIT_SHA $DOCKERHUB_IMAGE:$CI_COMMIT_REF_NAME # Docker Hub Registry
-    - docker tag $CI_REGISTRY_IMAGE:$CI_COMMIT_SHA $DOCKERHUB_IMAGE:1 # Docker Hub Registry
     # Annnd we push it.
     - docker push $CI_REGISTRY_IMAGE:$CI_COMMIT_REF_NAME # GitLab Registry
-    - docker push $CI_REGISTRY_IMAGE:1 # GitLab Registry
     - docker push $DOCKERHUB_IMAGE:$CI_COMMIT_REF_NAME # Dockewr Hub Registry
-    - docker push $DOCKERHUB_IMAGE:1 # Dockewr Hub Registry
+
+# Finally, the goal here is to Docker tag any Git tag
+# GitLab will start a new pipeline everytime a Git tag is created, which is pretty awesome
+Push stable-tags:
+  variables:
+    # Again, we do not need the source code here. Just playing with Docker.
+    GIT_STRATEGY: none
+  stage: push
+  rules:
+    - if: $CI_COMMIT_TAG =~ /^\d+\.\d+\.\d+$/
+  script:
+    # Because we have no guarantee that this job will be picked up by the same runner 
+    # that built the image in the previous step, we pull it again locally
+    - docker pull $CI_REGISTRY_IMAGE:$CI_COMMIT_SHA
+    # Then we tag it.
+    - docker tag $CI_REGISTRY_IMAGE:$CI_COMMIT_SHA $CI_REGISTRY_IMAGE:$MAJOR_VERSION # GitLab Registry
+    - docker tag $CI_REGISTRY_IMAGE:$CI_COMMIT_SHA $DOCKERHUB_IMAGE:$MAJOR_VERSION # Docker Hub Registry
+    # Annnd we push it.
+    - docker push $CI_REGISTRY_IMAGE:$MAJOR_VERSION # GitLab Registry
+    - docker push $DOCKERHUB_IMAGE:$MAJOR_VERSION # Dockewr Hub Registry
