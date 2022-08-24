@@ -1,136 +1,92 @@
-# This is a GitLab CI configuration to build the project as a docker image
-# The file is generic enough to be dropped in a project containing a working Dockerfile
-# Author: Florent CHAUVEAU <florent.chauveau@gmail.com>
-# Mentioned here: https://blog.callr.tech/building-docker-images-with-gitlab-ci-best-practices/
-
-# do not use "latest" here, if you want this to work in the future
+# You can override the included template(s) by including variable overrides
+# SAST customization: https://docs.gitlab.com/ee/user/application_security/sast/#customizing-the-sast-settings
+# Secret Detection customization: https://docs.gitlab.com/ee/user/application_security/secret_detection/#customizing-settings
+# Dependency Scanning customization: https://docs.gitlab.com/ee/user/application_security/dependency_scanning/#customizing-the-dependency-scanning-settings
+# Container Scanning customization: https://docs.gitlab.com/ee/user/application_security/container_scanning/#customizing-the-container-scanning-settings
+# Note that environment variables can be set in several places
+# See https://docs.gitlab.com/ee/ci/variables/#cicd-variable-precedence
 image: docker:20
-
 stages:
-  - build
-  - push
-
+- build
+- push
+- test
 variables:
-  # fill those if you have a proxy in your environment
-  http_proxy: ""
-  https_proxy: ""
-  no_proxy: ""
-
-# Use this if your GitLab runner does not use socket binding
-# services:
-#   - docker:dind
-
+  http_proxy: ''
+  https_proxy: ''
+  no_proxy: ''
 before_script:
-  # docker login asks for the password to be passed through stdin for security
-  # we use $CI_REGISTRY_PASSWORD here which is a special variable provided by GitLab
-  # https://docs.gitlab.com/ce/ci/variables/predefined_variables.html
-  - docker info | grep Registry
-  - echo -n $CI_REGISTRY_PASSWORD | docker login -u $CI_REGISTRY_USER --password-stdin $CI_REGISTRY
-  - echo -n $DOCKER_REGISTRY_PASSWORD | docker login -u $DOCKER_REGISTRY_USER --password-stdin
-  - echo $CI_REGISTRY_IMAGE
-  - apk update && apk add curl jq
-  - BRC_VERSION=$(curl --silent "https://api.github.com/repos/Pugmatt/BedrockConnect/releases/latest" | jq -r .tag_name)
-  - MAJOR_VERSION=$(echo "$CI_COMMIT_TAG" | awk -F'.' '{print $1}')
-  - MAJOR_MINOR_VERSION=$(echo "$CI_COMMIT_TAG" | awk -F'.' '{print $1"."$2}')
-
+- docker info | grep Registry
+- echo -n $CI_REGISTRY_PASSWORD | docker login -u $CI_REGISTRY_USER --password-stdin
+  $CI_REGISTRY
+- echo -n $DOCKER_REGISTRY_PASSWORD | docker login -u $DOCKER_REGISTRY_USER --password-stdin
+- echo $CI_REGISTRY_IMAGE
+- apk update && apk add curl jq
+- BRC_VERSION=$(curl --silent "https://api.github.com/repos/Pugmatt/BedrockConnect/releases/latest"
+  | jq -r .tag_name)
+- MAJOR_VERSION=$(echo "$CI_COMMIT_TAG" | awk -F'.' '{print $1}')
+- MAJOR_MINOR_VERSION=$(echo "$CI_COMMIT_TAG" | awk -F'.' '{print $1"."$2}')
 on-schedule:
   stage: build
   tags:
-    - "dind"
+  - dind
   only:
-    - schedules
+  - schedules
   script:
-    - git remote add api-origin https://oauth2:${GITLAB_ACCESS_TOKEN}@gitlab.com/${CI_PROJECT_PATH}
-    - git tag -a "Release_$(date +%Y-%m-%d)" -m "Auto-Release"
-    - git push api-origin "Release_$(date +%Y-%m-%d)"
-
+  - git remote add api-origin https://oauth2:${GITLAB_ACCESS_TOKEN}@gitlab.com/${CI_PROJECT_PATH}
+  - git tag -a "Release_$(date +%Y-%m-%d)" -m "Auto-Release"
+  - git push api-origin "Release_$(date +%Y-%m-%d)"
 Build:
   stage: build
   tags:
-    - "dind"
+  - dind
   script:
-    # fetches the latest image (not failing if image is not found)
-    - docker pull $CI_REGISTRY_IMAGE:latest || true
-    # builds the project, passing proxy variables, using OCI labels
-    # notice the cache-from, which is going to use the image we just pulled locally
-    # the built image is tagged locally with the commit SHA, and then pushed to 
-    # the GitLab registry
-    - >
-      DOCKER_BUILDKIT=1 
-      docker build
-      --pull
-      --build-arg http_proxy=$http_proxy
-      --build-arg https_proxy=$https_proxy
-      --build-arg no_proxy=$no_proxy
-      --cache-from $CI_REGISTRY_IMAGE:latest
-      --build-arg BRC_VERSION=${BRC_VERSION:-1.16}
-      --label "org.opencontainers.image.title=$CI_PROJECT_TITLE"
-      --label "org.opencontainers.image.url=$CI_PROJECT_URL"
-      --label "org.opencontainers.image.created=$CI_JOB_STARTED_AT"
-      --label "org.opencontainers.image.revision=$CI_COMMIT_SHA"
-      --label "org.opencontainers.image.version=$CI_COMMIT_REF_NAME"
-      --tag $CI_REGISTRY_IMAGE:$CI_COMMIT_SHA
-      .
-    - docker push $CI_REGISTRY_IMAGE:$CI_COMMIT_SHA
+  - docker pull $CI_REGISTRY_IMAGE:latest || true
+  - 'DOCKER_BUILDKIT=1  docker build --pull --build-arg http_proxy=$http_proxy --build-arg
+    https_proxy=$https_proxy --build-arg no_proxy=$no_proxy --cache-from $CI_REGISTRY_IMAGE:latest
+    --build-arg BRC_VERSION=${BRC_VERSION:-1.16} --label "org.opencontainers.image.title=$CI_PROJECT_TITLE"
+    --label "org.opencontainers.image.url=$CI_PROJECT_URL" --label "org.opencontainers.image.created=$CI_JOB_STARTED_AT"
+    --label "org.opencontainers.image.revision=$CI_COMMIT_SHA" --label "org.opencontainers.image.version=$CI_COMMIT_REF_NAME"
+    --tag $CI_REGISTRY_IMAGE:$CI_COMMIT_SHA .
 
-# Here, the goal is to tag the "master" branch as "latest"
+'
+  - docker push $CI_REGISTRY_IMAGE:$CI_COMMIT_SHA
 Push latest:
   variables:
-    # We are just playing with Docker here. 
-    # We do not need GitLab to clone the source code.
     GIT_STRATEGY: none
   stage: push
   only:
-    # Only "main" should be tagged "latest"
-    - main
+  - main
   script:
-    # Because we have no guarantee that this job will be picked up by the same runner 
-    # that built the image in the previous step, we pull it again locally
-    - docker pull $CI_REGISTRY_IMAGE:$CI_COMMIT_SHA
-    # Then we tag it "latest"
-    - docker tag $CI_REGISTRY_IMAGE:$CI_COMMIT_SHA $CI_REGISTRY_IMAGE:latest # GitLab Registry
-    - docker tag $CI_REGISTRY_IMAGE:$CI_COMMIT_SHA $DOCKERHUB_IMAGE:latest # Docker Hub Registry
-    # Annnd we push it.
-    - docker push $CI_REGISTRY_IMAGE:latest # GitLab Registry
-    - docker push $DOCKERHUB_IMAGE:latest # Docker Hub Registry
-
-# Finally, the goal here is to Docker tag any Git tag
-# GitLab will start a new pipeline everytime a Git tag is created, which is pretty awesome
+  - docker pull $CI_REGISTRY_IMAGE:$CI_COMMIT_SHA
+  - docker tag $CI_REGISTRY_IMAGE:$CI_COMMIT_SHA $CI_REGISTRY_IMAGE:latest
+  - docker tag $CI_REGISTRY_IMAGE:$CI_COMMIT_SHA $DOCKERHUB_IMAGE:latest
+  - docker push $CI_REGISTRY_IMAGE:latest
+  - docker push $DOCKERHUB_IMAGE:latest
 Push tag:
   variables:
-    # Again, we do not need the source code here. Just playing with Docker.
     GIT_STRATEGY: none
   stage: push
   only:
-    # We want this job to be run on tags only.
-    - tags
+  - tags
   script:
-    # Because we have no guarantee that this job will be picked up by the same runner 
-    # that built the image in the previous step, we pull it again locally
-    - docker pull $CI_REGISTRY_IMAGE:$CI_COMMIT_SHA
-    # Then we tag it.
-    - docker tag $CI_REGISTRY_IMAGE:$CI_COMMIT_SHA $CI_REGISTRY_IMAGE:$CI_COMMIT_REF_NAME # GitLab Registry
-    - docker tag $CI_REGISTRY_IMAGE:$CI_COMMIT_SHA $DOCKERHUB_IMAGE:$CI_COMMIT_REF_NAME # Docker Hub Registry
-    # Annnd we push it.
-    - docker push $CI_REGISTRY_IMAGE:$CI_COMMIT_REF_NAME # GitLab Registry
-    - docker push $DOCKERHUB_IMAGE:$CI_COMMIT_REF_NAME # Dockewr Hub Registry
-
-# Finally, the goal here is to Docker tag any Git tag
-# GitLab will start a new pipeline everytime a Git tag is created, which is pretty awesome
+  - docker pull $CI_REGISTRY_IMAGE:$CI_COMMIT_SHA
+  - docker tag $CI_REGISTRY_IMAGE:$CI_COMMIT_SHA $CI_REGISTRY_IMAGE:$CI_COMMIT_REF_NAME
+  - docker tag $CI_REGISTRY_IMAGE:$CI_COMMIT_SHA $DOCKERHUB_IMAGE:$CI_COMMIT_REF_NAME
+  - docker push $CI_REGISTRY_IMAGE:$CI_COMMIT_REF_NAME
+  - docker push $DOCKERHUB_IMAGE:$CI_COMMIT_REF_NAME
 Push stable-tags:
   variables:
-    # Again, we do not need the source code here. Just playing with Docker.
     GIT_STRATEGY: none
   stage: push
   rules:
-    - if: $CI_COMMIT_TAG =~ /^\d+\.\d+\.\d+$/
+  - if: "$CI_COMMIT_TAG =~ /^\\d+\\.\\d+\\.\\d+$/"
   script:
-    # Because we have no guarantee that this job will be picked up by the same runner 
-    # that built the image in the previous step, we pull it again locally
-    - docker pull $CI_REGISTRY_IMAGE:$CI_COMMIT_SHA
-    # Then we tag it.
-    - docker tag $CI_REGISTRY_IMAGE:$CI_COMMIT_SHA $CI_REGISTRY_IMAGE:$MAJOR_VERSION # GitLab Registry
-    - docker tag $CI_REGISTRY_IMAGE:$CI_COMMIT_SHA $DOCKERHUB_IMAGE:$MAJOR_VERSION # Docker Hub Registry
-    # Annnd we push it.
-    - docker push $CI_REGISTRY_IMAGE:$MAJOR_VERSION # GitLab Registry
-    - docker push $DOCKERHUB_IMAGE:$MAJOR_VERSION # Dockewr Hub Registry
+  - docker pull $CI_REGISTRY_IMAGE:$CI_COMMIT_SHA
+  - docker tag $CI_REGISTRY_IMAGE:$CI_COMMIT_SHA $CI_REGISTRY_IMAGE:$MAJOR_VERSION
+  - docker tag $CI_REGISTRY_IMAGE:$CI_COMMIT_SHA $DOCKERHUB_IMAGE:$MAJOR_VERSION
+  - docker push $CI_REGISTRY_IMAGE:$MAJOR_VERSION
+  - docker push $DOCKERHUB_IMAGE:$MAJOR_VERSION
+sast:
+  stage: test
+include:
+- template: Security/SAST.gitlab-ci.yml
