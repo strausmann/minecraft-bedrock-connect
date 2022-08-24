@@ -1,92 +1,130 @@
-# You can override the included template(s) by including variable overrides
-# SAST customization: https://docs.gitlab.com/ee/user/application_security/sast/#customizing-the-sast-settings
-# Secret Detection customization: https://docs.gitlab.com/ee/user/application_security/secret_detection/#customizing-settings
-# Dependency Scanning customization: https://docs.gitlab.com/ee/user/application_security/dependency_scanning/#customizing-the-dependency-scanning-settings
-# Container Scanning customization: https://docs.gitlab.com/ee/user/application_security/container_scanning/#customizing-the-container-scanning-settings
-# Note that environment variables can be set in several places
-# See https://docs.gitlab.com/ee/ci/variables/#cicd-variable-precedence
+---
 image: docker:20
 stages:
-- build
-- push
-- test
+  - build
+  - push
+
 variables:
   http_proxy: ''
   https_proxy: ''
   no_proxy: ''
-before_script:
-- docker info | grep Registry
-- echo -n $CI_REGISTRY_PASSWORD | docker login -u $CI_REGISTRY_USER --password-stdin
-  $CI_REGISTRY
-- echo -n $DOCKER_REGISTRY_PASSWORD | docker login -u $DOCKER_REGISTRY_USER --password-stdin
-- echo $CI_REGISTRY_IMAGE
-- apk update && apk add curl jq
-- BRC_VERSION=$(curl --silent "https://api.github.com/repos/Pugmatt/BedrockConnect/releases/latest"
-  | jq -r .tag_name)
-- MAJOR_VERSION=$(echo "$CI_COMMIT_TAG" | awk -F'.' '{print $1}')
-- MAJOR_MINOR_VERSION=$(echo "$CI_COMMIT_TAG" | awk -F'.' '{print $1"."$2}')
+
 on-schedule:
   stage: build
+  before_script:
+    - docker info | grep Registry
+    - echo -n $CI_REGISTRY_PASSWORD | docker login -u $CI_REGISTRY_USER --password-stdin
+      $CI_REGISTRY
+    - echo -n $DOCKER_REGISTRY_PASSWORD | docker login -u $DOCKER_REGISTRY_USER --password-stdin
+    - echo $CI_REGISTRY_IMAGE
+    - apk update && apk add curl jq
+    - BRC_VERSION=$(curl --silent "https://api.github.com/repos/Pugmatt/BedrockConnect/releases/latest"
+      | jq -r .tag_name)
+    - MAJOR_VERSION=$(echo "$CI_COMMIT_TAG" | awk -F'.' '{print $1}')
+    - MAJOR_MINOR_VERSION=$(echo "$CI_COMMIT_TAG" | awk -F'.' '{print $1"."$2}')
   tags:
-  - dind
+    - dind
   only:
-  - schedules
+    - schedules
   script:
-  - git remote add api-origin https://oauth2:${GITLAB_ACCESS_TOKEN}@gitlab.com/${CI_PROJECT_PATH}
-  - git tag -a "Release_$(date +%Y-%m-%d)" -m "Auto-Release"
-  - git push api-origin "Release_$(date +%Y-%m-%d)"
+    - git remote add api-origin https://oauth2:${GITLAB_ACCESS_TOKEN}@gitlab.com/${CI_PROJECT_PATH}
+    - git tag -a "Release_$(date +%Y-%m-%d)" -m "Auto-Release"
+    - git push api-origin "Release_$(date +%Y-%m-%d)"
+
 Build:
   stage: build
+  before_script:
+    - docker info | grep Registry
+    - echo -n $CI_REGISTRY_PASSWORD | docker login -u $CI_REGISTRY_USER --password-stdin
+      $CI_REGISTRY
+    - echo -n $DOCKER_REGISTRY_PASSWORD | docker login -u $DOCKER_REGISTRY_USER --password-stdin
+    - echo $CI_REGISTRY_IMAGE
+    - apk update && apk add curl jq
+    - BRC_VERSION=$(curl --silent "https://api.github.com/repos/Pugmatt/BedrockConnect/releases/latest"
+      | jq -r .tag_name)
+    - MAJOR_VERSION=$(echo "$CI_COMMIT_TAG" | awk -F'.' '{print $1}')
+    - MAJOR_MINOR_VERSION=$(echo "$CI_COMMIT_TAG" | awk -F'.' '{print $1"."$2}')
   tags:
-  - dind
+    - dind
   script:
-  - docker pull $CI_REGISTRY_IMAGE:latest || true
-  - 'DOCKER_BUILDKIT=1  docker build --pull --build-arg http_proxy=$http_proxy --build-arg
-    https_proxy=$https_proxy --build-arg no_proxy=$no_proxy --cache-from $CI_REGISTRY_IMAGE:latest
-    --build-arg BRC_VERSION=${BRC_VERSION:-1.16} --label "org.opencontainers.image.title=$CI_PROJECT_TITLE"
-    --label "org.opencontainers.image.url=$CI_PROJECT_URL" --label "org.opencontainers.image.created=$CI_JOB_STARTED_AT"
-    --label "org.opencontainers.image.revision=$CI_COMMIT_SHA" --label "org.opencontainers.image.version=$CI_COMMIT_REF_NAME"
-    --tag $CI_REGISTRY_IMAGE:$CI_COMMIT_SHA .
+    - docker pull $CI_REGISTRY_IMAGE:latest || true
+    - 'DOCKER_BUILDKIT=1  docker build --pull --build-arg http_proxy=$http_proxy --build-arg
+      https_proxy=$https_proxy --build-arg no_proxy=$no_proxy --cache-from $CI_REGISTRY_IMAGE:latest
+      --build-arg BRC_VERSION=${BRC_VERSION:-1.16} --label "org.opencontainers.image.title=$CI_PROJECT_TITLE"
+      --label "org.opencontainers.image.url=$CI_PROJECT_URL" --label "org.opencontainers.image.created=$CI_JOB_STARTED_AT"
+      --label "org.opencontainers.image.revision=$CI_COMMIT_SHA" --label "org.opencontainers.image.version=$CI_COMMIT_REF_NAME"
+      --tag $CI_REGISTRY_IMAGE:$CI_COMMIT_SHA .
+    '
+    - docker push $CI_REGISTRY_IMAGE:$CI_COMMIT_SHA
 
-'
-  - docker push $CI_REGISTRY_IMAGE:$CI_COMMIT_SHA
 Push latest:
+  before_script:
+    - docker info | grep Registry
+    - echo -n $CI_REGISTRY_PASSWORD | docker login -u $CI_REGISTRY_USER --password-stdin
+      $CI_REGISTRY
+    - echo -n $DOCKER_REGISTRY_PASSWORD | docker login -u $DOCKER_REGISTRY_USER --password-stdin
+    - echo $CI_REGISTRY_IMAGE
+    - apk update && apk add curl jq
+    - BRC_VERSION=$(curl --silent "https://api.github.com/repos/Pugmatt/BedrockConnect/releases/latest"
+      | jq -r .tag_name)
+    - MAJOR_VERSION=$(echo "$CI_COMMIT_TAG" | awk -F'.' '{print $1}')
+    - MAJOR_MINOR_VERSION=$(echo "$CI_COMMIT_TAG" | awk -F'.' '{print $1"."$2}')
   variables:
     GIT_STRATEGY: none
   stage: push
   only:
-  - main
+    - main
   script:
-  - docker pull $CI_REGISTRY_IMAGE:$CI_COMMIT_SHA
-  - docker tag $CI_REGISTRY_IMAGE:$CI_COMMIT_SHA $CI_REGISTRY_IMAGE:latest
-  - docker tag $CI_REGISTRY_IMAGE:$CI_COMMIT_SHA $DOCKERHUB_IMAGE:latest
-  - docker push $CI_REGISTRY_IMAGE:latest
-  - docker push $DOCKERHUB_IMAGE:latest
+    - docker pull $CI_REGISTRY_IMAGE:$CI_COMMIT_SHA
+    - docker tag $CI_REGISTRY_IMAGE:$CI_COMMIT_SHA $CI_REGISTRY_IMAGE:latest
+    - docker tag $CI_REGISTRY_IMAGE:$CI_COMMIT_SHA $DOCKERHUB_IMAGE:latest
+    - docker push $CI_REGISTRY_IMAGE:latest
+    - docker push $DOCKERHUB_IMAGE:latest
+
 Push tag:
+  before_script:
+    - docker info | grep Registry
+    - echo -n $CI_REGISTRY_PASSWORD | docker login -u $CI_REGISTRY_USER --password-stdin
+      $CI_REGISTRY
+    - echo -n $DOCKER_REGISTRY_PASSWORD | docker login -u $DOCKER_REGISTRY_USER --password-stdin
+    - echo $CI_REGISTRY_IMAGE
+    - apk update && apk add curl jq
+    - BRC_VERSION=$(curl --silent "https://api.github.com/repos/Pugmatt/BedrockConnect/releases/latest"
+      | jq -r .tag_name)
+    - MAJOR_VERSION=$(echo "$CI_COMMIT_TAG" | awk -F'.' '{print $1}')
+    - MAJOR_MINOR_VERSION=$(echo "$CI_COMMIT_TAG" | awk -F'.' '{print $1"."$2}')
   variables:
     GIT_STRATEGY: none
   stage: push
   only:
-  - tags
+    - tags
   script:
-  - docker pull $CI_REGISTRY_IMAGE:$CI_COMMIT_SHA
-  - docker tag $CI_REGISTRY_IMAGE:$CI_COMMIT_SHA $CI_REGISTRY_IMAGE:$CI_COMMIT_REF_NAME
-  - docker tag $CI_REGISTRY_IMAGE:$CI_COMMIT_SHA $DOCKERHUB_IMAGE:$CI_COMMIT_REF_NAME
-  - docker push $CI_REGISTRY_IMAGE:$CI_COMMIT_REF_NAME
-  - docker push $DOCKERHUB_IMAGE:$CI_COMMIT_REF_NAME
+    - docker pull $CI_REGISTRY_IMAGE:$CI_COMMIT_SHA
+    - docker tag $CI_REGISTRY_IMAGE:$CI_COMMIT_SHA $CI_REGISTRY_IMAGE:$CI_COMMIT_REF_NAME
+    - docker tag $CI_REGISTRY_IMAGE:$CI_COMMIT_SHA $DOCKERHUB_IMAGE:$CI_COMMIT_REF_NAME
+    - docker push $CI_REGISTRY_IMAGE:$CI_COMMIT_REF_NAME
+    - docker push $DOCKERHUB_IMAGE:$CI_COMMIT_REF_NAME
+
 Push stable-tags:
+  before_script:
+    - docker info | grep Registry
+    - echo -n $CI_REGISTRY_PASSWORD | docker login -u $CI_REGISTRY_USER --password-stdin
+      $CI_REGISTRY
+    - echo -n $DOCKER_REGISTRY_PASSWORD | docker login -u $DOCKER_REGISTRY_USER --password-stdin
+    - echo $CI_REGISTRY_IMAGE
+    - apk update && apk add curl jq
+    - BRC_VERSION=$(curl --silent "https://api.github.com/repos/Pugmatt/BedrockConnect/releases/latest"
+      | jq -r .tag_name)
+    - MAJOR_VERSION=$(echo "$CI_COMMIT_TAG" | awk -F'.' '{print $1}')
+    - MAJOR_MINOR_VERSION=$(echo "$CI_COMMIT_TAG" | awk -F'.' '{print $1"."$2}')
   variables:
     GIT_STRATEGY: none
   stage: push
   rules:
   - if: "$CI_COMMIT_TAG =~ /^\\d+\\.\\d+\\.\\d+$/"
   script:
-  - docker pull $CI_REGISTRY_IMAGE:$CI_COMMIT_SHA
-  - docker tag $CI_REGISTRY_IMAGE:$CI_COMMIT_SHA $CI_REGISTRY_IMAGE:$MAJOR_VERSION
-  - docker tag $CI_REGISTRY_IMAGE:$CI_COMMIT_SHA $DOCKERHUB_IMAGE:$MAJOR_VERSION
-  - docker push $CI_REGISTRY_IMAGE:$MAJOR_VERSION
-  - docker push $DOCKERHUB_IMAGE:$MAJOR_VERSION
-sast:
-  stage: test
-include:
-- template: Security/SAST.gitlab-ci.yml
+    - docker pull $CI_REGISTRY_IMAGE:$CI_COMMIT_SHA
+    - docker tag $CI_REGISTRY_IMAGE:$CI_COMMIT_SHA $CI_REGISTRY_IMAGE:$MAJOR_VERSION
+    - docker tag $CI_REGISTRY_IMAGE:$CI_COMMIT_SHA $DOCKERHUB_IMAGE:$MAJOR_VERSION
+    - docker push $CI_REGISTRY_IMAGE:$MAJOR_VERSION
+    - docker push $DOCKERHUB_IMAGE:$MAJOR_VERSION
