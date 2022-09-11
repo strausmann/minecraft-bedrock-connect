@@ -20,6 +20,8 @@ code_quality:
     reports:
       codequality: gl-code-quality-report.json
     expire_in: 1 week
+  tags:
+    - cq-sans-dind
 
 variables:
   http_proxy: ''
