@@ -16,7 +16,7 @@ RUN curl -s https://getcomposer.org/installer | php \
     && chown -R gitpod:gitpod /home/gitpod/.config
 
 ARG EASY_ADD_VER=0.7.1
-ADD https://github.com/itzg/easy-add/releases/download/${EASY_ADD_VER}/easy-add_${EASY_ADD_VER}_linux_amd64 /usr/bin/easy-add
+ADD https://github.com/itzg/easy-add/releases/download/${EASY_ADD_VER}/easy-add_linux_amd64 /usr/bin/easy-add
 RUN chmod +x /usr/bin/easy-add
 
 USER gitpod
