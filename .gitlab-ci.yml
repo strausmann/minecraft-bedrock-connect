@@ -52,6 +52,5 @@ docker_build:
   rules:
     - changes:
       - image/**/*
-  only:
-    - branches
-    - tags
+    - if: '$CI_PIPELINE_SOURCE == "merge_request_event"'
+      when: never
