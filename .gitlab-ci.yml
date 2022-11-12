@@ -52,8 +52,7 @@ docker_build:
       --build-arg BUILD_VERSION=$CI_COMMIT_REF_NAME \
       --build-arg BUILD_DATE=$(date -u +'%Y-%m-%dT%H:%M:%SZ') \
       --build-arg VCS_REF=$CI_COMMIT_SHORT_SHA \
-      --platform linux/amd64 \
-      --platform linux/arm64 \
+      --platform linux/amd64,linux/arm64 \
       --tag "$DOCKERHUB_IMAGE${tag}" \
       --push image
     - docker manifest inspect $DOCKERHUB_IMAGE${tag}
