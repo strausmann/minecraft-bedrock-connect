@@ -26,7 +26,7 @@ stages:
     - docker buildx inspect --bootstrap
   after_script:
     - docker logout
-    - docker rm buildx-$CI_COMMIT_SHORT_SHA --force
+    - docker rm buildx_buildkit_buildx-$CI_COMMIT_SHORT_SHA --force
   tags:
     - dind
 
