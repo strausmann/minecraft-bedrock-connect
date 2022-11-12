@@ -52,3 +52,6 @@ docker_build:
   rules:
     - changes:
       - image/**/*
+  only:
+    - branches
+    - tags
