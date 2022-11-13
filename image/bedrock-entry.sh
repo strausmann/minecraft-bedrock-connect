@@ -2,9 +2,13 @@
 
 set -eo pipefail
 
+: "${TMP_DIR:=/tmp}"
+
 if [[ ${DEBUG^^} = TRUE ]]; then
   set -x
+  curlArgs=(-v)
   echo "DEBUG: running as $(id -a) with $(ls -ld /data)"
+  echo "       current directory is $(pwd)"
 fi
 
 mysql_host=${MYSQL_HOST:-localhost}
