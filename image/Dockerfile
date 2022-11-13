@@ -34,9 +34,11 @@ RUN useradd -m -u $UID -g $GID -o -s /bin/bash $UNAME
 
 RUN mkdir -p /docker/brc && mkdir -p /config && chown $UID:$GID /docker/brc && chown $UID:$GID /config && chmod 664 /config
 
-WORKDIR /docker
-
 VOLUME [ "/data" ]
+
+WORKDIR /data
+
+ENTRYPOINT ["/usr/local/bin/entrypoint-demoter", "--match", "/data", "--debug", "--stdin-on-term", "stop", "/opt/bedrock-entry.sh"]
 
 # Get Easy-Add
 ADD https://github.com/itzg/easy-add/releases/download/${EASY_ADD_VERSION}/easy-add_linux_${TARGETARCH} /usr/local/bin/easy-add
@@ -52,7 +54,5 @@ RUN easy-add --var version=0.1.1 --var app=set-property --file {{.app}} --from h
 COPY *.sh /opt/
 
 USER bdc
-
-ENTRYPOINT ["/usr/local/bin/entrypoint-demoter", "--match", "/data", "--debug", "--stdin-on-term", "stop", "/opt/bedrock-entry.sh"]
 
 HEALTHCHECK --start-period=1m CMD /usr/local/bin/mc-monitor status-bedrock --host 127.0.0.1 --port 19132
