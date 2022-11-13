@@ -1,11 +1,14 @@
-FROM openjdk:19-ea-11-slim-bullseye
+FROM openjdk:20-ea-23-slim-bullseye
 
-ARG ARCH=amd64
 ARG EASY_ADD_VERSION=0.7.1
-ARG APT_UPDATE=20220607.1
+ARG APT_UPDATE=20221111.1
 ARG UID=1000
 ARG GID=1000
 ARG UNAME=bdc
+ARG BRC_VERSION
+ARG TARGETPLATFORM
+ARG BUILDPLATFORM
+ARG TARGETARCH
 
 # Label docker image
 LABEL org.opencontainers.image.authors="Björn Strausmann <bjoern@strausmann.net>"
@@ -22,7 +25,7 @@ RUN apt-get update && \
     unzip \
     jq \
     nano \
-    && DEBIAN_FRONTEND=noninteractive apt-get upgrade -y \
+    #&& DEBIAN_FRONTEND=noninteractive apt-get upgrade -y \
     && apt-get clean \
     && rm -rf /var/lib/apt/lists/*
 
@@ -39,15 +42,15 @@ RUN mkdir -p /docker/brc && mkdir -p /config && chown $UID:$GID /docker/brc && c
 WORKDIR /docker
 
 # Get Easy-Add
-ADD https://github.com/itzg/easy-add/releases/download/${EASY_ADD_VERSION}/easy-add_linux_${ARCH} /usr/local/bin/easy-add
+ADD https://github.com/itzg/easy-add/releases/download/${EASY_ADD_VERSION}/easy-add_linux_${TARGETARCH} /usr/local/bin/easy-add
 RUN chmod +x /usr/local/bin/easy-add
 
 # Get entrypoint-demoter
-RUN easy-add --var version=0.4.0 --var app=entrypoint-demoter --file {{.app}} --from https://github.com/itzg/{{.app}}/releases/download/v{{.version}}/{{.app}}_{{.version}}_linux_${ARCH}.tar.gz
+RUN easy-add --var version=0.4.0 --var app=entrypoint-demoter --file {{.app}} --from https://github.com/itzg/{{.app}}/releases/download/v{{.version}}/{{.app}}_{{.version}}_linux_${TARGETARCH}.tar.gz
 # Get MC-Monitor
-RUN easy-add --var version=0.10.6 --var app=mc-monitor --file {{.app}} --from https://github.com/itzg/{{.app}}/releases/download/{{.version}}/{{.app}}_{{.version}}_linux_${ARCH}.tar.gz
+RUN easy-add --var version=0.10.6 --var app=mc-monitor --file {{.app}} --from https://github.com/itzg/{{.app}}/releases/download/{{.version}}/{{.app}}_{{.version}}_linux_${TARGETARCH}.tar.gz
 # Get set-property
-RUN easy-add --var version=0.1.1 --var app=set-property --file {{.app}} --from https://github.com/itzg/{{.app}}/releases/download/{{.version}}/{{.app}}_{{.version}}_linux_${ARCH}.tar.gz
+RUN easy-add --var version=0.1.1 --var app=set-property --file {{.app}} --from https://github.com/itzg/{{.app}}/releases/download/{{.version}}/{{.app}}_{{.version}}_linux_${TARGETARCH}.tar.gz
 # Add Bedrock-Entry
 COPY *.sh /opt/
 
