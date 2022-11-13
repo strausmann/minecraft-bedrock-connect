@@ -53,6 +53,6 @@ COPY *.sh /opt/
 
 USER bdc
 
-ENTRYPOINT ["/usr/local/bin/entrypoint-demoter", "--match", "/docker", "--debug", "--stdin-on-term", "stop", "/opt/bedrock-entry.sh"]
+ENTRYPOINT ["/usr/local/bin/entrypoint-demoter", "--match", "/data", "--debug", "--stdin-on-term", "stop", "/opt/bedrock-entry.sh"]
 
 HEALTHCHECK --start-period=1m CMD /usr/local/bin/mc-monitor status-bedrock --host 127.0.0.1 --port 19132
