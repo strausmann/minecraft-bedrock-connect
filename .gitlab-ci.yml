@@ -41,8 +41,6 @@ docker_build:
         echo "Running on default branch '$CI_DEFAULT_BRANCH': ${DOCKERHUB_IMAGE}:latest"
         # Build Multi Arch Images and push to dockerhub
         docker buildx build --build-arg BUILD_VERSION=$CI_COMMIT_REF_NAME --build-arg BUILD_DATE=$(date -u +'%Y-%m-%dT%H:%M:%SZ') --build-arg VCS_REF=$CI_COMMIT_SHORT_SHA --push --platform linux/amd64,linux/arm64 --tag ${DOCKERHUB_IMAGE}:latest  image
-        # Get all current Tags
-        docker image ls
         # Inspect Docker Manifest
         docker manifest inspect ${DOCKERHUB_IMAGE}:latest
       elif [ -n "$CI_COMMIT_TAG" ]
@@ -53,8 +51,6 @@ docker_build:
         echo "Running on tag '$CI_COMMIT_TAG': ${DOCKERHUB_IMAGE}:${CI_COMMIT_TAG}"
         # Build Multi Arch Images and push to dockerhub
         docker buildx build --build-arg BUILD_VERSION=$CI_COMMIT_REF_NAME --build-arg BUILD_DATE=$(date -u +'%Y-%m-%dT%H:%M:%SZ') --build-arg VCS_REF=$CI_COMMIT_SHORT_SHA --push --platform linux/amd64,linux/arm64 --tag $DOCKERHUB_IMAGE:$CI_COMMIT_TAG --tag $DOCKERHUB_IMAGE:$MAJOR_VERSION --tag $DOCKERHUB_IMAGE:$MAJOR_MINOR_VERSION image
-        # Get all current Tags
-        docker image ls
         # Inspect Docker Manifest
         docker manifest inspect $DOCKERHUB_IMAGE:$CI_COMMIT_TAG
         docker manifest inspect $DOCKERHUB_IMAGE:$MAJOR_VERSION
@@ -63,8 +59,6 @@ docker_build:
         echo "Running on branch '$CI_COMMIT_BRANCH': ${DOCKERHUB_IMAGE}:${CI_COMMIT_REF_SLUG}"
         # Build Multi Arch Images and push to dockerhub
         docker buildx build --build-arg BUILD_VERSION=$CI_COMMIT_REF_NAME --build-arg BUILD_DATE=$(date -u +'%Y-%m-%dT%H:%M:%SZ') --build-arg VCS_REF=$CI_COMMIT_SHORT_SHA --push --platform linux/amd64,linux/arm64 --tag $DOCKERHUB_IMAGE:$CI_COMMIT_REF_SLUG  image
-        # Get all current Tags
-        docker image ls
         # Inspect Docker Manifest
         docker manifest inspect ${DOCKERHUB_IMAGE}:${CI_COMMIT_REF_SLUG}
       fi
