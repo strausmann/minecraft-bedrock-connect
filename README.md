@@ -72,7 +72,7 @@ For an installation without Docker, please follow the instructions from [Pugmatt
 docker volume create bedrock-connect
 
 # Start the container
-docker run -d --restart=always -p 19132:19132 -e NODB=true -v bedrock-connect:/data --name bedrock-connect strausmann/minecraft-bedrock-connect:1
+docker run -d --restart=always -p 19132:19132/udp -e NODB=true -v bedrock-connect:/data --name bedrock-connect strausmann/minecraft-bedrock-connect:2
 ```
 
 #### Exposed Ports
@@ -87,7 +87,7 @@ version: "3.8"
 
 services:
   bedrockconnect: 
-    image: strausmann/minecraft-bedrock-connect:1
+    image: strausmann/minecraft-bedrock-connect:2
     restart: always
     environment:
       NODB: "true"
@@ -112,7 +112,7 @@ version: "3.8"
 
 services:
   bedrockconnect: 
-    image: strausmann/minecraft-bedrock-connect:1
+    image: strausmann/minecraft-bedrock-connect:2
     restart: always
     environment:
       MYSQL_HOST: "db"
@@ -151,8 +151,6 @@ volumes:
     driver: local
 
 ```
-
-## Volumes
 
 # License
 [View license information](https://git.isp-serverfarm.de/minecraft/bedrock-connect/-/blob/main/LICENSE.md) for the software contained in this image.

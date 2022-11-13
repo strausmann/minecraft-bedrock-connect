@@ -6,6 +6,18 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/) 
 
 ---
 
+## [Unreleased]
+
+## [**2.0.0**] - 2022-11-13
+
+### Added
+
+* Multi Arch Images (amd64,arm64) published on Docker Hub
+
+### Changed
+
+* Base Image to openjdk:20-ea-23-slim-bullseye (#14)
+
 ## [**1.2.0**] - 2022-04-21
 
 ### Added
