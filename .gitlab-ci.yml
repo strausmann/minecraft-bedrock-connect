@@ -34,21 +34,25 @@ docker_build:
   extends: .create_multi_arch_image
   stage: build
   script:
+    - build_tags=""
     - |
       if [ "$CI_COMMIT_BRANCH" == "$CI_DEFAULT_BRANCH" ]
       then
-        tag=""
-        echo "Running on default branch '$CI_DEFAULT_BRANCH': tag = 'latest'"
+        echo "Running on default branch '$CI_DEFAULT_BRANCH': build_tags = '--tag ${DOCKERHUB_IMAGE}:latest'"
       elif [ -n "$CI_COMMIT_TAG" ]
       then
+        MAJOR_VERSION=$(echo "$CI_COMMIT_TAG" | awk -F'.' '{print $1}')
+        MAJOR_MINOR_VERSION=$(echo "$CI_COMMIT_TAG" | awk -F'.' '{print $1"."$2}')
         VERSION=$([[ $(echo $CI_COMMIT_REF_NAME | cut -d'-' -f1) == release ]] && echo $CI_COMMIT_REF_NAME | cut -d'-' -f2 || echo $CI_COMMIT_REF_NAME)
         tag=":$VERSION"
-        echo "Running on tag release '$VERSION': tag = $tag"
+        echo "Version: ${VERSION}, Major Version: ${MAJOR_VERSION}, Major Minor Version: ${MAJOR_MINOR_VERSION}"
+        #echo "Running on tag release '$VERSION': tag = $tag"
+        build_tags="--tag ${DOCKERHUB_IMAGE}:${VERSION} --tag ${DOCKERHUB_IMAGE}:${MAJOR_VERSION} --tag ${DOCKERHUB_IMAGE}:${MAJOR_MINOR_VERSION}"
+        echo "New Build Tag is ${build_tags}"
       else
-        tag=":$CI_COMMIT_REF_SLUG"
-        echo "Running on branch '$CI_COMMIT_BRANCH': tag = $tag"
+        echo "Running on branch '$CI_COMMIT_BRANCH': build_tags = ${DOCKERHUB_IMAGE}:${CI_COMMIT_REF_SLUG}"
       fi
-    - docker buildx build --build-arg BUILD_VERSION=$CI_COMMIT_REF_NAME --build-arg BUILD_DATE=$(date -u +'%Y-%m-%dT%H:%M:%SZ') --build-arg VCS_REF=$CI_COMMIT_SHORT_SHA --platform linux/amd64,linux/arm64 --tag "$DOCKERHUB_IMAGE${tag}" --push image
+    - docker buildx build --build-arg BUILD_VERSION=$CI_COMMIT_REF_NAME --build-arg BUILD_DATE=$(date -u +'%Y-%m-%dT%H:%M:%SZ') --build-arg VCS_REF=$CI_COMMIT_SHORT_SHA --platform linux/amd64,linux/arm64 $build_tags --push image
     - docker manifest inspect $DOCKERHUB_IMAGE${tag}
   rules:
     - if: '$CI_PIPELINE_SOURCE == "merge_request_event"'
