@@ -38,11 +38,11 @@ docker_build:
     - |
       if [ "$CI_COMMIT_BRANCH" == "$CI_DEFAULT_BRANCH" ]
       then
-        echo "Running on default branch '$CI_DEFAULT_BRANCH': ${DOCKERHUB_IMAGE}:test"
+        echo "Running on default branch '$CI_DEFAULT_BRANCH': ${DOCKERHUB_IMAGE}:latest"
         # Build Multi Arch Images and push to dockerhub
-        docker buildx build --build-arg BUILD_VERSION=$CI_COMMIT_REF_NAME --build-arg BUILD_DATE=$(date -u +'%Y-%m-%dT%H:%M:%SZ') --build-arg VCS_REF=$CI_COMMIT_SHORT_SHA --push --platform linux/amd64,linux/arm64 --tag ${DOCKERHUB_IMAGE}:test  image
+        docker buildx build --build-arg BUILD_VERSION=$CI_COMMIT_REF_NAME --build-arg BUILD_DATE=$(date -u +'%Y-%m-%dT%H:%M:%SZ') --build-arg VCS_REF=$CI_COMMIT_SHORT_SHA --push --platform linux/amd64,linux/arm64 --tag ${DOCKERHUB_IMAGE}:latest  image
         # Inspect Docker Manifest
-        docker manifest inspect ${DOCKERHUB_IMAGE}:test
+        docker manifest inspect ${DOCKERHUB_IMAGE}:latest
       elif [ -n "$CI_COMMIT_TAG" ]
       then
         MAJOR_VERSION=$(echo "$CI_COMMIT_TAG" | awk -F'.' '{print $1}')
