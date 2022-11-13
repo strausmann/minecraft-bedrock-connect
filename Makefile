@@ -6,9 +6,7 @@ BRC_VERSION = `curl --silent "https://api.github.com/repos/Pugmatt/BedrockConnec
 
 build:
 	echo $(BRC_VERSION)
-	docker buildx create --use
-	docker buildx build -t $(NAME) image \
-		--platform linux/arm64 \
+	docker build -t $(NAME):$(VERSION) image \
 		--build-arg BRC_VERSION=$(BRC_VERSION) \
 		--label "org.opencontainers.image.revision=$(git rev-parse --short HEAD)" \
 		--label "org.opencontainers.image.created=$(date -I)" \
@@ -18,7 +16,7 @@ build-nocache:
 	docker build -t $(NAME) --no-cache --rm image
 
 test:
-	docker run --rm --init -it -e NODB=true -e MYSQL_DB=Bjoern -e NODB=true -e SERVER_LIMIT=85 --name=brc $(NAME)
+	docker run --rm --init -it -e NODB=true -e MYSQL_DB=Bjoern -e NODB=true -e SERVER_LIMIT=85 --name=brc $(NAME):$(VERSION)
 
 tag:
 	docker tag $(NAME):$(NAME):$(VERSION)

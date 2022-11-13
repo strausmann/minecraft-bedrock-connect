@@ -6,9 +6,7 @@ ARG UID=1000
 ARG GID=1000
 ARG UNAME=bdc
 ARG BRC_VERSION
-ARG TARGETPLATFORM
-ARG BUILDPLATFORM
-ARG TARGETARCH
+ARG TARGETARCH=amd64
 
 # Label docker image
 LABEL org.opencontainers.image.authors="Björn Strausmann <bjoern@strausmann.net>"
@@ -34,12 +32,11 @@ EXPOSE 19132/udp
 RUN groupadd -g $GID -o $UNAME
 RUN useradd -m -u $UID -g $GID -o -s /bin/bash $UNAME
 
-VOLUME [ "/config" ]
-VOLUME [ "/docker" ]
-
 RUN mkdir -p /docker/brc && mkdir -p /config && chown $UID:$GID /docker/brc && chown $UID:$GID /config && chmod 664 /config
 
 WORKDIR /docker
+
+VOLUME [ "/data" ]
 
 # Get Easy-Add
 ADD https://github.com/itzg/easy-add/releases/download/${EASY_ADD_VERSION}/easy-add_linux_${TARGETARCH} /usr/local/bin/easy-add

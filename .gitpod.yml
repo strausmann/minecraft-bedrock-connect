@@ -6,8 +6,6 @@ tasks:
   - before: bash .gp/bash/before-tasks.sh
     init: |
       docker-compose pull
-  - command: |
-      docker-compose up
 
 # List the ports to expose. Learn more https://www.gitpod.io/docs/config-ports/
 ports:
