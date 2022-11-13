@@ -31,17 +31,13 @@ RUN apt-get update && \
 
 EXPOSE 19132/udp
 
-RUN groupadd -g $GID -o $UNAME
-RUN useradd -m -u $UID -g $GID -o -s /bin/bash $UNAME
-
-RUN mkdir -p /docker/brc && mkdir -p /config && chown $UID:$GID /docker/brc && chown $UID:$GID /config && chmod 664 /config
+RUN mkdir -p /docker/brc && mkdir -p /config && chmod 664 /config
 
 VOLUME [ "/data" ]
 
 WORKDIR /data
 
-#ENTRYPOINT ["/usr/local/bin/entrypoint-demoter", "--match", "/data", "--debug", "--stdin-on-term", "stop", "/opt/bedrock-entry.sh"]
-CMD ["/bin/ping","localhost"]
+ENTRYPOINT ["/usr/local/bin/entrypoint-demoter", "--match", "/data", "--debug", "--stdin-on-term", "stop", "/opt/bedrock-entry.sh"]
 
 # Get Easy-Add
 ADD https://github.com/itzg/easy-add/releases/download/${EASY_ADD_VERSION}/easy-add_linux_${TARGETARCH} /usr/local/bin/easy-add
@@ -55,7 +51,5 @@ RUN easy-add --var version=0.10.6 --var app=mc-monitor --file {{.app}} --from ht
 RUN easy-add --var version=0.1.1 --var app=set-property --file {{.app}} --from https://github.com/itzg/{{.app}}/releases/download/{{.version}}/{{.app}}_{{.version}}_linux_${TARGETARCH}.tar.gz
 # Add Bedrock-Entry
 COPY *.sh /opt/
-
-USER bdc
 
 HEALTHCHECK --start-period=1m CMD /usr/local/bin/mc-monitor status-bedrock --host 127.0.0.1 --port 19132
