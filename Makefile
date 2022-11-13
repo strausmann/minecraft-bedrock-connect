@@ -1,5 +1,5 @@
 NAME = strausmann/minecraft-bedrock-connect
-VERSION = 1.6.0
+VERSION = 2.0.0
 #BRC_VERSION = `curl --silent "https://api.github.com/repos/Pugmatt/BedrockConnect/releases/latest" | jq -r .tag_name`
 
 .PHONY: build build-nocache test tag-latest push push-latest release git-tag-version
@@ -7,6 +7,7 @@ VERSION = 1.6.0
 build:
 	echo $(BRC_VERSION)
 	docker build -t $(NAME):$(VERSION) image \
+		--build-arg TARGETARCH=amd64 \
 		--label "org.opencontainers.image.revision=$(git rev-parse --short HEAD)" \
 		--label "org.opencontainers.image.created=$(date -I)" \
 		--rm
