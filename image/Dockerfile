@@ -1,4 +1,4 @@
-FROM openjdk:20-ea-23-slim-bullseye
+FROM openjdk:21-ea-17-slim-bullseye
 
 ARG EASY_ADD_VERSION=0.7.1
 ARG APT_UPDATE=20221111.1
