@@ -1,6 +1,6 @@
 FROM gitpod/workspace-base
 
-ENV force_rebuild 100
+ENV force_rebuild 101
 
 USER root
 
@@ -15,7 +15,7 @@ RUN curl -s https://getcomposer.org/installer | php \
     && mkdir -p /home/gitpod/.config \
     && chown -R gitpod:gitpod /home/gitpod/.config
 
-ARG EASY_ADD_VER=0.7.1
+ARG EASY_ADD_VER=0.7.2
 ADD https://github.com/itzg/easy-add/releases/download/${EASY_ADD_VER}/easy-add_linux_amd64 /usr/bin/easy-add
 RUN chmod +x /usr/bin/easy-add
 
