@@ -1,9 +1,9 @@
 #!/bin/bash
 
-version_greater_equal()
-{
-    printf '%s\n%s\n' "$2" "$1" | sort --check=quiet --version-sort
-}
+#version_greater_equal()
+#{
+#    printf '%s\n%s\n' "$2" "$1" | sort --check=quiet --version-sort
+#}
 
 set -eo pipefail
 
@@ -41,11 +41,12 @@ if [ "$brc_version" = "latest" ]; then
     echo "Latest Bedrock Connect version is: ${brc_version}"
 fi
 
-# #20 Fix since BRC 1.30
-if (version_greater_equal "${brc_version}" 1.30 ); then
-    brc_source_file="BedrockConnect-setup/BedrockConnect-1.0-SNAPSHOT.jar"
-    echo "Bedrock Connect Jar Source File: '${brc_source_file}'"
-fi
+# #20 Fix for BRC 1.30
+#echo "Cbeck if 1.30 BRC build"
+#if (echo "${brc_version}"=="1.30" ); then
+#    brc_source_file="BedrockConnect-setup/BedrockConnect-1.0-SNAPSHOT.jar"
+#    echo "Bedrock Connect Jar Source File: '${brc_source_file}'"
+#fi
 
 echo "Downloading now Bedrock Connect JAR - version: $brc_version"
 easy-add --var version=$brc_version --from https://github.com/Pugmatt/BedrockConnect/releases/download/{{.version}}/BedrockConnect-setup.zip --file $brc_source_file -to /docker/brc
