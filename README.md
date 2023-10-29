@@ -1,10 +1,10 @@
-[![GitLab Pipeline](https://git.isp-serverfarm.de/minecraft/bedrock-connect/badges/main/pipeline.svg)](https://git.isp-serverfarm.de/minecraft/bedrock-connect/commits/main)
-[![MIT License](https://img.shields.io/badge/license-MIT-blue)](https://git.isp-serverfarm.de/minecraft/bedrock-connect/-/blob/main/LICENSE.md)
+[![GitLab Pipeline](https://git.strausmann.de/minecraft/bedrock-connect/badges/main/pipeline.svg)](https://git.strausmann.de/minecraft/bedrock-connect/commits/main)
+[![MIT License](https://img.shields.io/badge/license-MIT-blue)](https://git.strausmann.de/minecraft/bedrock-connect/-/blob/main/LICENSE.md)
 [![Docker latest by date](https://img.shields.io/docker/v/strausmann/minecraft-bedrock-connect?arch=amd64)](https://hub.docker.com/r/strausmann/minecraft-bedrock-connect)
 [![Docker Pulls](https://img.shields.io/docker/pulls/strausmann/minecraft-bedrock-connect)](https://hub.docker.com/r/strausmann/minecraft-bedrock-connect)
 [![Docker Automate build](https://img.shields.io/docker/automated/strausmann/minecraft-bedrock-connect)](https://hub.docker.com/r/strausmann/minecraft-bedrock-connect)
 [![Docker Image Size latest by date](https://img.shields.io/docker/image-size/strausmann/minecraft-bedrock-connect)](https://hub.docker.com/r/strausmann/minecraft-bedrock-connect)
-[![Open in Gitpod](https://img.shields.io/badge/Open%20in-Gitpod-%232cb64c?logo=gitpod)](https://gitpod.io/#https://git.isp-serverfarm.de/minecraft/bedrock-connect)
+[![Open in Gitpod](https://img.shields.io/badge/Open%20in-Gitpod-%232cb64c?logo=gitpod)](https://gitpod.io/#https://git.strausmann.de/minecraft/bedrock-connect)
 
 **A simple Docker image that can provide the Minecraft Bedrock Connect service.**
 
@@ -16,7 +16,7 @@ https://minecraft-bedrock-connect.git-pages.com
 
 | Tag(s)  | Description |
 | ------------- | ------------- |
-|[<code>latest</code>](https://git.isp-serverfarm.de/minecraft/bedrock-connect/-/tree/main), [<code>1</code>](https://git.isp-serverfarm.de/minecraft/bedrock-connect/-/tree/main), [<code>1.*</code>](https://git.isp-serverfarm.de/minecraft/bedrock-connect/-/tree/main) |	latest stable - ubuntu |
+|[<code>latest</code>](https://git.strausmann.de/minecraft/bedrock-connect/-/tree/main), [<code>1</code>](https://git.strausmann.de/minecraft/bedrock-connect/-/tree/main), [<code>1.*</code>](https://git.strausmann.de/minecraft/bedrock-connect/-/tree/main) |	latest stable - ubuntu |
 |beta, *-beta.*	| Beta. New features preview or help to test. It could be unstable. |
 |nightly* |	development build, very unstable |
 
@@ -24,10 +24,10 @@ https://minecraft-bedrock-connect.git-pages.com
 - Documentation:
    - [Install 1.x using Docker](https://wiki.strausmann.net/docker/bedrock-connect/install)
 - Where to get help: [on Discord](https://discord.gg/tfu5GfNh)
-- Where to file issues: [https://git.isp-serverfarm.de/minecraft/bedrock-connect](https://git.isp-serverfarm.de/minecraft/bedrock-connect)
-- Maintained by: [strausmann](https://git.isp-serverfarm.de/strausmann)
+- Where to file issues: [https://git.strausmann.de/minecraft/bedrock-connect](https://git.strausmann.de/minecraft/bedrock-connect)
+- Maintained by: [strausmann](https://git.strausmann.de/strausmann)
 - Supported architectures: <code>amd64</code>
-- License: [MIT](https://git.isp-serverfarm.de/minecraft/bedrock-connect/-/blob/main/LICENSE.md)
+- License: [MIT](https://git.strausmann.de/minecraft/bedrock-connect/-/blob/main/LICENSE.md)
 
 ## ⭐ Features
 
@@ -153,6 +153,6 @@ volumes:
 ```
 
 # License
-[View license information](https://git.isp-serverfarm.de/minecraft/bedrock-connect/-/blob/main/LICENSE.md) for the software contained in this image.
+[View license information](https://git.strausmann.de/minecraft/bedrock-connect/-/blob/main/LICENSE.md) for the software contained in this image.
 
 As with all Docker images, these likely also contain other software which may be under other licenses (such as Bash, etc from the base distribution, along with any direct or indirect dependencies of the primary software being contained).
