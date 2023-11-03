@@ -11,31 +11,30 @@ include:
   - template: Security/Secret-Detection.gitlab-ci.yml
 
 .create_multi_arch_image:
-  image: docker:latest
+  image: docker:24.0.7
   services:
-   - name: docker:dind
+   - name: docker:24.0.7-dind
      command: ["--experimental"]
+     alias: 'docker'
   variables:
     DOCKER_DRIVER: overlay2
     DOCKER_BUILDKIT: 1
   before_script:
     - docker version
-    - docker info | grep Registry
     - echo -n $DOCKER_REGISTRY_PASSWORD | docker login -u $DOCKER_REGISTRY_USER --password-stdin
-    - docker info | grep Registry
     - echo $CI_REGISTRY_IMAGE
     - apk add curl
     - mkdir -vp ~/.docker/cli-plugins/
-    - curl --silent -L "https://github.com/docker/buildx/releases/download/v0.9.1/buildx-v0.9.1.linux-amd64" > ~/.docker/cli-plugins/docker-buildx
+    - curl --silent -L "https://github.com/docker/buildx/releases/download/v0.11.2/buildx-v0.11.2.linux-amd64" > ~/.docker/cli-plugins/docker-buildx
     - chmod a+x ~/.docker/cli-plugins/docker-buildx
     - docker run --rm --privileged multiarch/qemu-user-static --reset -p yes
-    - docker buildx create --use --name job-$CI_JOB_ID
+    - docker buildx create --driver=docker-container --use --name job-$CI_JOB_ID
     - docker buildx inspect --bootstrap
   after_script:
     - docker logout
     - docker rm buildx_buildkit_job-${CI_JOB_ID}0 --force || true
   tags:
-    - dind
+    - cq-sans-dind
 
 docker_build:
   extends: .create_multi_arch_image
