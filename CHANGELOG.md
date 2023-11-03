@@ -1,4 +1,18 @@
 <!-- markdownlint-disable MD012 MD024 -->
+# # Bedrock Connect Docker Image Change Log 📜📝
+All notable changes to the **Bedrock Connect** Docker Image, published on Docker Hub will be documented in this file.
+
+The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
+and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
+
+## 1.0.0 (2023-11-03)
+
+
+### 🐛 Bug Fixes
+
+* **releaserc:** fix changelog Title issue ([e8a4927](https://git.strausmann.de/minecraft/bedrock-connect/commit/e8a49275ca8aa55bced675cbc8af370660daf529))
+
+<!-- markdownlint-disable MD012 MD024 -->
 # Bedrock Connect Docker Image Change Log 📜📝
 
 All notable changes to the "**Bedrock Connect**" Docker Image, published on Docker Hub will be documented in this file.
