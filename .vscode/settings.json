@@ -1,5 +1,6 @@
 {
-    "git.enableCommitSigning": true,
-    "search.useGlobalIgnoreFiles": true,
-    "search.useParentIgnoreFiles": true
+  "git.enableCommitSigning": true,
+  "search.useGlobalIgnoreFiles": true,
+  "search.useParentIgnoreFiles": true,
+  "editor.renderWhitespace": "all"
 }
