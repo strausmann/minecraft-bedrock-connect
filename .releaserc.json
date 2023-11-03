@@ -77,5 +77,5 @@
     { "name": "alpha", "prerelease": true }
   ],
   "repositoryUrl": "https://git.strausmann.de/minecraft/bedrock-connect.git",
-  "tagFormat": "release-${version}"
+  "tagFormat": "${version}"
 }
