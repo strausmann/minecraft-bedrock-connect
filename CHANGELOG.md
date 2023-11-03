@@ -1,4 +1,5 @@
-# **Bedrock Connect Docker Image Change Log** 📜📝
+<!-- markdownlint-disable MD012 MD024 -->
+# Bedrock Connect Docker Image Change Log 📜📝
 
 All notable changes to the "**Bedrock Connect**" Docker Image, published on Docker Hub will be documented in this file.
 
@@ -7,6 +8,16 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/) 
 ---
 
 ## [Unreleased]
+
+## [**2.4.0**] - 2023-11-02
+
+### Changed
+
+* Update Base Image "openjdk:22-ea-21-jdk-slim-bookworm"
+* Update itzg/easy-add to v0.8.1
+* Update itzg/mc_monitor to v0.12.4
+* Update itzg/entrypoint-demoter to v0.4.1
+* Update docker/buildx to v0.11.2
 
 ## [**2.3.0**] - 2023-07-07
 

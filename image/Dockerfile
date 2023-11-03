@@ -1,9 +1,9 @@
-FROM openjdk:22-ea-4-jdk-slim-bookworm
+FROM openjdk:22-ea-21-jdk-slim-bookworm
 
-ARG EASY_ADD_VERSION=0.8.0
-ARG MC_MONITOR_VERSION=0.12.1
-ARG ENTRYPOINT_DEMOTER_VERSION=0.4.0
-ARG APT_UPDATE=20230702.0
+ARG EASY_ADD_VERSION=0.8.1
+ARG MC_MONITOR_VERSION=0.12.4
+ARG ENTRYPOINT_DEMOTER_VERSION=0.4.1
+ARG APT_UPDATE=20231103.0
 ARG UID=1000
 ARG GID=1000
 ARG UNAME=bdc
@@ -19,8 +19,9 @@ LABEL org.opencontainers.image.documentation="https://git.strausmann.de/minecraf
 LABEL net.strausmann.image.brc.source="https://github.com/Pugmatt/BedrockConnect"
 LABEL net.strausmann.image.apt.lastupdate=$APT_UPDATE
 
-RUN apt-get update && \
-    DEBIAN_FRONTEND=noninteractive apt-get install -y \
+RUN apt-get update \
+    && DEBIAN_FRONTEND=noninteractive apt-get purge openldap tar perl krb5 libgcrypt20 gcc-12 nghttp2 -y || true \
+    && DEBIAN_FRONTEND=noninteractive apt-get install -y \
     curl \
     unzip \
     jq \

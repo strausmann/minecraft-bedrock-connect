@@ -1,0 +1,103 @@
+{
+  "extends": ["@commitlint/config-conventional"],
+  "parserPreset": "conventional-changelog-conventionalcommits",
+  "helpUrl": "https://github.com/conventional-changelog/commitlint/#what-is-commitlint",
+  "prompt": {
+    "messages": {
+      "skip": ":überspringen",
+      "max": "Maximal %d Zeichen",
+      "min": "Mindestens %d Zeichen",
+      "emptyWarning": "kann nicht leer sein",
+      "upperLimitWarning": "Über dem Grenzwert",
+      "lowerLimitWarning": "Unter dem Grenzwert"
+    },
+    "questions": {
+      "type": {
+        "enum": {
+          "feat": {
+            "description": "Neues Feature",
+            "title": "Features",
+            "emoji": "✨"
+          },
+          "fix": {
+            "description": "Eine Fehlerbehebung",
+            "title": "Bug Fixes",
+            "emoji": "🐛"
+          },
+          "docs": {
+            "description": "Nur Dokumentation ändert sich",
+            "title": "Documentation",
+            "emoji": "📚"
+          },
+          "style": {
+            "description": "Änderungen, die den Sinn des Codes nicht beeinträchtigen (Leerzeichen, Formatierung, fehlende Semikolons usw.)",
+            "title": "Styles",
+            "emoji": "💎"
+          },
+          "refactor": {
+            "description": "Eine Codeänderung, die weder einen Fehler behebt noch eine Funktion hinzufügt",
+            "title": "Code Refactoring",
+            "emoji": "📦"
+          },
+          "perf": {
+            "description": "Eine Codeänderung, die die Leistung verbessert",
+            "title": "Performance Improvements",
+            "emoji": "🚀"
+          },
+          "test": {
+            "description": "Hinzufügen fehlender Tests oder Korrigieren vorhandener Tests",
+            "title": "Tests",
+            "emoji": "🧪"
+          },
+          "build": {
+            "description": "Änderungen, die das Build-System oder externe Abhängigkeiten betreffen (Beispielbereiche: gulp, broccoli, npm)",
+            "title": "Builds",
+            "emoji": "🛠"
+          },
+          "ci": {
+            "description": "Änderungen an unseren CI-Konfigurationsdateien und Skripten (Beispielbereiche: Travis, Circle, BrowserStack, SauceLabs)",
+            "title": "Continuous Integrations",
+            "emoji": "🦊"
+          },
+          "chore": {
+            "description": "Andere Änderungen, die keine src- oder Testdateien verändern",
+            "title": "Chores",
+            "emoji": "♻️"
+          },
+          "revert": {
+            "description": "Macht eine vorherige Übertragung rückgängig",
+            "title": "Reverts",
+            "emoji": "🗑"
+          }
+        }
+      },
+      "scope": {
+        "description": "Welchen Umfang hat diese Änderung (z. B. Komponente oder Dateiname)?"
+      },
+      "subject": {
+        "description": "Schreiben Sie eine kurze, imperative Beschreibung der Änderung"
+      },
+      "body": {
+        "description": "Geben Sie eine längere Beschreibung der Änderung an"
+      },
+      "isBreaking": {
+        "description": "Gibt es wichtige Änderungen?"
+      },
+      "breakingBody": {
+        "description": "Ein 'BREAKING CHANGE' Commit erfordert einen Body. Bitte geben Sie eine längere Beschreibung des Commit selbst ein."
+      },
+      "breaking": {
+        "description": "Beschreiben Sie die wichtigsten Änderungen"
+      },
+      "isIssueAffected": {
+        "description": "Wirkt sich diese Änderung auf offene Probleme (Issues) aus?"
+      },
+      "issuesBody": {
+        "description": "Wenn Probleme geschlossen sind, erfordert der Commit einen Text. Bitte geben Sie eine längere Beschreibung des Commit selbst ein."
+      },
+      "issues": {
+        "description": "Fügen Sie Problemreferenzen (Issue #ID) hinzu (z. B. \"fix #123\", \"re #123\".)"
+      }
+    }
+  }
+}
