@@ -38,7 +38,7 @@
       "@semantic-release/changelog",
       {
         "changelogFile": "CHANGELOG.md",
-        "changelogTitle": "<!-- markdownlint-disable MD012 MD024 -->\n# # Bedrock Connect Docker Image Change Log 📜📝\nAll notable changes to the "**Bedrock Connect**" Docker Image, published on Docker Hub will be documented in this file.\n\nThe format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),\nand this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html)."
+        "changelogTitle": "<!-- markdownlint-disable MD012 MD024 -->\n# # Bedrock Connect Docker Image Change Log 📜📝\nAll notable changes to the **Bedrock Connect** Docker Image, published on Docker Hub will be documented in this file.\n\nThe format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),\nand this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html)."
       }
     ],
     [
