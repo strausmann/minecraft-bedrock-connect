@@ -1,7 +1,9 @@
-FROM openjdk:21-ea-17-slim-bullseye
+FROM openjdk:22-ea-4-jdk-slim-bookworm
 
-ARG EASY_ADD_VERSION=0.7.2
-ARG APT_UPDATE=20230502.0
+ARG EASY_ADD_VERSION=0.8.0
+ARG MC_MONITOR_VERSION=0.12.1
+ARG ENTRYPOINT_DEMOTER_VERSION=0.4.0
+ARG APT_UPDATE=20230702.0
 ARG UID=1000
 ARG GID=1000
 ARG UNAME=bdc
@@ -10,10 +12,10 @@ ARG TARGETARCH
 
 # Label docker image
 LABEL org.opencontainers.image.authors="Björn Strausmann <bjoern@strausmann.net>"
-LABEL org.opencontainers.image.source="https://git.isp-serverfarm.de/minecraft/bedrock-connect"
+LABEL org.opencontainers.image.source="https://git.strausmann.de/minecraft/bedrock-connect"
 LABEL org.opencontainers.image.vendor="strausmann"
 LABEL org.opencontainers.image.licenses="MIT"
-LABEL org.opencontainers.image.documentation="https://git.isp-serverfarm.de/minecraft/bedrock-connect"
+LABEL org.opencontainers.image.documentation="https://git.strausmann.de/minecraft/bedrock-connect"
 LABEL net.strausmann.image.brc.source="https://github.com/Pugmatt/BedrockConnect"
 LABEL net.strausmann.image.apt.lastupdate=$APT_UPDATE
 
@@ -44,9 +46,9 @@ ADD https://github.com/itzg/easy-add/releases/download/${EASY_ADD_VERSION}/easy-
 RUN chmod +x /usr/local/bin/easy-add
 
 # Get entrypoint-demoter
-RUN easy-add --var version=0.4.0 --var app=entrypoint-demoter --file {{.app}} --from https://github.com/itzg/{{.app}}/releases/download/v{{.version}}/{{.app}}_{{.version}}_linux_${TARGETARCH}.tar.gz
+RUN easy-add --var version=${ENTRYPOINT_DEMOTER_VERSION} --var app=entrypoint-demoter --file {{.app}} --from https://github.com/itzg/{{.app}}/releases/download/v{{.version}}/{{.app}}_{{.version}}_linux_${TARGETARCH}.tar.gz
 # Get MC-Monitor
-RUN easy-add --var version=0.10.6 --var app=mc-monitor --file {{.app}} --from https://github.com/itzg/{{.app}}/releases/download/{{.version}}/{{.app}}_{{.version}}_linux_${TARGETARCH}.tar.gz
+RUN easy-add --var version=${MC_MONITOR_VERSION} --var app=mc-monitor --file {{.app}} --from https://github.com/itzg/{{.app}}/releases/download/{{.version}}/{{.app}}_{{.version}}_linux_${TARGETARCH}.tar.gz
 # Add Bedrock-Entry
 COPY *.sh /opt/
 # Docker HEALTHCHECK

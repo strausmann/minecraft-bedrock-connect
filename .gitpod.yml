@@ -5,7 +5,7 @@ image:
 tasks:
   - before: bash .gp/bash/before-tasks.sh
     init: |
-      docker-compose pull
+      docker pull strausmann/minecraft-bedrock-connect:latest
 
 # List the ports to expose. Learn more https://www.gitpod.io/docs/config-ports/
 ports:

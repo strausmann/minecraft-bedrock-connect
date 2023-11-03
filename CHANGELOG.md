@@ -8,6 +8,27 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/) 
 
 ## [Unreleased]
 
+## [**2.3.0**] - 2023-07-07
+
+### Changed
+
+* Update itzg/easy-add to v0.8.0
+* Update itzg/mc_monitor to v0.12.1
+* Update docker/buildx to v0.11.1
+
+## [**2.2.0**] - 2023-05-02
+
+### Changed
+
+* Update Revert fix for 1.30 ZIP Path
+
+## [**2.1.0**] - 2023-04-18
+
+### Changed
+
+* Fix 1.30 ZIP Path
+* Update easy-add to v0.7.2
+
 ## [**2.0.0**] - 2022-11-13
 
 ### Added
@@ -16,7 +37,28 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/) 
 
 ### Changed
 
-* Base Image to openjdk:20-ea-23-slim-bullseye (#14)
+* Update the Docker Base Image to openjdk:20-ea-23-slim-bullseye (#14)
+
+## [**1.5.0**] - 2022-06-21
+
+### Changed
+
+* #9 Define Bedrock Connect version via BRC_VERSION environment variable. Now Bedrock Connect version independent of Docker image.
+* Optimize GitLab CI Pipeline
+
+## [**1.4.0**] - 2022-06-07
+
+### Added
+
+* Add console output for the Bedrock Connect Version
+* Add console output for the latest apt update
+
+## [**1.3.0**] - 2022-06-07
+
+### Changed
+
+* APT Update 07.06.2022
+* 1.19 Bedrock Support
 
 ## [**1.2.0**] - 2022-04-21
 
