@@ -5,6 +5,24 @@ All notable changes to the **Bedrock Connect** Docker Image, published on Docker
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [2.2.1](https://git.strausmann.de/minecraft/bedrock-connect/compare/2.2.0...2.2.1) (2023-11-03)
+
+
+### ♻️ Chores
+
+* **release:** 1.0.0 ([ad6990f](https://git.strausmann.de/minecraft/bedrock-connect/commit/ad6990fd19b87b32e10b31cd09439d6b91b01fad))
+
+
+### 🦊 CI/CD
+
+* **build:** CI Trigger Latest Release wird nur noch mit einem neuen Release erstellt ([00a99ee](https://git.strausmann.de/minecraft/bedrock-connect/commit/00a99ee853e954f0ce1ab37c9a82c37e9b733041))
+
+
+### 🐛 Bug Fixes
+
+* **changelog:** fix syntax in changelog.md ([1b49b1e](https://git.strausmann.de/minecraft/bedrock-connect/commit/1b49b1e6596de6e2ec6fc48b47f23d27d9403034))
+* **releaserc:** fix changelog Title issue ([e8a4927](https://git.strausmann.de/minecraft/bedrock-connect/commit/e8a49275ca8aa55bced675cbc8af370660daf529))
+
 ## 2.4.0 (2023-11-02)
 
 ### Changed
