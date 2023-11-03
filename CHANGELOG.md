@@ -5,25 +5,7 @@ All notable changes to the **Bedrock Connect** Docker Image, published on Docker
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## 1.0.0 (2023-11-03)
-
-
-### 🐛 Bug Fixes
-
-* **releaserc:** fix changelog Title issue ([e8a4927](https://git.strausmann.de/minecraft/bedrock-connect/commit/e8a49275ca8aa55bced675cbc8af370660daf529))
-
-<!-- markdownlint-disable MD012 MD024 -->
-# Bedrock Connect Docker Image Change Log 📜📝
-
-All notable changes to the "**Bedrock Connect**" Docker Image, published on Docker Hub will be documented in this file.
-
-The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/) and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
-
----
-
-## [Unreleased]
-
-## [**2.4.0**] - 2023-11-02
+## 2.4.0 (2023-11-02)
 
 ### Changed
 
@@ -33,7 +15,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/) 
 * Update itzg/entrypoint-demoter to v0.4.1
 * Update docker/buildx to v0.11.2
 
-## [**2.3.0**] - 2023-07-07
+## 2.3.0 (2023-07-07)
 
 ### Changed
 
@@ -41,13 +23,13 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/) 
 * Update itzg/mc_monitor to v0.12.1
 * Update docker/buildx to v0.11.1
 
-## [**2.2.0**] - 2023-05-02
+## 2.2.0 (2023-05-02)
 
 ### Changed
 
 * Update Revert fix for 1.30 ZIP Path
 
-## [**2.1.0**] - 2023-04-18
+## 2.1.0 (2023-04-18)
 
 ### Changed
 
