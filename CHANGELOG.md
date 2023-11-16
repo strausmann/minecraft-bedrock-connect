@@ -5,6 +5,24 @@ All notable changes to the **Bedrock Connect** Docker Image, published on Docker
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [2.2.3](https://git.strausmann.de/minecraft/bedrock-connect/compare/2.2.2...2.2.3) (2023-11-16)
+
+
+### 🐛 Bug Fixes
+
+* **deps:** update dependency npm to v10.2.4 ([ae3497e](https://git.strausmann.de/minecraft/bedrock-connect/commit/ae3497e5ff172d6f142f53e1c44a4d278137b4b4))
+
+
+### ♻️ Chores
+
+* **deps:** update dependency @semantic-release/gitlab to v12.1.0 ([d5c5175](https://git.strausmann.de/minecraft/bedrock-connect/commit/d5c517559e643d996cbc88dbdd016f515a08efb4))
+* **deps:** update dependency conventional-changelog-conventionalcommits to v7 ([69fe0a9](https://git.strausmann.de/minecraft/bedrock-connect/commit/69fe0a9ca76cb80ab41560c55fecb69c1bd539b1))
+* **deps:** update dependency prettier to v3 ([f703a1e](https://git.strausmann.de/minecraft/bedrock-connect/commit/f703a1eebcf432bb8de00c495542507a0118e991))
+* **deps:** update dependency prettier to v3.1.0 ([66d5c6d](https://git.strausmann.de/minecraft/bedrock-connect/commit/66d5c6dfaeaa0e5b729f9fa47118904eac90f539))
+* **deps:** update devdependencies (non-major) to v18.4.0 ([270502a](https://git.strausmann.de/minecraft/bedrock-connect/commit/270502a1ed56f83fecc2f03d9a15b1c20d3c8f45))
+* **deps:** update devdependencies (non-major) to v18.4.1 ([d70b1e1](https://git.strausmann.de/minecraft/bedrock-connect/commit/d70b1e1082780d2606abdc9a99b4420a452ffeb0))
+* **deps:** update semantic-release monorepo ([4ddfccf](https://git.strausmann.de/minecraft/bedrock-connect/commit/4ddfccfcfb61446ac724140397e2d0d4e5813a95))
+
 ## [2.2.2](https://git.strausmann.de/minecraft/bedrock-connect/compare/2.2.1...2.2.2) (2023-11-05)
 
 
