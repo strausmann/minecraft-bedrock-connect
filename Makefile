@@ -1,5 +1,5 @@
 NAME = strausmann/minecraft-bedrock-connect
-VERSION = 2.4.0
+VERSION = 2.3.0-beta
 #BRC_VERSION = `curl --silent "https://api.github.com/repos/Pugmatt/BedrockConnect/releases/latest" | jq -r .tag_name`
 
 .PHONY: build build-nocache test tag-latest push push-latest release scout git-tag-version
