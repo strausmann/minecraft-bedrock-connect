@@ -5,6 +5,13 @@ All notable changes to the **Bedrock Connect** Docker Image, published on Docker
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [2.2.5](https://git.strausmann.de/minecraft/bedrock-connect/compare/2.2.4...2.2.5) (2023-11-27)
+
+
+### 🐛 Bug Fixes
+
+* **deps:** update dependencies mc-monitor and easy-add ([8ecec65](https://git.strausmann.de/minecraft/bedrock-connect/commit/8ecec65691942a40d603fcc18616a940e5cda069))
+
 ## [2.2.4](https://git.strausmann.de/minecraft/bedrock-connect/compare/2.2.3...2.2.4) (2023-11-23)
 
 
