@@ -9,8 +9,8 @@ tasks:
       npm install -g jshint
       npm ci --cache .npm --prefer-offline
     init: |
-      curl -sSfL https://raw.githubusercontent.com/docker/scout-cli/main/install.sh | sh -s --
       docker login -u "$DOCKERHUB_USER" -p "$DOCKERHUB_TOKEN"
+      curl -sSfL https://raw.githubusercontent.com/docker/scout-cli/main/install.sh | sh -s --
       docker pull strausmann/minecraft-bedrock-connect:latest
 
 # List the ports to expose. Learn more https://www.gitpod.io/docs/config-ports/
