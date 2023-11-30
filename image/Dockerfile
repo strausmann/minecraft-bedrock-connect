@@ -1,4 +1,4 @@
-FROM openjdk:22-ea-jdk-slim-bookworm@sha256:b728feec1e540e377765e5878c7ab3bdb238f7b9e9a648b4906c73fed1d3230d
+FROM openjdk:22-ea-jdk-slim-bookworm@sha256:a218eb01668f11d434fc65cf0025baf84ed171ce5aafa12530fd8d4ee3b6f4fd
 
 ARG APT_UPDATE=20231127.1
 ARG EASY_ADD_VERSION=0.8.2
