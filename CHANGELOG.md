@@ -5,6 +5,22 @@ All notable changes to the **Bedrock Connect** Docker Image, published on Docker
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [2.2.7](https://git.strausmann.de/minecraft/bedrock-connect/compare/2.2.6...2.2.7) (2023-12-7)
+
+
+### 🐛 Bug Fixes
+
+* **deps:** update dependency npm to v10.2.5 ([d38dead](https://git.strausmann.de/minecraft/bedrock-connect/commit/d38dead65d0c9fbc6d373c2c505718d525b216e7))
+
+
+### ♻️ Chores
+
+* **deps:** update dependency semantic-release to v22.0.10 ([d576ff5](https://git.strausmann.de/minecraft/bedrock-connect/commit/d576ff5e8320787ff56de8e0455f1886180e32f0))
+* **deps:** update dependency semantic-release to v22.0.9 ([a556f96](https://git.strausmann.de/minecraft/bedrock-connect/commit/a556f962e507c7b0aeb622b1d709761a554a14b7))
+* **deps:** update node.js to v21.3.0 ([bf57ea9](https://git.strausmann.de/minecraft/bedrock-connect/commit/bf57ea9a09e779749ef014294ff052ca1ca295e3))
+* **deps:** update openjdk:22-ea-jdk-slim-bookworm docker digest to 1f44e50 ([cf75811](https://git.strausmann.de/minecraft/bedrock-connect/commit/cf758117471ec3a00acf7af5ba44c6d238dca5ac))
+* **deps:** update openjdk:22-ea-jdk-slim-bookworm docker digest to a218eb0 ([e88d19e](https://git.strausmann.de/minecraft/bedrock-connect/commit/e88d19e2426ecbeaff1ccccdccd118cdfc690dba))
+
 ## [2.2.6](https://git.strausmann.de/minecraft/bedrock-connect/compare/2.2.5...2.2.6) (2023-11-27)
 
 
