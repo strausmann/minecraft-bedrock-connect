@@ -5,6 +5,28 @@ All notable changes to the **Bedrock Connect** Docker Image, published on Docker
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [2.2.8](https://git.strausmann.de/minecraft/bedrock-connect/compare/2.2.7...2.2.8) (2023-12-28)
+
+
+### 🐛 Bug Fixes
+
+* **bug:** sha tag removed, amd64 image was tagged ([82b139e](https://git.strausmann.de/minecraft/bedrock-connect/commit/82b139e1431298c31957848b063c259a85daca5c))
+* **bug:** sha tag removed, amd64 image was tagged ([6ffa9d1](https://git.strausmann.de/minecraft/bedrock-connect/commit/6ffa9d17cf68c372496e477117034c53a5196cec))
+
+
+### ♻️ Chores
+
+* **deps:** update dependency @semantic-release/gitlab to v13 ([a35c173](https://git.strausmann.de/minecraft/bedrock-connect/commit/a35c17326728109f78294bd690b713d568747918))
+* **deps:** update dependency prettier to v3.1.1 ([c7f4e4f](https://git.strausmann.de/minecraft/bedrock-connect/commit/c7f4e4f889ba44740fdb0e2e0802151c180596b4))
+* **deps:** update dependency semantic-release to v22.0.11 ([4f51e07](https://git.strausmann.de/minecraft/bedrock-connect/commit/4f51e07307a515d5ee5be33f72ce1283b6b62824))
+* **deps:** update dependency semantic-release to v22.0.12 ([c993a2b](https://git.strausmann.de/minecraft/bedrock-connect/commit/c993a2b9159ad968d6f1a3fb1d8840ee89b98e05))
+* **deps:** update node.js to 814a6dc ([f45ac46](https://git.strausmann.de/minecraft/bedrock-connect/commit/f45ac46472be04467f22a2740ceabbf811f1c439))
+* **deps:** update node.js to v21.4.0 ([022771d](https://git.strausmann.de/minecraft/bedrock-connect/commit/022771dd61e91ec49fd41df6134dfde4671cd19f))
+* **deps:** update node.js to v21.5.0 ([e245cc9](https://git.strausmann.de/minecraft/bedrock-connect/commit/e245cc90318c22f0cc71b3100659bb5b9757baf5))
+* **deps:** update openjdk:22-ea-jdk-slim-bookworm docker digest to 37867f6 ([779d617](https://git.strausmann.de/minecraft/bedrock-connect/commit/779d6174f9e921054e61856bac1e5a97ad4c79da))
+* **deps:** update openjdk:22-ea-jdk-slim-bookworm docker digest to 85266d7 ([0e40003](https://git.strausmann.de/minecraft/bedrock-connect/commit/0e4000321e86e5c0b6b040700db78ec60c9eeab0))
+* **deps:** update openjdk:22-ea-jdk-slim-bookworm docker digest to d47b9b5 ([91ab410](https://git.strausmann.de/minecraft/bedrock-connect/commit/91ab41066975b2048106a3f310361d02f3e7fac6))
+
 ## [2.2.7](https://git.strausmann.de/minecraft/bedrock-connect/compare/2.2.6...2.2.7) (2023-12-7)
 
 
