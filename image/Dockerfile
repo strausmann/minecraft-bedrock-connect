@@ -24,9 +24,16 @@ RUN apt-get update \
     && apt-get clean \
     && rm -rf /var/lib/apt/lists/*
 
-EXPOSE 19132/udp
+ADD https://github.com/itzg/easy-add/releases/download/${EASY_ADD_VERSION}/easy-add_linux_${TARGETARCH} /usr/local/bin/easy-add
 
-RUN mkdir -p /docker/brc && mkdir -p /config && chmod 664 /config
+RUN mkdir -p /docker/brc && mkdir -p /config && chmod 664 /config \
+    && chmod +x /usr/local/bin/easy-add \
+    && easy-add --var version=${ENTRYPOINT_DEMOTER_VERSION} --var app=entrypoint-demoter --file {{.app}} --from https://github.com/itzg/{{.app}}/releases/download/v{{.version}}/{{.app}}_{{.version}}_linux_${TARGETARCH}.tar.gz \
+    && easy-add --var version=${MC_MONITOR_VERSION} --var app=mc-monitor --file {{.app}} --from https://github.com/itzg/{{.app}}/releases/download/{{.version}}/{{.app}}_{{.version}}_linux_${TARGETARCH}.tar.gz
+
+COPY *.sh /opt/
+
+EXPOSE 19132/udp
 
 VOLUME [ "/data" ]
 
@@ -34,17 +41,6 @@ WORKDIR /data
 
 ENTRYPOINT ["/usr/local/bin/entrypoint-demoter", "--match", "/data", "--debug", "--stdin-on-term", "stop", "/opt/bedrock-entry.sh"]
 
-# Get Easy-Add
-ADD https://github.com/itzg/easy-add/releases/download/${EASY_ADD_VERSION}/easy-add_linux_${TARGETARCH} /usr/local/bin/easy-add
-RUN chmod +x /usr/local/bin/easy-add
-
-# Get entrypoint-demoter
-RUN easy-add --var version=${ENTRYPOINT_DEMOTER_VERSION} --var app=entrypoint-demoter --file {{.app}} --from https://github.com/itzg/{{.app}}/releases/download/v{{.version}}/{{.app}}_{{.version}}_linux_${TARGETARCH}.tar.gz
-# Get MC-Monitor
-RUN easy-add --var version=${MC_MONITOR_VERSION} --var app=mc-monitor --file {{.app}} --from https://github.com/itzg/{{.app}}/releases/download/{{.version}}/{{.app}}_{{.version}}_linux_${TARGETARCH}.tar.gz
-# Add Bedrock-Entry
-COPY *.sh /opt/
-# Docker HEALTHCHECK
 HEALTHCHECK --start-period=1m CMD /usr/local/bin/mc-monitor status-bedrock --host 127.0.0.1 --port 19132
 
 LABEL \
@@ -59,6 +55,6 @@ LABEL \
     org.opencontainers.image.revision=$VCS_REF \
     org.opencontainers.image.vendor="strausmann" \
     org.opencontainers.image.licenses="MIT" \
-    org.opencontainers.image.base.name="debian:$DEBIAN_VERSION" \
+    org.opencontainers.image.base.name="openjdk:23-ea-jdk-slim-bookworm" \
     de.strausmann.ci-build=$CI_BUILD \
     de.strausmann.releasenotes="https://git.strausmann.de/minecraft/bedrock-connect/-/releases"
