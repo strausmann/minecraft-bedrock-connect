@@ -1,23 +1,15 @@
-FROM openjdk:22-ea-jdk-slim-bookworm
+FROM openjdk:23-ea-jdk-slim-bookworm
 
-ARG APT_UPDATE=20231224.1
-ARG EASY_ADD_VERSION=0.8.2
-ARG MC_MONITOR_VERSION=0.12.6
-ARG ENTRYPOINT_DEMOTER_VERSION=0.4.2
-ARG UID=1000
-ARG GID=1000
-ARG UNAME=bdc
-ARG BRC_VERSION
-ARG TARGETARCH
-
-# Label docker image
-LABEL org.opencontainers.image.authors="Björn Strausmann <bjoern@strausmann.net>"
-LABEL org.opencontainers.image.source="https://git.strausmann.de/minecraft/bedrock-connect"
-LABEL org.opencontainers.image.vendor="strausmann"
-LABEL org.opencontainers.image.licenses="MIT"
-LABEL org.opencontainers.image.documentation="https://git.strausmann.de/minecraft/bedrock-connect"
-LABEL net.strausmann.image.brc.source="https://github.com/Pugmatt/BedrockConnect"
-LABEL net.strausmann.image.apt.lastupdate=$APT_UPDATE
+ARG APT_UPDATE=20231231.1 \
+    EASY_ADD_VERSION=0.8.3 \
+    MC_MONITOR_VERSION=0.12.7 \
+    ENTRYPOINT_DEMOTER_VERSION=0.4.2 \
+    UID=1000 \
+    GID=1000 \
+    UNAME=bdc \
+    BRC_VERSION \
+    TARGETARCH \
+    CI_BUILD
 
 RUN apt-get update \
     && DEBIAN_FRONTEND=noninteractive apt-get purge openldap tar perl krb5 libgcrypt20 gcc-12 nghttp2 -y || true \
@@ -54,3 +46,19 @@ RUN easy-add --var version=${MC_MONITOR_VERSION} --var app=mc-monitor --file {{.
 COPY *.sh /opt/
 # Docker HEALTHCHECK
 HEALTHCHECK --start-period=1m CMD /usr/local/bin/mc-monitor status-bedrock --host 127.0.0.1 --port 19132
+
+LABEL \
+    org.opencontainers.image.title="strausmann/bloonix_agent" \
+    org.opencontainers.image.description="Docker image for Bloonix agent to work with Bloonix server" \
+    org.opencontainers.image.created=$BUILD_DATE \
+    org.opencontainers.image.version=$BUILD_VERSION \
+    org.opencontainers.image.source="https://git.strausmann.de/minecraft/bedrock-connect" \
+    org.opencontainers.image.url="https://hub.docker.com/r/strausmann/minecraft-bedrock-connect" \
+    org.opencontainers.image.documentation="https://git.strausmann.de/minecraft/bedrock-connect" \
+    org.opencontainers.image.authors="Bjoern Strausmann <bjoern@strausmann.net>" \
+    org.opencontainers.image.revision=$VCS_REF \
+    org.opencontainers.image.vendor="strausmann" \
+    org.opencontainers.image.licenses="MIT" \
+    org.opencontainers.image.base.name="debian:$DEBIAN_VERSION" \
+    de.strausmann.ci-build=$CI_BUILD \
+    de.strausmann.releasenotes="https://git.strausmann.de/minecraft/bedrock-connect/-/releases"
