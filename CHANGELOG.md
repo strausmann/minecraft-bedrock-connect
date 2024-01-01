@@ -5,6 +5,25 @@ All notable changes to the **Bedrock Connect** Docker Image, published on Docker
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [2.2.9](https://git.strausmann.de/minecraft/bedrock-connect/compare/2.2.8...2.2.9) (2024-1-1)
+
+
+### 🐛 Bug Fixes
+
+* **deps:** Update dependencies ([c090cb4](https://git.strausmann.de/minecraft/bedrock-connect/commit/c090cb4c54e1e8e17a6d8ef7b8f80b3d6767ad84))
+* **deps:** update dependency ([0074f5a](https://git.strausmann.de/minecraft/bedrock-connect/commit/0074f5aa7cfd484b5a47f1bfb097d15ad2b72510))
+
+
+### ♻️ Chores
+
+* **build:** reduce docker layer size ([b5b25c7](https://git.strausmann.de/minecraft/bedrock-connect/commit/b5b25c7e19ca2004a2db5486237f61111a470dd8))
+* **deps:** update dev dependencies ([1384a68](https://git.strausmann.de/minecraft/bedrock-connect/commit/1384a68c10f1b0211f898a68482d74421a1a480e))
+
+
+### 🦊 CI/CD
+
+* **renovate:** Add vulnerabilityAlerts ([8c74b54](https://git.strausmann.de/minecraft/bedrock-connect/commit/8c74b54d9eb59bf14afaa8f44df265001aea1d30))
+
 ## [2.2.8](https://git.strausmann.de/minecraft/bedrock-connect/compare/2.2.7...2.2.8) (2023-12-28)
 
 
