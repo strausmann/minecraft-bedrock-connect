@@ -5,6 +5,18 @@ All notable changes to the **Bedrock Connect** Docker Image, published on Docker
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [2.2.10](https://git.strausmann.de/minecraft/bedrock-connect/compare/2.2.9...2.2.10) (2024-1-3)
+
+
+### 🐛 Bug Fixes
+
+* **docker:** Fix Image Labels are empty ([c532f99](https://git.strausmann.de/minecraft/bedrock-connect/commit/c532f99a7b3d33ff06b2127ee62f4c783d41936e)), closes [#26](https://git.strausmann.de/minecraft/bedrock-connect/issues/26)
+
+
+### ♻️ Chores
+
+* **make:** Fix Makefile Syntax (Default) ([9834aec](https://git.strausmann.de/minecraft/bedrock-connect/commit/9834aec952b1617235318d05f207cb53d158e1f7))
+
 ## [2.2.9](https://git.strausmann.de/minecraft/bedrock-connect/compare/2.2.8...2.2.9) (2024-1-1)
 
 
