@@ -9,7 +9,10 @@ ARG APT_UPDATE=20231231.1 \
     UNAME=bdc \
     BRC_VERSION \
     TARGETARCH \
-    CI_BUILD
+    CI_BUILD \
+    BUILD_DATE \
+    BUILD_VERSION \
+    VCS_REF
 
 RUN apt-get update \
     && DEBIAN_FRONTEND=noninteractive apt-get purge openldap tar perl krb5 libgcrypt20 gcc-12 nghttp2 -y || true \
@@ -44,8 +47,8 @@ ENTRYPOINT ["/usr/local/bin/entrypoint-demoter", "--match", "/data", "--debug", 
 HEALTHCHECK --start-period=1m CMD /usr/local/bin/mc-monitor status-bedrock --host 127.0.0.1 --port 19132
 
 LABEL \
-    org.opencontainers.image.title="strausmann/bloonix_agent" \
-    org.opencontainers.image.description="Docker image for Bloonix agent to work with Bloonix server" \
+    org.opencontainers.image.title="strausmann/minecraft-bedrock-connect" \
+    org.opencontainers.image.description="Minecraft Bedrock Connect based on Pugmatt/BedrockConnect compatible with AMD64 and ARM64 (Rasp Pi)" \
     org.opencontainers.image.created=$BUILD_DATE \
     org.opencontainers.image.version=$BUILD_VERSION \
     org.opencontainers.image.source="https://git.strausmann.de/minecraft/bedrock-connect" \
