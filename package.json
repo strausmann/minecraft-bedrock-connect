@@ -1,10 +1,10 @@
 {
   "name": "bedrock-connect",
   "devDependencies": {
-    "@codedependant/semantic-release-docker": "4.5.0",
-    "@commitlint/cli": "18.4.4",
-    "@commitlint/config-conventional": "18.4.4",
-    "@commitlint/cz-commitlint": "18.4.4",
+    "@codedependant/semantic-release-docker": "4.5.1",
+    "@commitlint/cli": "18.6.0",
+    "@commitlint/config-conventional": "18.6.0",
+    "@commitlint/cz-commitlint": "18.6.0",
     "@semantic-release/changelog": "6.0.3",
     "@semantic-release/git": "10.0.1",
     "@semantic-release/gitlab": "13.0.2",
@@ -12,7 +12,7 @@
     "conventional-changelog-conventionalcommits": "7.0.2",
     "husky": "8.0.3",
     "inquirer": "8.2.6",
-    "prettier": "3.2.4",
+    "prettier": "3.2.5",
     "semantic-release": "23.0.0",
     "semantic-release-license": "1.0.3"
   },
