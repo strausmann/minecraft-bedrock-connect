@@ -12,9 +12,9 @@ include:
   - template: Security/Secret-Detection.gitlab-ci.yml
 
 .create_multi_arch_image:
-  image: docker:24.0.7
+  image: docker:24.0.9
   services:
-   - name: docker:24.0.7-dind
+   - name: docker:24.0.9-dind
      command: ["--experimental"]
      alias: 'docker'
   variables:
