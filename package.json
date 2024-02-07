@@ -13,7 +13,7 @@
     "husky": "8.0.3",
     "inquirer": "8.2.6",
     "prettier": "3.2.5",
-    "semantic-release": "23.0.0",
+    "semantic-release": "23.0.1",
     "semantic-release-license": "1.0.3"
   },
   "scripts": {
