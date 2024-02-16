@@ -85,7 +85,7 @@ docker_build:
       when: never
 
 release:
-  image: node:21.6.1@sha256:5951e42dd697b63a6bd9a4dfd610da952097f9db829ea659257104e7fd4fdfa6
+  image: node:21.6.2@sha256:910e398355805884ec83dc24818d55aa385b235e095314b60d3b5de80fb21c84
   stage: release
   cache:
     key:
