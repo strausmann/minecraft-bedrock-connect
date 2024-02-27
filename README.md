@@ -8,21 +8,20 @@
 
 **A simple Docker image that can provide the Minecraft Bedrock Connect service.**
 
-https://minecraft-bedrock-connect.git-pages.com
-
 # Supported tags and respective <code>Dockerfile</code> links
 
 ## Tags
 
 | Tag(s)  | Description |
 | ------------- | ------------- |
-|[<code>latest</code>](https://git.strausmann.de/minecraft/bedrock-connect/-/tree/main), [<code>1</code>](https://git.strausmann.de/minecraft/bedrock-connect/-/tree/main), [<code>1.*</code>](https://git.strausmann.de/minecraft/bedrock-connect/-/tree/main) |	latest stable - ubuntu |
-|beta, *-beta.*	| Beta. New features preview or help to test. It could be unstable. |
-|nightly* |	development build, very unstable |
+|[<code>latest</code>](https://git.strausmann.de/minecraft/bedrock-connect/-/tree/main), [<code>2</code>](https://git.strausmann.de/minecraft/bedrock-connect/-/tree/main), [<code>2.*</code>](https://git.strausmann.de/minecraft/bedrock-connect/-/tree/main) | latest stable - debian amd64/arm64|
+|<code>beta</code>, <code>*-beta.*</code> | Beta. New features preview or help to test. It could be unstable. |
+|<code>nightly*</code> | development build, very unstable |
 
 ## Quick reference
+
 - Documentation:
-   - [Install 1.x using Docker](https://wiki.strausmann.net/docker/bedrock-connect/install)
+  - [Install 1.x using Docker](https://wiki.strausmann.net/docker/bedrock-connect/install)
 - Where to get help: [on Discord](https://discord.gg/tfu5GfNh)
 - Where to file issues: [https://git.strausmann.de/minecraft/bedrock-connect](https://git.strausmann.de/minecraft/bedrock-connect)
 - Maintained by: [strausmann](https://git.strausmann.de/strausmann)
@@ -63,7 +62,6 @@ The Docker image can be deployed quickly and easily via these two commands, or v
 ### 💪🏻 Non-Docker
 
 For an installation without Docker, please follow the instructions from [Pugmatt](https://github.com/Pugmatt/BedrockConnect#hosting-your-own-serverlist-server)
-
 
 ### 🐳 Docker
 
@@ -153,6 +151,7 @@ volumes:
 ```
 
 # License
+
 [View license information](https://git.strausmann.de/minecraft/bedrock-connect/-/blob/main/LICENSE.md) for the software contained in this image.
 
 As with all Docker images, these likely also contain other software which may be under other licenses (such as Bash, etc from the base distribution, along with any direct or indirect dependencies of the primary software being contained).
