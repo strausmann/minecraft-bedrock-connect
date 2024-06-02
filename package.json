@@ -11,8 +11,8 @@
     "commitizen": "4.3.0",
     "conventional-changelog-conventionalcommits": "8.0.0",
     "husky": "9.0.11",
-    "inquirer": "9.2.21",
-    "prettier": "3.2.5",
+    "inquirer": "9.2.23",
+    "prettier": "3.3.0",
     "semantic-release": "23.1.1",
     "semantic-release-license": "1.0.3",
     "semantic-release-telegram-bot": "2.0.1"
