@@ -5,6 +5,32 @@ All notable changes to the **Bedrock Connect** Docker Image, published on Docker
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [2.2.15](https://git.strausmann.de/minecraft/bedrock-connect/compare/2.2.14...2.2.15) (2024-06-04)
+
+### 🐛 Bug Fixes
+
+* **deps:** update dependency npm to v10.8.1 ([07dce7b](https://git.strausmann.de/minecraft/bedrock-connect/commit/07dce7b363fad8266c08a8c52ee5978f301c1daa))
+
+### ♻️ Chores
+
+* **deps:** update commitlint monorepo to v19 ([6f520be](https://git.strausmann.de/minecraft/bedrock-connect/commit/6f520be12c6798bc9fe235a99e4cb18f3818fdfa))
+* **deps:** update dependency @commitlint/config-conventional to v18.6.3 ([04f38d2](https://git.strausmann.de/minecraft/bedrock-connect/commit/04f38d22e220a52aaab7432c462705816f163a16))
+* **deps:** update dependency semantic-release to v24 ([cdfb4e1](https://git.strausmann.de/minecraft/bedrock-connect/commit/cdfb4e1e21d14e0118a6dbced0813a1854a91c38))
+* **deps:** update devdependencies ([4524e8c](https://git.strausmann.de/minecraft/bedrock-connect/commit/4524e8c55ad2074bf03cd1c68a5aba47f9abf4be))
+* **deps:** update devdependencies (non-major) ([85ea840](https://git.strausmann.de/minecraft/bedrock-connect/commit/85ea84075b4d0fbeb1f8125afcf6a5221d3cbaf6))
+* **deps:** update node.js to 4b23206 ([0478e20](https://git.strausmann.de/minecraft/bedrock-connect/commit/0478e20ab8a62d7dd36d19efb366d2418dc64d0e))
+* **deps:** update node.js to b9ccc4a ([e6bc2a6](https://git.strausmann.de/minecraft/bedrock-connect/commit/e6bc2a658575fc883b17af1e12dde9b6ff79a4dc))
+* **deps:** update node.js to v21.7.0 ([4b104f0](https://git.strausmann.de/minecraft/bedrock-connect/commit/4b104f02a96258ab6ec0cb6196102fa57219b244))
+* **deps:** update node.js to v21.7.1 ([9c1e5ea](https://git.strausmann.de/minecraft/bedrock-connect/commit/9c1e5ea9e266d523d625ad2850f6226aefa9dbaa))
+* **deps:** update node.js to v21.7.3 ([374c7e7](https://git.strausmann.de/minecraft/bedrock-connect/commit/374c7e7e28797754661a60cca8f99d53cd04e9e5))
+* **deps:** update openjdk:23-ea-jdk-slim-bookworm docker digest to 2e8c5d5 ([766d179](https://git.strausmann.de/minecraft/bedrock-connect/commit/766d179a4c34888325a087310c8f87e34bfc6ab5))
+* **deps:** update openjdk:23-ea-jdk-slim-bookworm docker digest to cbaf544 ([23b3a93](https://git.strausmann.de/minecraft/bedrock-connect/commit/23b3a933de482cae92ee05152bf5ea2dab263c7d))
+* **dockerfile:** Update Dependencies ([b873788](https://git.strausmann.de/minecraft/bedrock-connect/commit/b873788b7cd623235b101b57b59cb52f70df687e))
+
+### 🦊 CI/CD
+
+* **template:** Remove Security/License-Scanning ([d7a499d](https://git.strausmann.de/minecraft/bedrock-connect/commit/d7a499d87f5acc0cbf5850b3196733e6174dec8a))
+
 ## [2.2.14](https://git.strausmann.de/minecraft/bedrock-connect/compare/2.2.13...2.2.14) (2024-2-29)
 
 
