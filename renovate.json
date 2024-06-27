@@ -1,6 +1,17 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
-  "extends": ["renovate/renovate-config"],
+  "extends": [
+    "config:base",
+    ":preserveSemverRanges",
+    ":dependencyDashboard",
+    ":rebaseStalePrs",
+    ":enableVulnerabilityAlertsWithLabel('security')",
+    "group:recommended",
+    ":labels(renovate::dependencies,renovate::automated)",
+    ":assignee(strausmann)"
+  ],
+  "automerge": true,
+  "ignorePaths": ["docker/old-files/"],
   "vulnerabilityAlerts": {
     "labels": ["security"],
     "automerge": true,
@@ -11,7 +22,7 @@
   "commitMessageTopic": "{{depName}}",
   "regexManagers": [
     {
-      "fileMatch": ["/Dockerfile$", "/build.yaml$"],
+      "fileMatch": ["/Dockerfile$", "/.gitpod.Dockerfile$"],
       "matchStringsStrategy": "any",
       "matchStrings": [
         "ARG BUILD_FROM=(?<depName>.*?):(?<currentValue>.*?)\\s+"
@@ -19,31 +30,30 @@
       "datasourceTemplate": "docker"
     },
     {
-      "fileMatch": ["/Dockerfile$"],
-      "matchStrings": [
-        "ARG EASY_ADD_VERSION=[\"']?(?<currentValue>.+?)[\"']?\\s+"
-      ],
+      "fileMatch": ["Dockerfile"],
+      "matchStrings": ["EASY_ADD_VERSION=(?<currentValue>.*)"],
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "itzg/easy-add"
     },
     {
-      "fileMatch": ["/Dockerfile$"],
-      "matchStrings": [
-        "ARG MC_MONITOR_VERSION=[\"']?(?<currentValue>.+?)[\"']?\\s+"
-      ],
+      "fileMatch": ["Dockerfile"],
+      "matchStrings": ["MC_MONITOR_VERSION=(?<currentValue>.*)"],
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "itzg/mc-monitor"
     },
     {
-      "fileMatch": ["/Dockerfile$"],
-      "matchStrings": [
-        "ARG ENTRYPOINT_DEMOTER_VERSION=[\"']?(?<currentValue>.+?)[\"']?\\s+"
-      ],
+      "fileMatch": ["Dockerfile"],
+      "matchStrings": ["ENTRYPOINT_DEMOTER_VERSION=(?<currentValue>.*)"],
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "itzg/entrypoint-demoter"
     }
   ],
   "packageRules": [
+    {
+      "depTypeList": ["devDependencies", "require-dev"],
+      "updateTypes": ["patch", "pin", "minor", "digest"],
+      "groupName": "devDependencies (non-major)"
+    },
     {
       "groupName": "Add-on base image",
       "matchDatasources": ["docker"]
@@ -55,18 +65,21 @@
       "automerge": true
     },
     {
-      "matchDepNames": ["itzg/easy-add"],
-      "matchUpdateTypes": ["patch"],
+      "matchDepTypes": ["itzg/easy-add"],
+      "matchUpdateTypes": ["minor", "patch"],
+      "matchDatasources": ["github-releases"],
       "automerge": true
     },
     {
-      "matchDepNames": ["itzg/mc-monitor"],
-      "matchUpdateTypes": ["patch"],
+      "matchDepTypes": ["itzg/mc-monitor"],
+      "matchUpdateTypes": ["minor", "patch"],
+      "matchDatasources": ["github-releases"],
       "automerge": true
     },
     {
-      "matchDepNames": ["itzg/entrypoint-demoter"],
-      "matchUpdateTypes": ["patch"],
+      "matchDepTypes": ["itzg/entrypoint-demoter"],
+      "matchUpdateTypes": ["minor", "patch"],
+      "matchDatasources": ["github-releases"],
       "automerge": true
     }
   ]
