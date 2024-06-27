@@ -1,11 +1,73 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
-  "extends": [
-    "renovate/renovate-config"
-  ],
+  "extends": ["renovate/renovate-config"],
   "vulnerabilityAlerts": {
     "labels": ["security"],
     "automerge": true,
     "assignees": ["@strausmann"]
-  }
+  },
+  "rebaseWhen": "behind-base-branch",
+  "commitMessagePrefix": "⬆️",
+  "commitMessageTopic": "{{depName}}",
+  "regexManagers": [
+    {
+      "fileMatch": ["/Dockerfile$", "/build.yaml$"],
+      "matchStringsStrategy": "any",
+      "matchStrings": [
+        "ARG BUILD_FROM=(?<depName>.*?):(?<currentValue>.*?)\\s+"
+      ],
+      "datasourceTemplate": "docker"
+    },
+    {
+      "fileMatch": ["/Dockerfile$"],
+      "matchStrings": [
+        "ARG EASY_ADD_VERSION=[\"']?(?<currentValue>.+?)[\"']?\\s+"
+      ],
+      "datasourceTemplate": "github-releases",
+      "depNameTemplate": "itzg/easy-add"
+    },
+    {
+      "fileMatch": ["/Dockerfile$"],
+      "matchStrings": [
+        "ARG MC_MONITOR_VERSION=[\"']?(?<currentValue>.+?)[\"']?\\s+"
+      ],
+      "datasourceTemplate": "github-releases",
+      "depNameTemplate": "itzg/mc-monitor"
+    },
+    {
+      "fileMatch": ["/Dockerfile$"],
+      "matchStrings": [
+        "ARG ENTRYPOINT_DEMOTER_VERSION=[\"']?(?<currentValue>.+?)[\"']?\\s+"
+      ],
+      "datasourceTemplate": "github-releases",
+      "depNameTemplate": "itzg/entrypoint-demoter"
+    }
+  ],
+  "packageRules": [
+    {
+      "groupName": "Add-on base image",
+      "matchDatasources": ["docker"]
+    },
+    {
+      "groupName": "Add-on base image",
+      "matchDatasources": ["docker"],
+      "matchUpdateTypes": ["minor", "patch"],
+      "automerge": true
+    },
+    {
+      "matchDepNames": ["itzg/easy-add"],
+      "matchUpdateTypes": ["patch"],
+      "automerge": true
+    },
+    {
+      "matchDepNames": ["itzg/mc-monitor"],
+      "matchUpdateTypes": ["patch"],
+      "automerge": true
+    },
+    {
+      "matchDepNames": ["itzg/entrypoint-demoter"],
+      "matchUpdateTypes": ["patch"],
+      "automerge": true
+    }
+  ]
 }

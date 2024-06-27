@@ -1,11 +1,14 @@
-FROM openjdk:23-ea-jdk-slim-bookworm@sha256:c688e6bc0ba6b56c8e903fa41cfeb0b49d995d223bb0d5785179dd7267b77fe9
+ARG BUILD_FROM=openjdk:23-ea-jdk-slim-bookworm@sha256:c688e6bc0ba6b56c8e903fa41cfeb0b49d995d223bb0d5785179dd7267b77fe9
+# hadolint ignore=DL3006
+FROM ${BUILD_FROM}
 
-ARG APT_UPDATE=20240517.1 \
+ARG APT_UPDATE=20240627.1 \
     EASY_ADD_VERSION=0.8.4 \
     MC_MONITOR_VERSION=0.12.11 \
     ENTRYPOINT_DEMOTER_VERSION=0.4.3 \
     UID=1000 \
     GID=1000 \
+    PORT=19132 \
     UNAME=bdc \
     BRC_VERSION \
     TARGETARCH \
@@ -14,6 +17,7 @@ ARG APT_UPDATE=20240517.1 \
     BUILD_VERSION \
     VCS_REF
 
+# hadolint ignore=DL3003,SC2155
 RUN apt-get update \
     && DEBIAN_FRONTEND=noninteractive apt-get purge openldap tar perl krb5 libgcrypt20 gcc-12 nghttp2 -y || true \
     && DEBIAN_FRONTEND=noninteractive apt-get install -y \
@@ -36,7 +40,7 @@ RUN mkdir -p /docker/brc && mkdir -p /config && chmod 664 /config \
 
 COPY *.sh /opt/
 
-EXPOSE 19132/udp
+EXPOSE ${PORT}/udp
 
 VOLUME [ "/data" ]
 
@@ -44,20 +48,20 @@ WORKDIR /data
 
 ENTRYPOINT ["/usr/local/bin/entrypoint-demoter", "--match", "/data", "--debug", "--stdin-on-term", "stop", "/opt/bedrock-entry.sh"]
 
-HEALTHCHECK --start-period=1m CMD /usr/local/bin/mc-monitor status-bedrock --host 127.0.0.1 --port 19132
+HEALTHCHECK --start-period=1m CMD /usr/local/bin/mc-monitor status-bedrock --host 127.0.0.1 --port ${PORT}
 
 LABEL \
     org.opencontainers.image.title="strausmann/minecraft-bedrock-connect" \
     org.opencontainers.image.description="Minecraft Bedrock Connect based on Pugmatt/BedrockConnect compatible with AMD64 and ARM64 (Rasp Pi)" \
-    org.opencontainers.image.created=$BUILD_DATE \
-    org.opencontainers.image.version=$BUILD_VERSION \
+    org.opencontainers.image.created=${BUILD_DATE} \
+    org.opencontainers.image.version=${BUILD_VERSION} \
     org.opencontainers.image.source="https://git.strausmann.de/minecraft/bedrock-connect" \
     org.opencontainers.image.url="https://hub.docker.com/r/strausmann/minecraft-bedrock-connect" \
     org.opencontainers.image.documentation="https://git.strausmann.de/minecraft/bedrock-connect" \
     org.opencontainers.image.authors="Bjoern Strausmann <bjoern@strausmann.net>" \
-    org.opencontainers.image.revision=$VCS_REF \
+    org.opencontainers.image.revision=${VCS_REF} \
     org.opencontainers.image.vendor="strausmann" \
     org.opencontainers.image.licenses="MIT" \
-    org.opencontainers.image.base.name="openjdk:23-ea-jdk-slim-bookworm" \
+    org.opencontainers.image.base.name=${BUILD_FROM} \
     de.strausmann.ci-build=$CI_BUILD \
     de.strausmann.releasenotes="https://git.strausmann.de/minecraft/bedrock-connect/-/releases"
