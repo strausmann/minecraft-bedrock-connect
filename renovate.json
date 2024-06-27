@@ -1,17 +1,6 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
-  "extends": [
-    "config:base",
-    ":preserveSemverRanges",
-    ":dependencyDashboard",
-    ":rebaseStalePrs",
-    ":enableVulnerabilityAlertsWithLabel('security')",
-    "group:recommended",
-    ":labels(renovate::dependencies,renovate::automated)",
-    ":assignee(strausmann)"
-  ],
-  "automerge": true,
-  "ignorePaths": ["docker/old-files/"],
+  "extends": ["renovate/renovate-config"],
   "vulnerabilityAlerts": {
     "labels": ["security"],
     "automerge": true,
