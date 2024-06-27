@@ -1,4 +1,4 @@
-FROM gitpod/workspace-node
+FROM gitpod/workspace-node:2024-06-26-08-49-45
 
 ENV force_rebuild 2024062701
 
