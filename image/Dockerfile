@@ -20,7 +20,7 @@ ARG APT_UPDATE=20240627.1 \
 # hadolint ignore=DL3003,SC2155
 RUN apt-get update \
     && DEBIAN_FRONTEND=noninteractive apt-get purge openldap tar perl krb5 libgcrypt20 gcc-12 nghttp2 -y || true \
-    && DEBIAN_FRONTEND=noninteractive apt-get install -y \
+    && DEBIAN_FRONTEND=noninteractive apt-get -y install --no-install-recommends \
     curl \
     unzip \
     jq \
@@ -31,6 +31,7 @@ RUN apt-get update \
     && apt-get clean \
     && rm -rf /var/lib/apt/lists/*
 
+# hadolint ignore=DS005
 ADD https://github.com/itzg/easy-add/releases/download/${EASY_ADD_VERSION}/easy-add_linux_${TARGETARCH} /usr/local/bin/easy-add
 
 RUN mkdir -p /docker/brc && mkdir -p /config && chmod 664 /config \
