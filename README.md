@@ -16,7 +16,6 @@
 | ------------- | ------------- |
 |[<code>latest</code>](https://git.strausmann.de/minecraft/bedrock-connect/-/tree/main), [<code>2</code>](https://git.strausmann.de/minecraft/bedrock-connect/-/tree/main), [<code>2.*</code>](https://git.strausmann.de/minecraft/bedrock-connect/-/tree/main) | latest stable - debian amd64/arm64|
 |<code>beta</code>, <code>*-beta.*</code> | Beta. New features preview or help to test. It could be unstable. |
-|<code>nightly*</code> | development build, very unstable |
 
 ## Quick reference
 
@@ -30,10 +29,10 @@
 
 ## ⭐ Features
 
-* Running Bedrock Connect as a Docker Container
-* Can be used with MySQL Database as backend
-* Configuration via ENV variables
-* Use of the custom_servers via json file possible
+- Running Bedrock Connect as a Docker Container
+- Can be used with MySQL Database as backend
+- Configuration via ENV variables
+- Use of the custom_servers via json file possible
 
 ## 💡 Environment Variables
 
@@ -54,6 +53,11 @@ The following arguments can be placed in the startup command to ajust settings:
 | FEATURED_SERVERS | If true, the featured servers will be displayed in the serverlist.  If false, the servers are hidden. | true |
 | WHITELIST | Specify file containing list of whitelisted players. (Should be a text file with the player names specified on seperate lines) | |
 | FETCH_FEATURED_IPS | If true, dynamically grab the featured server IPs from the domain names. If false, a file ```featured_server_ips.json``` will be generated, containing the hard-coded featured server IPs, and to allow changing them if needed.  | true |
+| FETCH_IPS | If true, dynamically grab the server IPs from domain names, of any server a user is attempting to join. | false |
+| LANGUAGE | Specify a file containing language customizations. See [guide for changing wording](https://github.com/Pugmatt/BedrockConnect?tab=readme-ov-file#change-wording-of-serverlist). | |
+| STORE_DISPLAY_NAMES | If true, player displays names will be included in the stored player data. | true |
+| PACKET_LIMIT | Number of datagram packets each address can send within one tick (10ms) | 200 |
+| GLOBAL_PACKET_LIMIT | Number of all datagrams that will be handled within one tick (10ms) before server starts dropping any incoming data. | 100000 |
 
 ## 🔧 How to Install
 
@@ -75,14 +79,12 @@ docker run -d --restart=always -p 19132:19132/udp -e NODB=true -v bedrock-connec
 
 #### Exposed Ports
 
-* UDP 19132 : the Bedrock server port. NOTE that you must append /udp when exposing the port, such as -p 19132:19132/udp
+- UDP 19132 : the Bedrock server port. NOTE that you must append /udp when exposing the port, such as -p 19132:19132/udp
 
 ### 🐳 Deploying with Docker Compose
 
 ```yaml
 ---
-version: "3.8"
-
 services:
   bedrockconnect: 
     image: strausmann/minecraft-bedrock-connect:2
@@ -106,8 +108,6 @@ volumes:
 
 ```yaml
 ---
-version: "3.8"
-
 services:
   bedrockconnect: 
     image: strausmann/minecraft-bedrock-connect:2
