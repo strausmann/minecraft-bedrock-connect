@@ -31,7 +31,6 @@ RUN apt-get update \
     && apt-get clean \
     && rm -rf /var/lib/apt/lists/*
 
-# hadolint ignore=DS005
 ADD https://github.com/itzg/easy-add/releases/download/${EASY_ADD_VERSION}/easy-add_linux_${TARGETARCH} /usr/local/bin/easy-add
 
 RUN mkdir -p /docker/brc && mkdir -p /config && chmod 664 /config \
