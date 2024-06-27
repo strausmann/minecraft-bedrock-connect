@@ -1,7 +1,7 @@
-version: "3.8"
+version: '3.8'
 
 services:
-  connect: 
+  connect:
     image: strausmann/minecraft-bedrock-connect
     networks:
       - traefik-public
@@ -20,7 +20,7 @@ services:
     volumes:
       - /var/data/minecraft/connect:/data
 
-  server1: 
+  server1:
     image: itzg/minecraft-bedrock-server
     networks:
       - traefik-public
@@ -33,22 +33,22 @@ services:
         limits:
           memory: 2G
         reservations:
-          cpus: "2"
+          cpus: '2'
           memory: 2G
       placement:
         constraints:
           - node.platform.os == linux
     environment:
-      SERVER_NAME: "Kiras Minecraft Server"
-      SERVER_PORT: "19133"
-      SERVER_PORT_V6: "19233"
-      EULA: "TRUE"
+      SERVER_NAME: 'Kiras Minecraft Server'
+      SERVER_PORT: '19133'
+      SERVER_PORT_V6: '19233'
+      EULA: 'TRUE'
       GAMEMODE: survival
       DIFFICULTY: normal
-      WHITE_LIST: "false"
-      ONLINE_MODE: "true"
-      ALLOW_CHEATS: "true"
-      MAX_PLAYERS: "15"
+      WHITE_LIST: 'false'
+      ONLINE_MODE: 'true'
+      ALLOW_CHEATS: 'true'
+      MAX_PLAYERS: '15'
     ports:
       - 19133:19133/udp
     volumes:

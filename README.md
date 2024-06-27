@@ -14,10 +14,10 @@
 
 ## Tags
 
-| Tag(s)  | Description |
-| ------------- | ------------- |
-|[<code>latest</code>](https://git.strausmann.de/minecraft/bedrock-connect/-/tree/main), [<code>2</code>](https://git.strausmann.de/minecraft/bedrock-connect/-/tree/main), [<code>2.*</code>](https://git.strausmann.de/minecraft/bedrock-connect/-/tree/main) | latest stable - debian amd64/arm64|
-|<code>beta</code>, <code>*-beta.*</code> | Beta. New features preview or help to test. It could be unstable. |
+| Tag(s)                                                                                                                                                                                                                                                          | Description                                                       |
+| --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------- |
+| [<code>latest</code>](https://git.strausmann.de/minecraft/bedrock-connect/-/tree/main), [<code>2</code>](https://git.strausmann.de/minecraft/bedrock-connect/-/tree/main), [<code>2.\*</code>](https://git.strausmann.de/minecraft/bedrock-connect/-/tree/main) | latest stable - debian amd64/arm64                                |
+| <code>beta</code>, <code>_-beta._</code>                                                                                                                                                                                                                        | Beta. New features preview or help to test. It could be unstable. |
 
 ## Quick reference
 
@@ -40,26 +40,26 @@
 
 The following arguments can be placed in the startup command to ajust settings:
 
-| Argument  | Description | Default Value |
-| ------------- | ------------- | ------------- |
-| BRC_VERSION | The Bedrock Connect version is used when the container is started. For example, 1.15 for the Bedrock Connect version 1.15. It does not mean the Minecraft server version. | latest |
-| MYSQL_HOST  | MySQL Host  | localhost |
-| MYSQL_DB | MySQL Database Name  | bedrock-connect |
-| MYSQL_USER | MySQL Username  | root |
-| MYSQL_PASS | MySQL Password  |  |
-| SERVER_LIMIT | How many servers a new player can have in their serverlist  | 100 |
-| NODB | If true, use JSON files for data instead of MySQL | false |
-| KICK_INACTIVE | If true, players will be kicked after 10 minutes of inactivity with the serverlist UI | true |
-| CUSTOM_SERVERS | Sets the path to a custom server file, for specifying your servers in the list for all players. See [custom servers](https://github.com/Pugmatt/BedrockConnect#defining-your-own-custom-servers). |  |
-| USER_SERVERS | If true, players can add and remove servers on the serverlist. If false, the options are hidden. | true |
-| FEATURED_SERVERS | If true, the featured servers will be displayed in the serverlist.  If false, the servers are hidden. | true |
-| WHITELIST | Specify file containing list of whitelisted players. (Should be a text file with the player names specified on seperate lines) | |
-| FETCH_FEATURED_IPS | If true, dynamically grab the featured server IPs from the domain names. If false, a file ```featured_server_ips.json``` will be generated, containing the hard-coded featured server IPs, and to allow changing them if needed.  | true |
-| FETCH_IPS | If true, dynamically grab the server IPs from domain names, of any server a user is attempting to join. | false |
-| LANGUAGE | Specify a file containing language customizations. See [guide for changing wording](https://github.com/Pugmatt/BedrockConnect?tab=readme-ov-file#change-wording-of-serverlist). | |
-| STORE_DISPLAY_NAMES | If true, player displays names will be included in the stored player data. | true |
-| PACKET_LIMIT | Number of datagram packets each address can send within one tick (10ms) | 200 |
-| GLOBAL_PACKET_LIMIT | Number of all datagrams that will be handled within one tick (10ms) before server starts dropping any incoming data. | 100000 |
+| Argument            | Description                                                                                                                                                                                                                  | Default Value   |
+| ------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------- |
+| BRC_VERSION         | The Bedrock Connect version is used when the container is started. For example, 1.15 for the Bedrock Connect version 1.15. It does not mean the Minecraft server version.                                                    | latest          |
+| MYSQL_HOST          | MySQL Host                                                                                                                                                                                                                   | localhost       |
+| MYSQL_DB            | MySQL Database Name                                                                                                                                                                                                          | bedrock-connect |
+| MYSQL_USER          | MySQL Username                                                                                                                                                                                                               | root            |
+| MYSQL_PASS          | MySQL Password                                                                                                                                                                                                               |                 |
+| SERVER_LIMIT        | How many servers a new player can have in their serverlist                                                                                                                                                                   | 100             |
+| NODB                | If true, use JSON files for data instead of MySQL                                                                                                                                                                            | false           |
+| KICK_INACTIVE       | If true, players will be kicked after 10 minutes of inactivity with the serverlist UI                                                                                                                                        | true            |
+| CUSTOM_SERVERS      | Sets the path to a custom server file, for specifying your servers in the list for all players. See [custom servers](https://github.com/Pugmatt/BedrockConnect#defining-your-own-custom-servers).                            |                 |
+| USER_SERVERS        | If true, players can add and remove servers on the serverlist. If false, the options are hidden.                                                                                                                             | true            |
+| FEATURED_SERVERS    | If true, the featured servers will be displayed in the serverlist. If false, the servers are hidden.                                                                                                                         | true            |
+| WHITELIST           | Specify file containing list of whitelisted players. (Should be a text file with the player names specified on seperate lines)                                                                                               |                 |
+| FETCH_FEATURED_IPS  | If true, dynamically grab the featured server IPs from the domain names. If false, a file `featured_server_ips.json` will be generated, containing the hard-coded featured server IPs, and to allow changing them if needed. | true            |
+| FETCH_IPS           | If true, dynamically grab the server IPs from domain names, of any server a user is attempting to join.                                                                                                                      | false           |
+| LANGUAGE            | Specify a file containing language customizations. See [guide for changing wording](https://github.com/Pugmatt/BedrockConnect?tab=readme-ov-file#change-wording-of-serverlist).                                              |                 |
+| STORE_DISPLAY_NAMES | If true, player displays names will be included in the stored player data.                                                                                                                                                   | true            |
+| PACKET_LIMIT        | Number of datagram packets each address can send within one tick (10ms)                                                                                                                                                      | 200             |
+| GLOBAL_PACKET_LIMIT | Number of all datagrams that will be handled within one tick (10ms) before server starts dropping any incoming data.                                                                                                         | 100000          |
 
 ## 🔧 How to Install
 
@@ -88,22 +88,21 @@ docker run -d --restart=always -p 19132:19132/udp -e NODB=true -v bedrock-connec
 ```yaml
 ---
 services:
-  bedrockconnect: 
-    image: strausmann/minecraft-bedrock-connect:2
-    restart: always
-    environment:
-      NODB: "true"
-      CUSTOM_SERVERS: "/config/serverlist.json"
-      SERVER_LIMIT: 25
-    ports:
-      - 19132:19132/udp
-    volumes:
-      - bedrockconnect:/config
+ bedrockconnect:
+  image: strausmann/minecraft-bedrock-connect:2
+  restart: always
+  environment:
+   NODB: 'true'
+   CUSTOM_SERVERS: '/config/serverlist.json'
+   SERVER_LIMIT: 25
+  ports:
+   - 19132:19132/udp
+  volumes:
+   - bedrockconnect:/config
 
 volumes:
-  bedrockconnect:
-    driver: local
-
+ bedrockconnect:
+  driver: local
 ```
 
 ### 🐳 Deploying with Docker Compose and MySQL Backend
@@ -111,45 +110,44 @@ volumes:
 ```yaml
 ---
 services:
-  bedrockconnect: 
-    image: strausmann/minecraft-bedrock-connect:2
-    restart: always
-    environment:
-      MYSQL_HOST: "db"
-      MYSQL_USER: "bedrock"
-      MYSQL_PASS: "bedrock"
-      MYSQL_DB: "bedrock"
-      CUSTOM_SERVERS: "/config/serverlist.json"
-      SERVER_LIMIT: 25
-    ports:
-      - 19132:19132/udp
-    depends_on:
-      - db
-    volumes:
-      - bedrockconnect:/config
+ bedrockconnect:
+  image: strausmann/minecraft-bedrock-connect:2
+  restart: always
+  environment:
+   MYSQL_HOST: 'db'
+   MYSQL_USER: 'bedrock'
+   MYSQL_PASS: 'bedrock'
+   MYSQL_DB: 'bedrock'
+   CUSTOM_SERVERS: '/config/serverlist.json'
+   SERVER_LIMIT: 25
+  ports:
+   - 19132:19132/udp
+  depends_on:
+   - db
+  volumes:
+   - bedrockconnect:/config
 
-  db: 
-    image: mariadb:10.6
-    restart: always
-    environment:
-      - MYSQL_ROOT_PASSWORD=rootpwbedrock
-      - MYSQL_PASSWORD=bedrock
-      - MYSQL_USER=bedrock
-      - MYSQL_DATABASE=bedrock
-      - TZ=Europe/Berlin
-      - PGID=1000
-      - PUID=1000
-    ports:
-      - 3306:3306
-    volumes:
-      - bedrockconnect_database:/var/lib/mysql
+ db:
+  image: mariadb:10.6
+  restart: always
+  environment:
+   - MYSQL_ROOT_PASSWORD=rootpwbedrock
+   - MYSQL_PASSWORD=bedrock
+   - MYSQL_USER=bedrock
+   - MYSQL_DATABASE=bedrock
+   - TZ=Europe/Berlin
+   - PGID=1000
+   - PUID=1000
+  ports:
+   - 3306:3306
+  volumes:
+   - bedrockconnect_database:/var/lib/mysql
 
 volumes:
-  bedrockconnect:
-    driver: local
-  bedrockconnect_database:
-    driver: local
-
+ bedrockconnect:
+  driver: local
+ bedrockconnect_database:
+  driver: local
 ```
 
 # License

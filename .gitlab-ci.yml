@@ -13,9 +13,9 @@ include:
 .create_multi_arch_image:
   image: docker:27.0.2
   services:
-   - name: docker:27.0.2-dind
-     command: ["--experimental"]
-     alias: 'docker'
+    - name: docker:27.0.2-dind
+      command: ['--experimental']
+      alias: 'docker'
   variables:
     DOCKER_DRIVER: overlay2
     DOCKER_BUILDKIT: 1

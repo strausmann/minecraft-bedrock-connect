@@ -1,7 +1,7 @@
-version: "3.8"
+version: '3.8'
 
 services:
-  bedrockconnect: 
+  bedrockconnect:
     image: strausmann/minecraft-bedrock-connect
     environment:
       SERVER_PORT: 19132
@@ -11,19 +11,19 @@ services:
       - bedrockconnect-config:/data
     stdin_open: true
     tty: true
-  mcserverA: 
+  mcserverA:
     image: itzg/minecraft-bedrock-server
     environment:
-      SERVER_NAME: "Kiras Minecraft Server"
-      SERVER_PORT: "19133"
-      SERVER_PORT_V6: "19233"
-      EULA: "TRUE"
+      SERVER_NAME: 'Kiras Minecraft Server'
+      SERVER_PORT: '19133'
+      SERVER_PORT_V6: '19233'
+      EULA: 'TRUE'
       GAMEMODE: survival
       DIFFICULTY: normal
-      WHITE_LIST: "false"
-      ONLINE_MODE: "true"
-      ALLOW_CHEATS: "true"
-      MAX_PLAYERS: "15"
+      WHITE_LIST: 'false'
+      ONLINE_MODE: 'true'
+      ALLOW_CHEATS: 'true'
+      MAX_PLAYERS: '15'
     ports:
       - 19133:19133/udp
     volumes:
