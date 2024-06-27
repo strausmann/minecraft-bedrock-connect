@@ -5,6 +5,55 @@ All notable changes to the **Bedrock Connect** Docker Image, published on Docker
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [2.3.0](https://git.strausmann.de/minecraft/bedrock-connect/compare/2.2.15...2.3.0) (2024-06-27)
+
+### ✨ Features
+
+* **bedrock-entry.sh:** Adding new BDC variables ([91e232a](https://git.strausmann.de/minecraft/bedrock-connect/commit/91e232a3335b3c0c3889e8978b85b30e2097faf5)), closes [#27](https://git.strausmann.de/minecraft/bedrock-connect/issues/27)
+* **renovate:** Manage itzg/* dependencies by renovate ([e1b2255](https://git.strausmann.de/minecraft/bedrock-connect/commit/e1b225518db37568bb75d7206af8abedea93bf17)), closes [#28](https://git.strausmann.de/minecraft/bedrock-connect/issues/28)
+
+### ♻️ Chores
+
+* **deps:** update dependency inquirer to v9.3.0 ([80fc5b2](https://git.strausmann.de/minecraft/bedrock-connect/commit/80fc5b22ead3b4dec73075e80cc73263fc50eb79))
+* **deps:** update dependency prettier to v3.3.1 ([d669807](https://git.strausmann.de/minecraft/bedrock-connect/commit/d669807ebee1fa4c1532d1ca92bf613d278d4aa2))
+* **deps:** update dependency prettier to v3.3.2 ([17ae9dc](https://git.strausmann.de/minecraft/bedrock-connect/commit/17ae9dcd3784f3dd28c41c185a85df9c59931e56))
+* **deps:** update docker docker tag to v26 ([b9f840c](https://git.strausmann.de/minecraft/bedrock-connect/commit/b9f840c79433ae6e8c867a16a0b1c336358661c8))
+* **deps:** update docker docker tag to v26.1.4 ([293d323](https://git.strausmann.de/minecraft/bedrock-connect/commit/293d323bdf04e03d776f52497560b69038c513e6))
+* **deps:** update docker docker tag to v27 ([3251992](https://git.strausmann.de/minecraft/bedrock-connect/commit/32519922eeaed9885d3467d765d531304da750ef))
+* **deps:** update openjdk:23-ea-jdk-slim-bookworm docker digest to 3b841dd ([9a23554](https://git.strausmann.de/minecraft/bedrock-connect/commit/9a2355441d0f772a31b8a2f7379aafd46c5009df))
+* **deps:** update openjdk:23-ea-jdk-slim-bookworm docker digest to 4467ee3 ([705e1b6](https://git.strausmann.de/minecraft/bedrock-connect/commit/705e1b6510ad9fcff6e38ca9fddab0e93daa4e72))
+* **deps:** update openjdk:23-ea-jdk-slim-bookworm docker digest to c688e6b ([cc61fbd](https://git.strausmann.de/minecraft/bedrock-connect/commit/cc61fbdfa712140f76cb6e17223914105b75d201))
+* **deps:** update openjdk:23-ea-jdk-slim-bookworm docker digest to c6a75cc ([d7d01e3](https://git.strausmann.de/minecraft/bedrock-connect/commit/d7d01e34eb91da0693fb9391e4f87d3fdef68cfa))
+* **deps:** update openjdk:23-ea-jdk-slim-bookworm docker digest to db5535f ([dae9e27](https://git.strausmann.de/minecraft/bedrock-connect/commit/dae9e27196616cd78160835bc4211250b1daf23b))
+* **semantic releases:** Update the semantic releases dependencies ([8c3e389](https://git.strausmann.de/minecraft/bedrock-connect/commit/8c3e3892e8a2646f0d52af7a05963bb157145efb))
+* **typo:** fix some typos ([2125474](https://git.strausmann.de/minecraft/bedrock-connect/commit/212547478e6a015bee7b5c6bf59787a852321859))
+* **typos:** Fix markdown tables ([b14ff36](https://git.strausmann.de/minecraft/bedrock-connect/commit/b14ff36b0376a35bd3bb77803812a1cb5c892908))
+* **typos:** Fix markdown tables ([037accc](https://git.strausmann.de/minecraft/bedrock-connect/commit/037acccabbb1e2ad41f84d9a3371357669a45321))
+
+### 🛠 Build
+
+* **megalinter:** Configure megalinter to gitlab ci ([e3be483](https://git.strausmann.de/minecraft/bedrock-connect/commit/e3be48381d1539ea7f18a6d17b0cd14be8e34f56))
+* **megalinter:** Configure megalinter to gitlab ci ([1355e1c](https://git.strausmann.de/minecraft/bedrock-connect/commit/1355e1cef03b18bacb8ae76bb1100f63f4d92f6a)), closes [#12](https://git.strausmann.de/minecraft/bedrock-connect/issues/12)
+* **megalinter:** Ignore Hadolint DS005 ([e4c4a2b](https://git.strausmann.de/minecraft/bedrock-connect/commit/e4c4a2b57e695864ba3b82b1948a17d10e5610a3))
+* **megalinter:** Update megalinter to gitlab ci ([63082a8](https://git.strausmann.de/minecraft/bedrock-connect/commit/63082a8bdc211c3304a5ae0ec81ad12f7e336b9a))
+* **megalinter:** Update megalinter to gitlab ci ([47cd638](https://git.strausmann.de/minecraft/bedrock-connect/commit/47cd63879ff9360ab81b6d15c5ebf103f5033bbc))
+* **megalinter:** Update megalinter to gitlab ci ([8199f61](https://git.strausmann.de/minecraft/bedrock-connect/commit/8199f614dfa98bbe7c7258a211f7dd49193cbb0f))
+* **megalinter:** Update megalinter to gitlab ci ([21e839d](https://git.strausmann.de/minecraft/bedrock-connect/commit/21e839dab948c7552388a3c3e5f39e8b173ffb20))
+* **megalinter:** Update megalinter to gitlab ci ([573363c](https://git.strausmann.de/minecraft/bedrock-connect/commit/573363c8bfe338016bae267357cc86ed5c89500c))
+* **megalinter:** Update megalinter to gitlab ci ([dedd261](https://git.strausmann.de/minecraft/bedrock-connect/commit/dedd261a5261083e79b2b0490e463f29a3b6ab5a))
+* **megalinter:** Update megalinter to gitlab ci ([aa405dc](https://git.strausmann.de/minecraft/bedrock-connect/commit/aa405dcc768f89ae7c32fb831a60962082af137b))
+* **megalinter:** Update megalinter to gitlab ci ([85c699d](https://git.strausmann.de/minecraft/bedrock-connect/commit/85c699df864188c2e53716b29510e5db1e57c385))
+* **megalinter:** Update megalinter to gitlab ci ([8a7ec04](https://git.strausmann.de/minecraft/bedrock-connect/commit/8a7ec0419eeef98f2b11612488ddbcc160d733ba))
+* **megalinter:** Update megalinter to gitlab ci ([24d9270](https://git.strausmann.de/minecraft/bedrock-connect/commit/24d927021ecaf7ccfa82485ea2546301fc3a6abf))
+* **megalinter:** Update megalinter to gitlab ci ([75103e8](https://git.strausmann.de/minecraft/bedrock-connect/commit/75103e8df2b92f95a849a82e70d80e3ee0b145c9))
+* **megalinter:** Update megalinter to gitlab ci ([58934f1](https://git.strausmann.de/minecraft/bedrock-connect/commit/58934f18602ba0d7d3ff816cb24d48af4a8cff5d))
+* **megalinter:** Update megalinter to gitlab ci ([828edb4](https://git.strausmann.de/minecraft/bedrock-connect/commit/828edb4c9abbb488c1df92fc9e5d412821687776))
+
+### 🦊 CI/CD
+
+* **gitlab pipeline:** cleanup gitlab pipeline code ([b790d23](https://git.strausmann.de/minecraft/bedrock-connect/commit/b790d2357a632081538e8ea1384c9afcea172e6f))
+* **gitlab pipeline:** cleanup gitlab pipeline code ([fa15275](https://git.strausmann.de/minecraft/bedrock-connect/commit/fa15275243f264944549d647c645b595f667bf41))
+
 ## [2.2.15](https://git.strausmann.de/minecraft/bedrock-connect/compare/2.2.14...2.2.15) (2024-06-04)
 
 ### 🐛 Bug Fixes
