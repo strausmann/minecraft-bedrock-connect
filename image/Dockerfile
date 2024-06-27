@@ -5,7 +5,6 @@ ARG APT_UPDATE=20240627.1 \
     EASY_ADD_VERSION=0.8.6 \
     UID=1000 \
     GID=1000 \
-    PORT=19132 \
     UNAME=bdc \
     MC_MONITOR_VERSION=0.12.12 \
     BRC_VERSION \
@@ -37,7 +36,7 @@ RUN mkdir -p /docker/brc && mkdir -p /config && chmod 664 /config \
 
 COPY *.sh /opt/
 
-EXPOSE ${PORT}/udp
+EXPOSE 19132/udp
 
 VOLUME [ "/data" ]
 
@@ -45,7 +44,7 @@ WORKDIR /data
 
 ENTRYPOINT ["/usr/local/bin/entrypoint-demoter", "--match", "/data", "--debug", "--stdin-on-term", "stop", "/opt/bedrock-entry.sh"]
 
-HEALTHCHECK --start-period=1m CMD /usr/local/bin/mc-monitor status-bedrock --host 127.0.0.1 --port ${PORT}
+HEALTHCHECK --start-period=1m CMD /usr/local/bin/mc-monitor status-bedrock --host 127.0.0.1 --port 19132
 
 LABEL \
     org.opencontainers.image.title="strausmann/minecraft-bedrock-connect" \
@@ -60,5 +59,5 @@ LABEL \
     org.opencontainers.image.vendor="strausmann" \
     org.opencontainers.image.licenses="MIT" \
     org.opencontainers.image.base.name=${BUILD_FROM} \
-    de.strausmann.ci-build=$CI_BUILD \
+    de.strausmann.ci-build=${CI_BUILD} \
     de.strausmann.releasenotes="https://git.strausmann.de/minecraft/bedrock-connect/-/releases"
