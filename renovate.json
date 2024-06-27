@@ -30,6 +30,16 @@
       "datasourceTemplate": "docker"
     },
     {
+      "fileMatch": ["/Dockerfile$", "/.gitpod.Dockerfile$"],
+      "matchStringsStrategy": "any",
+      "matchStrings": [
+        "\\s\\s(?<package>[a-z0-9][a-z0-9-_]+)=(?<currentValue>[a-z0-9-_.]+)\\s+"
+      ],
+      "versioningTemplate": "debian",
+      "datasourceTemplate": "repology",
+      "depNameTemplate": "debian_12/{{package}}"
+    },
+    {
       "fileMatch": ["Dockerfile"],
       "matchStrings": ["EASY_ADD_VERSION=(?<currentValue>.*?)\\s+"],
       "datasourceTemplate": "github-releases",
@@ -54,6 +64,10 @@
       "depTypeList": ["devDependencies", "require-dev"],
       "updateTypes": ["patch", "pin", "minor", "digest"],
       "groupName": "devDependencies (non-major)"
+    },
+    {
+      "matchDatasources": ["repology"],
+      "automerge": true
     },
     {
       "groupName": "Add-on base image",

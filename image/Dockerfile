@@ -19,12 +19,11 @@ ARG APT_UPDATE=20240627.1 \
 RUN apt-get update \
     && DEBIAN_FRONTEND=noninteractive apt-get purge openldap tar perl krb5 libgcrypt20 gcc-12 nghttp2 -y || true \
     && DEBIAN_FRONTEND=noninteractive apt-get -y install --no-install-recommends \
-    curl \
-    unzip \
-    jq \
-    nano \
-    procps \
-    iputils-ping \
+    curl=7.88.1-10+deb12u5 \
+    unzip=6.0-28 \
+    jq=1.6-2.1 \
+    nano=7.2-1 \
+    procps=2:4.0.2-3 \
     && DEBIAN_FRONTEND=noninteractive apt-get upgrade -y \
     && apt-get clean \
     && rm -rf /var/lib/apt/lists/*
