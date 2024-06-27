@@ -48,7 +48,6 @@ easy-add --var version=${brc_version} --from https://github.com/Pugmatt/BedrockC
 chmod 664 /docker/brc/BedrockConnect-1.0-SNAPSHOT.jar
 
 echo "Bedrock Connect version: ${brc_version}"
-
 java -Xms${java_xms} -Xmx${java_xmx} -jar /docker/brc/BedrockConnect-1.0-SNAPSHOT.jar \
     server_limit=${server_limit} \
     mysql_host=${mysql_host} \

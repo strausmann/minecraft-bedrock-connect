@@ -1,10 +1,12 @@
-[![GitLab Pipeline](https://git.strausmann.de/minecraft/bedrock-connect/badges/main/pipeline.svg)](https://git.strausmann.de/minecraft/bedrock-connect/commits/main)
-[![MIT License](https://img.shields.io/badge/license-MIT-blue)](https://git.strausmann.de/minecraft/bedrock-connect/-/blob/main/LICENSE.md)
-[![Docker latest by date](https://img.shields.io/docker/v/strausmann/minecraft-bedrock-connect?arch=amd64)](https://hub.docker.com/r/strausmann/minecraft-bedrock-connect)
-[![Docker Pulls](https://img.shields.io/docker/pulls/strausmann/minecraft-bedrock-connect)](https://hub.docker.com/r/strausmann/minecraft-bedrock-connect)
-[![Docker Automate build](https://img.shields.io/docker/automated/strausmann/minecraft-bedrock-connect)](https://hub.docker.com/r/strausmann/minecraft-bedrock-connect)
-[![Docker Image Size latest by date](https://img.shields.io/docker/image-size/strausmann/minecraft-bedrock-connect)](https://hub.docker.com/r/strausmann/minecraft-bedrock-connect)
-[![Open in Gitpod](https://img.shields.io/badge/Open%20in-Gitpod-%232cb64c?logo=gitpod)](https://gitpod.io/#https://git.strausmann.de/minecraft/bedrock-connect)
+![Gitlab Pipeline Status](https://img.shields.io/gitlab/pipeline-status/minecraft%2Fbedrock-connect?gitlab_url=https%3A%2F%2Fgit.strausmann.de&branch=main&logo=GitLab&style=for-the-badge&link=https%3A%2F%2Fgit.strausmann.de%2Fminecraft%2Fbedrock-connect%2Fcommits%2Fmain)
+![GitLab Issues](https://img.shields.io/gitlab/issues/open/minecraft%2Fbedrock-connect?gitlab_url=https%3A%2F%2Fgit.strausmann.de%2F&style=for-the-badge&logo=GitLab&link=https%3A%2F%2Fgit.strausmann.de%2Fminecraft%2Fbedrock-connect%2F-%2Fissues)
+![GitLab License](https://img.shields.io/gitlab/license/minecraft%2Fbedrock-connect?gitlab_url=https%3A%2F%2Fgit.strausmann.de&logo=GitLab&style=for-the-badge&color=blue&link=https%3A%2F%2Fgit.strausmann.de%2Fminecraft%2Fbedrock-connect%2F-%2Fblob%2Fmain%2FLICENSE.md)
+![Static Badge](https://img.shields.io/badge/ChangeLog-here-brightgreen?style=for-the-badge&logo=GitLab&link=https%3A%2F%2Fgit.strausmann.de%2Fminecraft%2Fbedrock-connect%2F-%2Fblob%2Fmain%2FCHANGELOG.md)
+[![Open in Gitpod](https://img.shields.io/badge/Open%20in-Gitpod-%232cb64c?logo=gitpod&style=for-the-badge)](https://gitpod.io/#https://git.strausmann.de/minecraft/bedrock-connect)
+
+[![Docker Pulls](https://img.shields.io/docker/pulls/strausmann/minecraft-bedrock-connect?logo=docker&style=for-the-badge)](https://hub.docker.com/r/strausmann/minecraft-bedrock-connect)
+[![Docker Image Version](https://img.shields.io/docker/v/strausmann/minecraft-bedrock-connect?sort=semver&logo=docker&link=https%3A%2F%2Fhub.docker.com%2Fr%2Fstrausmann%2Fminecraft-bedrock-connect&style=for-the-badge)](https://hub.docker.com/r/strausmann/minecraft-bedrock-connect)
+[![Docker Image Size latest by date](https://img.shields.io/docker/image-size/strausmann/minecraft-bedrock-connect?logo=docker&style=for-the-badge)](https://hub.docker.com/r/strausmann/minecraft-bedrock-connect)
 
 **A simple Docker image that can provide the Minecraft Bedrock Connect service.**
 
