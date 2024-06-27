@@ -1,14 +1,9 @@
 ---
 stages:
-  - test
-  - unit-tests
+  - lint
   - build
+  - test
   - release
-
-include:
-  - template: Security/Dependency-Scanning.gitlab-ci.yml
-  - template: Security/SAST.gitlab-ci.yml
-  - template: Security/Secret-Detection.gitlab-ci.yml
 
 variables:
   http_proxy: ''
@@ -16,7 +11,7 @@ variables:
   no_proxy: ''
 
 mega-linter:
-  stage: test
+  stage: lint
   # You can override MegaLinter flavor used to have faster performances
   # More info at https://megalinter.github.io/flavors/
   image: ${CI_DEPENDENCY_PROXY_GROUP_IMAGE_PREFIX}/oxsecurity/megalinter:v7
