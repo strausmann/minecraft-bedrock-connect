@@ -1,5 +1,4 @@
 ARG BUILD_FROM=openjdk:23-ea-jdk-slim-bookworm@sha256:c688e6bc0ba6b56c8e903fa41cfeb0b49d995d223bb0d5785179dd7267b77fe9
-# hadolint ignore=DL3006
 FROM ${BUILD_FROM}
 
 ARG APT_UPDATE=20240627.1 \
@@ -17,7 +16,6 @@ ARG APT_UPDATE=20240627.1 \
     BUILD_VERSION \
     VCS_REF
 
-# hadolint ignore=DL3003,SC2155
 RUN apt-get update \
     && DEBIAN_FRONTEND=noninteractive apt-get purge openldap tar perl krb5 libgcrypt20 gcc-12 nghttp2 -y || true \
     && DEBIAN_FRONTEND=noninteractive apt-get -y install --no-install-recommends \
