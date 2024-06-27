@@ -1,6 +1,17 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
-  "extends": ["renovate/renovate-config"],
+  "extends": [
+    "config:base",
+    ":preserveSemverRanges",
+    ":dependencyDashboard",
+    ":rebaseStalePrs",
+    ":enableVulnerabilityAlertsWithLabel('security')",
+    "group:recommended",
+    ":labels(renovate::dependencies,renovate::automated)",
+    ":assignee(strausmann)"
+  ],
+  "automerge": true,
+  "ignorePaths": ["docker/old-files/"],
   "vulnerabilityAlerts": {
     "labels": ["security"],
     "automerge": true,
@@ -20,19 +31,19 @@
     },
     {
       "fileMatch": ["Dockerfile"],
-      "matchStrings": ["EASY_ADD_VERSION=(?<currentValue>.*)"],
+      "matchStrings": ["EASY_ADD_VERSION=(?<currentValue>.*?)\\s+"],
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "itzg/easy-add"
     },
     {
       "fileMatch": ["Dockerfile"],
-      "matchStrings": ["MC_MONITOR_VERSION=(?<currentValue>.*)"],
+      "matchStrings": ["MC_MONITOR_VERSION=(?<currentValue>.*?)\\s+"],
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "itzg/mc-monitor"
     },
     {
       "fileMatch": ["Dockerfile"],
-      "matchStrings": ["ENTRYPOINT_DEMOTER_VERSION=(?<currentValue>.*)"],
+      "matchStrings": ["ENTRYPOINT_DEMOTER_VERSION=(?<currentValue>.*?)?\\s"],
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "itzg/entrypoint-demoter"
     }
