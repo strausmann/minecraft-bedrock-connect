@@ -44,6 +44,7 @@
     {
       "fileMatch": ["Dockerfile"],
       "matchStrings": ["ENTRYPOINT_DEMOTER_VERSION=(?<currentValue>.*?)?\\s"],
+      "extractVersionTemplate": "^v(?<version>.*)$",
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "itzg/entrypoint-demoter"
     }
