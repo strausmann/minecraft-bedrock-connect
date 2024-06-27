@@ -10,6 +10,31 @@ include:
   - template: Security/SAST.gitlab-ci.yml
   - template: Security/Secret-Detection.gitlab-ci.yml
 
+variables:
+  http_proxy: ''
+  https_proxy: ''
+  no_proxy: ''
+
+mega-linter:
+  stage: test
+  # You can override MegaLinter flavor used to have faster performances
+  # More info at https://megalinter.github.io/flavors/
+  image: ${CI_DEPENDENCY_PROXY_GROUP_IMAGE_PREFIX}/oxsecurity/megalinter:v7
+  before_script: []
+  script: ['true'] # if script: ["true"] does not work, you may try ->  script: [ "/bin/bash /entrypoint.sh" ]
+  variables:
+    # All available variables are described in documentation
+    # https://megalinter.github.io/configuration/
+    DEFAULT_WORKSPACE: $CI_PROJECT_DIR
+    # ADD YOUR CUSTOM ENV VARIABLES HERE TO OVERRIDE VALUES OF .mega-linter.yml AT THE ROOT OF YOUR REPOSITORY
+  artifacts:
+    when: always
+    paths:
+      - megalinter-reports
+    expire_in: 1 week
+  tags:
+    - dind
+
 .create_multi_arch_image:
   image: docker:27.0.2
   services:

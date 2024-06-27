@@ -1,0 +1,19 @@
+{
+  "ignorePatterns": [
+    {
+      "pattern": "^https://gitlab.com"
+    },
+    {
+      "pattern": "^https://git.strausmann.de"
+    },
+    {
+      "pattern": "^https://wiki.strausmann.net"
+    },
+    {
+      "pattern": "^https://img.shields.io"
+    }
+  ],
+  "retryOn429": true,
+  "retryCount": 5,
+  "aliveStatusCodes": [200, 203]
+}

@@ -1,0 +1,20 @@
+misconfigurations:
+  - id: AVD-DS-0002
+    paths:
+      - image/Dockerfile
+    statement: Accept the risk
+  - id: AVD-DS-0005
+    paths:
+      - .gitpod.Dockerfile
+    statement: Accept the risk
+  - id: AVD-DS-0026
+    paths:
+      - .gitpod.Dockerfile
+    statement: Accept the risk, healthcheck is not required for Gitpod
+
+vulnerabilities:
+  - id: CVE-2023-42282
+    paths:
+      - package-lock.json
+    expired_at: 2024-06-30
+    statement: Accept the risk
