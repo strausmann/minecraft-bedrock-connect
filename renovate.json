@@ -50,11 +50,6 @@
   ],
   "packageRules": [
     {
-      "depTypeList": ["devDependencies", "require-dev"],
-      "updateTypes": ["patch", "pin", "minor", "digest"],
-      "groupName": "devDependencies (non-major)"
-    },
-    {
       "matchDatasources": ["repology"],
       "automerge": true
     },
