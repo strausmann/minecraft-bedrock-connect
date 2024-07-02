@@ -35,9 +35,9 @@ mega-linter:
     - dind
 
 .create_multi_arch_image:
-  image: docker:27.0.2
+  image: docker:27.0.3
   services:
-    - name: docker:27.0.2-dind
+    - name: docker:27.0.3-dind
       command: ['--experimental']
       alias: 'docker'
   variables:
