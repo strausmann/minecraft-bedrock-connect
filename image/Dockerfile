@@ -1,4 +1,4 @@
-ARG BUILD_FROM=openjdk:23-ea-jdk-slim-bookworm@sha256:c688e6bc0ba6b56c8e903fa41cfeb0b49d995d223bb0d5785179dd7267b77fe9
+ARG BUILD_FROM=openjdk:23-ea-jdk-slim-bookworm@sha256:ffb98d3705d686d30ccda9204c5f37297043be076bf16880a63d02aac55d0413
 FROM ${BUILD_FROM}
 
 ARG APT_UPDATE=20240627.1 \
