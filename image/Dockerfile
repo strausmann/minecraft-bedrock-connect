@@ -15,38 +15,38 @@ ARG APT_UPDATE=20240627.1 \
     BUILD_VERSION \
     VCS_REF
 
-# renovate: datasource=github-releases depName=itzg/eazy-add versioning=loose
-ARG BIN_PKT_EAZY_ADD=0.8.3
+# renovate: datasource=github-releases depName=itzg/eazy-add packageName=itzg/eazy-add versioning=loose
+ARG BIN_EAZY_ADD_VERSION=0.8.3
 
 # renovate: datasource=github-releases depName=itzg/mc-monitor versioning=loose
-ARG BIN_PKT_MC_MONITOR=0.12.11
+ARG BIN_MC_MONITOR_VERSION=0.12.11
 
 # renovate: datasource=github-releases depName=itzg/entrypoint-demoter versioning=loose
-ARG BIN_PKT_ENTRYPOINT_DEMOTER=0.4.0
+ARG BIN_ENTRYPOINT_DEMOTER_VERSION=0.4.0
 
 # renovate: datasource=repology depName=debian12/curl versioning=debian
-ARG DEBIAN_PKT_CURL=7.88.1-10+deb12u6
+ARG DEBIAN_CURL_VERSION=7.88.1-10+deb12u6
 
 # renovate: datasource=repology depName=debian12/unzip versioning=debian
-ARG DEBIAN_PKT_UNZIP=6.0-28
+ARG DEBIAN_UNZIP_VERSION=6.0-28
 
 # renovate: datasource=repology depName=debian12/jq versioning=debian
-ARG DEBIAN_PKT_JQ=1.6-2.1
+ARG DEBIAN_JQ_VERSION=1.6-2.1
 
 # renovate: datasource=repology depName=debian12/nano versioning=debian
-ARG DEBIAN_PKT_NANO=7.2-1+deb12u1
+ARG DEBIAN_NANO_VERSION=7.2-1+deb12u1
 
 # renovate: datasource=repology depName=debian12/procps versioning=debian
-ARG DEBIAN_PKT_PROCPS=2:4.0.2-3
+ARG DEBIAN_PROCPS_VERSION=2:4.0.2-3
 
 RUN apt-get update \
     && DEBIAN_FRONTEND=noninteractive apt-get purge openldap tar perl krb5 libgcrypt20 gcc-12 nghttp2 -y || true \
     && DEBIAN_FRONTEND=noninteractive apt-get -y install --no-install-recommends \
-    curl="${DEBIAN_PKT_CURL}" \
-    unzip="${DEBIAN_PKT_UNZIP}" \
-    jq="${DEBIAN_PKT_JQ}" \
-    nano="${DEBIAN_PKT_NANO}" \
-    procps="${DEBIAN_PKT_PROCPS}" \
+    curl="${DEBIAN_CURL_VERSION}}" \
+    unzip="${DEBIAN_UNZIP_VERSION}}" \
+    jq="${DEBIAN_JQ_VERSION}}" \
+    nano="${DEBIAN_NANO_VERSION}}" \
+    procps="${DEBIAN_PROCPS_VERSION}" \
     && DEBIAN_FRONTEND=noninteractive apt-get upgrade -y \
     && apt-get clean \
     && rm -rf /var/lib/apt/lists/*
