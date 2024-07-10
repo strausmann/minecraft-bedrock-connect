@@ -5,6 +5,12 @@ All notable changes to the **Bedrock Connect** Docker Image, published on Docker
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [2.3.2](https://git.strausmann.de/minecraft/bedrock-connect/compare/2.3.1...2.3.2) (2024-07-10)
+
+### 🐛 Bug Fixes
+
+* **renovate:** fix issue with renovate commit messages ([678beb8](https://git.strausmann.de/minecraft/bedrock-connect/commit/678beb8b8ecb089a52c4d288230cf5b9b14d9a75))
+
 ## [2.3.1](https://git.strausmann.de/minecraft/bedrock-connect/compare/2.3.0...2.3.1) (2024-06-27)
 
 ### 🐛 Bug Fixes
