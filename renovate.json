@@ -1,20 +1,30 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
-  "extends": ["renovate/renovate-config"],
+  "extends": [
+    "renovate/renovate-config"
+  ],
   "vulnerabilityAlerts": {
     "labels": ["security"],
-    "automerge": true,
-    "assignees": ["@strausmann"]
+    "automerge": true
   },
-  "rebaseWhen": "behind-base-branch",
   "regexManagers": [
     {
-      "fileMatch": ["/Dockerfile$", "/.gitpod.Dockerfile$"],
+      "fileMatch": ["/Dockerfile$"],
       "matchStringsStrategy": "any",
       "matchStrings": [
         "ARG BUILD_FROM=(?<depName>.*?):(?<currentValue>.*?)\\s+"
       ],
-      "datasourceTemplate": "docker"
+      "datasourceTemplate": "docker",
+      "depNameTemplate": "baseimage/openjdk"
+    },
+    {
+      "fileMatch": ["/.gitpod.Dockerfile$"],
+      "matchStringsStrategy": "any",
+      "matchStrings": [
+        "ARG BUILD_FROM=(?<depName>.*?):(?<currentValue>.*?)\\s+"
+      ],
+      "datasourceTemplate": "docker",
+      "depNameTemplate": "baseimage/gitpod"
     },
     {
       "fileMatch": ["/Dockerfile$", "/.gitpod.Dockerfile$"],
@@ -49,6 +59,13 @@
   "packageRules": [
     {
       "matchDatasources": ["repology"],
+      "automerge": true
+    },
+    {
+      "groupName": "Docker Base Image",
+      "matchDepTypes": ["itzg/easy-add"],
+      "matchDatasources": ["docker"],
+      "matchUpdateTypes": ["minor", "patch"],
       "automerge": true
     },
     {

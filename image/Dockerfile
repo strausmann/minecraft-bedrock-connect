@@ -2,7 +2,7 @@ ARG BUILD_FROM=openjdk:23-ea-jdk-slim-bookworm@sha256:6133845f04fd416e8e7c4dfcf1
 FROM ${BUILD_FROM}
 
 ARG APT_UPDATE=20240627.1 \
-    EASY_ADD_VERSION=0.8.7 \
+    EASY_ADD_VERSION=0.8.6 \
     UID=1000 \
     GID=1000 \
     UNAME=bdc \
@@ -15,14 +15,38 @@ ARG APT_UPDATE=20240627.1 \
     BUILD_VERSION \
     VCS_REF
 
+# renovate: datasource=github-releases depName=itzg/eazy-add versioning=loose
+ARG BIN_PKT_EAZY_ADD=0.8.3
+
+# renovate: datasource=github-releases depName=itzg/mc-monitor versioning=loose
+ARG BIN_PKT_MC_MONITOR=0.12.11
+
+# renovate: datasource=github-releases depName=itzg/entrypoint-demoter versioning=loose
+ARG BIN_PKT_ENTRYPOINT_DEMOTER=0.4.0
+
+# renovate: datasource=repology depName=debian12/curl versioning=debian
+ARG DEBIAN_PKT_CURL=7.88.1-10+deb12u6
+
+# renovate: datasource=repology depName=debian12/unzip versioning=debian
+ARG DEBIAN_PKT_UNZIP=6.0-28
+
+# renovate: datasource=repology depName=debian12/jq versioning=debian
+ARG DEBIAN_PKT_JQ=1.6-2.1
+
+# renovate: datasource=repology depName=debian12/nano versioning=debian
+ARG DEBIAN_PKT_NANO=7.2-1+deb12u1
+
+# renovate: datasource=repology depName=debian12/procps versioning=debian
+ARG DEBIAN_PKT_PROCPS=2:4.0.2-3
+
 RUN apt-get update \
     && DEBIAN_FRONTEND=noninteractive apt-get purge openldap tar perl krb5 libgcrypt20 gcc-12 nghttp2 -y || true \
     && DEBIAN_FRONTEND=noninteractive apt-get -y install --no-install-recommends \
-    curl=7.88.1-10+deb12u6 \
-    unzip=6.0-28 \
-    jq=1.6-2.1 \
-    nano=7.2-1+deb12u1 \
-    procps=2:4.0.2-3 \
+    curl="${DEBIAN_PKT_CURL}" \
+    unzip="${DEBIAN_PKT_UNZIP}" \
+    jq="${DEBIAN_PKT_JQ}" \
+    nano="${DEBIAN_PKT_NANO}" \
+    procps="${DEBIAN_PKT_PROCPS}" \
     && DEBIAN_FRONTEND=noninteractive apt-get upgrade -y \
     && apt-get clean \
     && rm -rf /var/lib/apt/lists/*

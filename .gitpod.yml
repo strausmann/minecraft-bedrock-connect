@@ -13,6 +13,7 @@ tasks:
       docker login -u "$DOCKERHUB_USER" -p "$DOCKERHUB_TOKEN"
       curl -sSfL https://raw.githubusercontent.com/docker/scout-cli/main/install.sh | sh -s --
       docker pull strausmann/minecraft-bedrock-connect:latest
+      export PATH="$PATH:./node_modules/.bin"
 
 # List the ports to expose. Learn more https://www.gitpod.io/docs/config-ports/
 ports:
