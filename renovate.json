@@ -33,31 +33,11 @@
         "ARG BUILD_FROM=(?<depName>.*?):(?<currentValue>.*?)\\s+"
       ],
       "datasourceTemplate": "docker"
-    },
-    {
-      "fileMatch": ["Dockerfile"],
-      "matchStrings": ["EASY_ADD_VERSION=(?<currentValue>.*?)\\s+"],
-      "datasourceTemplate": "github-releases",
-      "depNameTemplate": "itzg/easy-add"
-    },
-    {
-      "fileMatch": ["Dockerfile"],
-      "matchStrings": ["ENTRYPOINT_DEMOTER_VERSION=(?<currentValue>.*?)?\\s"],
-      "extractVersionTemplate": "^v(?<version>.*)$",
-      "datasourceTemplate": "github-releases",
-      "depNameTemplate": "itzg/entrypoint-demoter"
     }
   ],
   "packageRules": [
     {
       "matchDatasources": ["repology"],
-      "automerge": true
-    },
-    {
-      "groupName": "Docker Base Image",
-      "matchDepTypes": ["itzg/easy-add"],
-      "matchDatasources": ["docker"],
-      "matchUpdateTypes": ["minor", "patch"],
       "automerge": true
     },
     {
@@ -71,20 +51,9 @@
       "automerge": true
     },
     {
-      "matchDepTypes": ["itzg/easy-add"],
-      "matchUpdateTypes": ["minor", "patch"],
-      "matchDatasources": ["github-releases"],
-      "automerge": true
-    },
-    {
-      "matchDepTypes": ["itzg/entrypoint-demoter"],
-      "matchUpdateTypes": ["minor", "patch"],
-      "matchDatasources": ["github-releases"],
-      "automerge": true
-    },
-    {
       "matchPackagePatterns": ["itzg"],
-      "groupName": "itzg"
+      "groupName": "itzg",
+      "automerge": true
     }
   ]
 }

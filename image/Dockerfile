@@ -2,27 +2,24 @@ ARG BUILD_FROM=openjdk:23-ea-jdk-slim-bookworm@sha256:6133845f04fd416e8e7c4dfcf1
 FROM ${BUILD_FROM}
 
 ARG APT_UPDATE=20240627.1 \
-    EASY_ADD_VERSION=0.8.7 \
     UID=1000 \
     GID=1000 \
     UNAME=bdc \
-    MC_MONITOR_VERSION=0.12.12 \
     BRC_VERSION \
     TARGETARCH \
     CI_BUILD \
-    ENTRYPOINT_DEMOTER_VERSION=0.4.4 \
     BUILD_DATE \
     BUILD_VERSION \
     VCS_REF
 
-# renovate: datasource=github-releases depName=itzg/eazy-add packageName=itzg/eazy-add versioning=loose
+# renovate: datasource=github-releases depName=itzg/eazy-add versioning=loose
 ARG BIN_EAZY_ADD_VERSION=0.8.3
 
 # renovate: datasource=github-releases depName=itzg/mc-monitor versioning=loose
-ARG BIN_MC_MONITOR_VERSION=0.12.13
+ARG BIN_MC_MONITOR_VERSION=0.12.12
 
-# renovate: datasource=github-releases depName=itzg/entrypoint-demoter versioning=loose
-ARG BIN_ENTRYPOINT_DEMOTER_VERSION=v0.4.4
+# renovate: datasource=github-releases depName=itzg/entrypoint-demoter versioning=loose extractVersion=(?<version>v?([0-9.]+))
+ARG BIN_ENTRYPOINT_DEMOTER_VERSION=0.4.0
 
 # renovate: datasource=repology depName=debian12/curl versioning=debian
 ARG DEBIAN_CURL_VERSION=7.88.1-10+deb12u6
@@ -42,21 +39,21 @@ ARG DEBIAN_PROCPS_VERSION=2:4.0.2-3
 RUN apt-get update \
     && DEBIAN_FRONTEND=noninteractive apt-get purge openldap tar perl krb5 libgcrypt20 gcc-12 nghttp2 -y || true \
     && DEBIAN_FRONTEND=noninteractive apt-get -y install --no-install-recommends \
-    curl="${DEBIAN_CURL_VERSION}}" \
-    unzip="${DEBIAN_UNZIP_VERSION}}" \
-    jq="${DEBIAN_JQ_VERSION}}" \
-    nano="${DEBIAN_NANO_VERSION}}" \
+    curl="${DEBIAN_CURL_VERSION}" \
+    unzip="${DEBIAN_UNZIP_VERSION}" \
+    jq="${DEBIAN_JQ_VERSION}" \
+    nano="${DEBIAN_NANO_VERSION}" \
     procps="${DEBIAN_PROCPS_VERSION}" \
     && DEBIAN_FRONTEND=noninteractive apt-get upgrade -y \
     && apt-get clean \
     && rm -rf /var/lib/apt/lists/*
 
-ADD https://github.com/itzg/easy-add/releases/download/${EASY_ADD_VERSION}/easy-add_linux_${TARGETARCH} /usr/local/bin/easy-add
+ADD https://github.com/itzg/easy-add/releases/download/${BIN_EAZY_ADD_VERSION}/easy-add_linux_${TARGETARCH} /usr/local/bin/easy-add
 
 RUN mkdir -p /docker/brc && mkdir -p /config && chmod 664 /config \
     && chmod +x /usr/local/bin/easy-add \
-    && easy-add --var version=${ENTRYPOINT_DEMOTER_VERSION} --var app=entrypoint-demoter --file {{.app}} --from https://github.com/itzg/{{.app}}/releases/download/v{{.version}}/{{.app}}_{{.version}}_linux_${TARGETARCH}.tar.gz \
-    && easy-add --var version=${MC_MONITOR_VERSION} --var app=mc-monitor --file {{.app}} --from https://github.com/itzg/{{.app}}/releases/download/{{.version}}/{{.app}}_{{.version}}_linux_${TARGETARCH}.tar.gz
+    && easy-add --var version=${BIN_ENTRYPOINT_DEMOTER_VERSION} --var app=entrypoint-demoter --file {{.app}} --from https://github.com/itzg/{{.app}}/releases/download/v{{.version}}/{{.app}}_{{.version}}_linux_${TARGETARCH}.tar.gz \
+    && easy-add --var version=${BIN_MC_MONITOR_VERSION} --var app=mc-monitor --file {{.app}} --from https://github.com/itzg/{{.app}}/releases/download/{{.version}}/{{.app}}_{{.version}}_linux_${TARGETARCH}.tar.gz
 
 COPY *.sh /opt/
 
