@@ -2,7 +2,7 @@ ARG BUILD_FROM=openjdk:23-ea-jdk-slim-bookworm@sha256:6133845f04fd416e8e7c4dfcf1
 FROM ${BUILD_FROM}
 
 ARG APT_UPDATE=20240627.1 \
-    EASY_ADD_VERSION=0.8.6 \
+    EASY_ADD_VERSION=0.8.7 \
     UID=1000 \
     GID=1000 \
     UNAME=bdc \
