@@ -7,6 +7,16 @@
     "labels": ["security"],
     "automerge": true
   },
+  "customManagers": [
+    {
+      "customType": "regex",
+      "description": "Update _VERSION variables in Dockerfiles",
+      "fileMatch": ["(^|/|\\.)Dockerfile$", "(^|/)Dockerfile\\.[^/]*$", "(^|/).gitpod.Dockerfile\\.[^/]*$"],
+      "matchStrings": [
+        "# renovate: datasource=(?<datasource>[a-z-]+?)(?: depName=(?<depName>.+?))? packageName=(?<packageName>.+?)(?: versioning=(?<versioning>[a-z-]+?))?\\s(?:ENV|ARG) .+?_VERSION=(?<currentValue>.+?)\\s"
+      ]
+    }
+  ],
   "regexManagers": [
     {
       "fileMatch": ["/Dockerfile$"],
@@ -14,8 +24,7 @@
       "matchStrings": [
         "ARG BUILD_FROM=(?<depName>.*?):(?<currentValue>.*?)\\s+"
       ],
-      "datasourceTemplate": "docker",
-      "depNameTemplate": "baseimage/openjdk"
+      "datasourceTemplate": "docker"
     },
     {
       "fileMatch": ["/.gitpod.Dockerfile$"],
@@ -23,8 +32,7 @@
       "matchStrings": [
         "ARG BUILD_FROM=(?<depName>.*?):(?<currentValue>.*?)\\s+"
       ],
-      "datasourceTemplate": "docker",
-      "depNameTemplate": "baseimage/gitpod"
+      "datasourceTemplate": "docker"
     },
     {
       "fileMatch": ["/Dockerfile$", "/.gitpod.Dockerfile$"],
