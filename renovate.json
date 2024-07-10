@@ -7,8 +7,6 @@
     "assignees": ["@strausmann"]
   },
   "rebaseWhen": "behind-base-branch",
-  "commitMessagePrefix": "⬆️",
-  "commitMessageTopic": "{{depName}}",
   "regexManagers": [
     {
       "fileMatch": ["/Dockerfile$", "/.gitpod.Dockerfile$"],
