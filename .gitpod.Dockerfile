@@ -1,4 +1,5 @@
-FROM gitpod/workspace-node:2024-06-26-08-49-45
+ARG BUILD_FROM=gitpod/workspace-node:2024-06-26-08-49-45
+FROM ${BUILD_FROM}
 
 ENV force_rebuild 2024062701
 
