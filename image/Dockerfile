@@ -21,7 +21,7 @@ RUN apt-get update \
     curl=7.88.1-10+deb12u5 \
     unzip=6.0-28 \
     jq=1.6-2.1 \
-    nano=7.2-1 \
+    nano=7.2-1+deb12u1 \
     procps=2:4.0.2-3 \
     && DEBIAN_FRONTEND=noninteractive apt-get upgrade -y \
     && apt-get clean \
