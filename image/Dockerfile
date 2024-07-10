@@ -18,7 +18,7 @@ ARG APT_UPDATE=20240627.1 \
 RUN apt-get update \
     && DEBIAN_FRONTEND=noninteractive apt-get purge openldap tar perl krb5 libgcrypt20 gcc-12 nghttp2 -y || true \
     && DEBIAN_FRONTEND=noninteractive apt-get -y install --no-install-recommends \
-    curl=7.88.1-10+deb12u5 \
+    curl=7.88.1-10+deb12u6 \
     unzip=6.0-28 \
     jq=1.6-2.1 \
     nano=7.2-1+deb12u1 \

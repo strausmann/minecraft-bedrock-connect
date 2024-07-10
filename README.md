@@ -15,7 +15,7 @@
 ## Tags
 
 | Tag(s)                                                                                                                                                                                                                                                          | Description                                                       |
-|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------|
+| --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------- |
 | [<code>latest</code>](https://git.strausmann.de/minecraft/bedrock-connect/-/tree/main), [<code>2</code>](https://git.strausmann.de/minecraft/bedrock-connect/-/tree/main), [<code>2.\*</code>](https://git.strausmann.de/minecraft/bedrock-connect/-/tree/main) | latest stable - debian amd64/arm64                                |
 | <code>beta</code>, <code>_-beta._</code>                                                                                                                                                                                                                        | Beta. New features preview or help to test. It could be unstable. |
 
@@ -41,7 +41,7 @@
 The following arguments can be placed in the startup command to ajust settings:
 
 | Argument            | Description                                                                                                                                                                                                                  | Default Value   |
-|---------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-----------------|
+| ------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------- |
 | BRC_VERSION         | The Bedrock Connect version is used when the container is started. For example, 1.15 for the Bedrock Connect version 1.15. It does not mean the Minecraft server version.                                                    | latest          |
 | MYSQL_HOST          | MySQL Host                                                                                                                                                                                                                   | localhost       |
 | MYSQL_DB            | MySQL Database Name                                                                                                                                                                                                          | bedrock-connect |
