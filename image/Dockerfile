@@ -18,7 +18,7 @@ ARG BIN_EAZY_ADD_VERSION=0.8.3
 # renovate: datasource=github-releases depName=itzg/mc-monitor versioning=loose
 ARG BIN_MC_MONITOR_VERSION=0.12.13
 
-# renovate: datasource=github-releases depName=itzg/entrypoint-demoter versioning=loose extractVersion=(?<version>v?([0-9.]+))
+# renovate: datasource=github-releases depName=itzg/entrypoint-demoter versioning=loose extractVersion=(^v(?<version>.*)$)
 ARG BIN_ENTRYPOINT_DEMOTER_VERSION=v0.4.4
 
 # renovate: datasource=repology depName=debian12/curl versioning=debian
