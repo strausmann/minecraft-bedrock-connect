@@ -5,6 +5,25 @@ All notable changes to the **Bedrock Connect** Docker Image, published on Docker
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [2.4.0](https://git.strausmann.de/minecraft/bedrock-connect/compare/2.3.5...2.4.0) (2024-07-11)
+
+### ✨ Features
+
+* **renovate:** Detect the right docker base image for openjdk ([835520e](https://git.strausmann.de/minecraft/bedrock-connect/commit/835520e1e2d7a7951b1a849b85c4cfc98f9a3a3a))
+
+### 🐛 Bug Fixes
+
+* **deps:** update dependency itzg/entrypoint-demoter to v0.4.5 ([221bb66](https://git.strausmann.de/minecraft/bedrock-connect/commit/221bb66065cd0d8262199a43574d14cff5c63b4f))
+* **renovate:** fix renovate config with some invalid settings ([65002e8](https://git.strausmann.de/minecraft/bedrock-connect/commit/65002e828efac50380748d7aded0348957f647f5))
+
+### 📚 Docs
+
+* **examples:** Update the docker compose examples ([50f1996](https://git.strausmann.de/minecraft/bedrock-connect/commit/50f1996d4421d0880773c4ea5af53c7b4638320c))
+
+### ♻️ Chores
+
+* **codeowners:** Add the CodeOwners File for Renovate ([dbb4d07](https://git.strausmann.de/minecraft/bedrock-connect/commit/dbb4d07f5bbb57c14aaf4bb5cf6502dcac06f96c))
+
 ## [2.3.5](https://git.strausmann.de/minecraft/bedrock-connect/compare/2.3.4...2.3.5) (2024-07-11)
 
 ### 🐛 Bug Fixes
