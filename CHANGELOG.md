@@ -5,6 +5,19 @@ All notable changes to the **Bedrock Connect** Docker Image, published on Docker
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [2.3.4](https://git.strausmann.de/minecraft/bedrock-connect/compare/2.3.3...2.3.4) (2024-07-11)
+
+### 🐛 Bug Fixes
+
+* **deps:** fix easy-add depName ([5f93aaf](https://git.strausmann.de/minecraft/bedrock-connect/commit/5f93aaf9bb2668217b24713b81e3e02cd8742527))
+* **deps:** update dependency npm to v10.8.2 ([da6eeac](https://git.strausmann.de/minecraft/bedrock-connect/commit/da6eeac4911f42522bfe8ec0adb3b999ba1f7e1f))
+
+### ♻️ Chores
+
+* **deps:** update dependency renovate to v37.428.0 ([4389820](https://git.strausmann.de/minecraft/bedrock-connect/commit/4389820e886df255523c25a18d94c3250a7fbaa7))
+* **deps:** update dependency renovate to v37.428.2 ([fa30536](https://git.strausmann.de/minecraft/bedrock-connect/commit/fa30536b9247344e711d9a459f2b0452eb580ef9))
+* **deps:** update itzg ([e472ef1](https://git.strausmann.de/minecraft/bedrock-connect/commit/e472ef1eed1461845b4a36a5d19227388702c9e9))
+
 ## [2.3.3](https://git.strausmann.de/minecraft/bedrock-connect/compare/2.3.2...2.3.3) (2024-07-10)
 
 ### 🐛 Bug Fixes
