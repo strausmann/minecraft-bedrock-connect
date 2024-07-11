@@ -1,7 +1,7 @@
-ARG BUILD_FROM=openjdk:23-ea-jdk-slim-bookworm@sha256:6133845f04fd416e8e7c4dfcf179cf7054732a75de384ca14baf13d7e5288d66
+ARG BUILD_FROM=openjdk:24-ea-jdk-slim-bookworm
 FROM ${BUILD_FROM}
 
-ARG APT_UPDATE=20240627.1 \
+ARG APT_UPDATE=20240711.1 \
     UID=1000 \
     GID=1000 \
     UNAME=bdc \
@@ -12,8 +12,8 @@ ARG APT_UPDATE=20240627.1 \
     BUILD_VERSION \
     VCS_REF
 
-# renovate: datasource=github-releases depName=itzg/eazy-add versioning=loose
-ARG BIN_EAZY_ADD_VERSION=0.8.0
+# renovate: datasource=github-releases depName=itzg/easy-add versioning=loose
+ARG BIN_EASY_ADD_VERSION=0.8.0
 
 # renovate: datasource=github-releases depName=itzg/mc-monitor versioning=loose
 ARG BIN_MC_MONITOR_VERSION=0.12.12
@@ -48,7 +48,7 @@ RUN apt-get update \
     && apt-get clean \
     && rm -rf /var/lib/apt/lists/*
 
-ADD https://github.com/itzg/easy-add/releases/download/${BIN_EAZY_ADD_VERSION}/easy-add_linux_${TARGETARCH} /usr/local/bin/easy-add
+ADD https://github.com/itzg/easy-add/releases/download/${BIN_EASY_ADD_VERSION}/easy-add_linux_${TARGETARCH} /usr/local/bin/easy-add
 
 RUN mkdir -p /docker/brc && mkdir -p /config && chmod 664 /config \
     && chmod +x /usr/local/bin/easy-add \
