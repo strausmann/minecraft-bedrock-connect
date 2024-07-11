@@ -5,6 +5,23 @@ All notable changes to the **Bedrock Connect** Docker Image, published on Docker
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [2.3.3](https://git.strausmann.de/minecraft/bedrock-connect/compare/2.3.2...2.3.3) (2024-07-10)
+
+### 🐛 Bug Fixes
+
+* **dockerfile:** fix issue with the pinned version for curl ([37dc752](https://git.strausmann.de/minecraft/bedrock-connect/commit/37dc752c91b28f364d2bd43caae7b574af1a81ac))
+* **renovate:** Change Renovate config ([e9360bf](https://git.strausmann.de/minecraft/bedrock-connect/commit/e9360bfe4d29188b0a00c4bbf11af3fb65ecf159))
+* **renovate:** Fix issue with the 'v' in the versionnumber with itzg/entrypoint-demoter ([82d9b9b](https://git.strausmann.de/minecraft/bedrock-connect/commit/82d9b9b42ad1c683eddfa63d406cec5b1529a2d3))
+* **renovate:** Fix Renovate config for dependency detection ([3e634f7](https://git.strausmann.de/minecraft/bedrock-connect/commit/3e634f7276aac3bd5d589fa50c8c43b02cbdf807))
+* **renovate:** Update Renovate config ([093779e](https://git.strausmann.de/minecraft/bedrock-connect/commit/093779eb7ca24ff00d878309164305004b0632f2))
+
+### ♻️ Chores
+
+* **deps:** update dependency itzg/easy-add to v0.8.7 ([9ed02aa](https://git.strausmann.de/minecraft/bedrock-connect/commit/9ed02aa9acd57b98df411a0c15bdcf246cce1106))
+* **deps:** update itzg ([1d5690a](https://git.strausmann.de/minecraft/bedrock-connect/commit/1d5690a9fff0dbc1ab1bc3d0fa8db5f8b125f697))
+* **deps:** update itzg ([08d90e8](https://git.strausmann.de/minecraft/bedrock-connect/commit/08d90e8ce01fbc982d54b0baa82c19b48d1fc671))
+* **gitpod:** Add BUILD_FORM to GitPod Dockerfile ([d8378b2](https://git.strausmann.de/minecraft/bedrock-connect/commit/d8378b24c894079cb92d16d66af668e5fc701789))
+
 ## [2.3.2](https://git.strausmann.de/minecraft/bedrock-connect/compare/2.3.1...2.3.2) (2024-07-10)
 
 ### 🐛 Bug Fixes
