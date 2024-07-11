@@ -9,15 +9,11 @@
   },
   "regexManagers": [
     {
-      "fileMatch": ["/Dockerfile$"],
-      "matchStringsStrategy": "any",
-      "matchStrings": [
-        "ARG BUILD_FROM=(?<depName>.*?):(?<currentValue>.*?)\\s+"
+      "fileMatch": [
+        "(^|/|\\.)Dockerfile$",
+        "(^|/)Dockerfile\\.[^/]*$",
+        "(^|/)(\\.gitpod\\.)Dockerfile$"
       ],
-      "datasourceTemplate": "docker"
-    },
-    {
-      "fileMatch": ["/.gitpod.Dockerfile$"],
       "matchStringsStrategy": "any",
       "matchStrings": [
         "ARG BUILD_FROM=(?<depName>.*?):(?<currentValue>.*?)\\s+"
@@ -27,13 +23,27 @@
   ],
   "packageRules": [
     {
-      "groupName": "Add-on base image",
-      "matchDatasources": ["docker"]
+      "description": "Definition of the dev image.",
+      "groupName": "gitpod updates",
+      "matchDatasources": ["docker"],
+      "matchPackageNames": ["gitpod/workspace-node"],
+      "matchUpdateTypes": ["minor", "patch"],
+      "semanticCommitType": "chore",
+      "semanticCommitScope": "deps",
+      "pinDigests": true,
+      "automerge": true
     },
     {
-      "groupName": "Add-on base image",
+      "description": "Definition of the base image OpenJDK and the tag that may be used.",
       "matchDatasources": ["docker"],
-      "matchUpdateTypes": ["minor", "patch"],
+      "matchPackageNames": ["openjdk"],
+      "matchDepTypes": ["dockerfile"],
+      "updateTypes": ["major", "minor", "patch"],
+      "groupName": "openjdk updates",
+      "allowedVersions": "^-ea-jdk-slim-bookworm$",
+      "semanticCommitType": "fix",
+      "semanticCommitScope": "deps",
+      "pinDigests": false,
       "automerge": true
     }
   ]

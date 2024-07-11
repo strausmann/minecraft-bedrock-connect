@@ -1,4 +1,4 @@
-ARG BUILD_FROM=openjdk:24-ea-jdk-slim-bookworm
+ARG BUILD_FROM=openjdk:23-ea-jdk-slim-bookworm
 FROM ${BUILD_FROM}
 
 ARG APT_UPDATE=20240711.1 \
