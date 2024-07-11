@@ -38,7 +38,6 @@
       "matchPackageNames": ["openjdk"],
       "matchDepTypes": ["dockerfile"],
       "groupName": "openjdk updates",
-      "allowedVersions": "/^ea-jdk-slim-bookworm$/",
       "semanticCommitType": "fix",
       "semanticCommitScope": "deps",
       "pinDigests": false,
