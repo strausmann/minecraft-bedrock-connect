@@ -1,7 +1,7 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
   "extends": [
-    "renovate/renovate-config"
+    "local>renovate/renovate-config"
   ],
   "vulnerabilityAlerts": {
     "labels": ["security"],
@@ -38,7 +38,7 @@
       "matchPackageNames": ["openjdk"],
       "matchDepTypes": ["dockerfile"],
       "groupName": "openjdk updates",
-      "allowedVersions": "/^-ea-jdk-slim-bookworm$/",
+      "allowedVersions": "/^ea-jdk-slim-bookworm$/",
       "semanticCommitType": "fix",
       "semanticCommitScope": "deps",
       "pinDigests": false,
