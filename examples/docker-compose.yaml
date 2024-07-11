@@ -1,5 +1,3 @@
-version: '3.8'
-
 services:
   bedrockconnect:
     image: strausmann/minecraft-bedrock-connect
