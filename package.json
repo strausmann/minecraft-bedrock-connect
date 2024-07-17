@@ -10,7 +10,7 @@
     "@semantic-release/gitlab": "13.2.0",
     "commitizen": "4.3.0",
     "conventional-changelog-conventionalcommits": "8.0.0",
-    "husky": "9.0.11",
+    "husky": "9.1.0",
     "inquirer": "9.3.5",
     "prettier": "3.3.3",
     "semantic-release": "24.0.0",
