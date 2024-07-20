@@ -11,12 +11,12 @@
     "commitizen": "4.3.0",
     "conventional-changelog-conventionalcommits": "8.0.0",
     "husky": "9.1.1",
-    "inquirer": "9.3.5",
+    "inquirer": "9.3.6",
     "prettier": "3.3.3",
     "semantic-release": "24.0.0",
     "semantic-release-license": "1.0.3",
     "semantic-release-telegram-bot": "2.0.1",
-    "renovate": "37.434.2"
+    "renovate": "37.434.3"
   },
   "scripts": {
     "prettier": "prettier --check --ignore-unknown \"**/*.*\"",
