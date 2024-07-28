@@ -34,7 +34,7 @@ java_xms=${JAVA_XMS:-256M}
 java_xmx=${JAVA_XMX:-256M}
 
 [[ ! -z "$WHITELIST" ]] && whitelist="whitelist=${WHITELIST}" && echo "whitelist set to ${WHITELIST}" || echo "whitelist disabled"
-[[ ! -z "$LANGUAGE" ]] && language="language=${language}" && echo "language set to ${LANGUAGE}" || echo "language disabled"
+[[ ! -z "$LANGUAGE" ]] && language="language=${LANGUAGE}" && echo "language set to ${LANGUAGE}" || echo "language disabled"
 [[ ! -z "$CUSTOM_SERVERS" ]] && custom_servers="custom_servers=${CUSTOM_SERVERS}" && echo "custom_servers set to ${CUSTOM_SERVERS}" || echo "custom_servers disabled"
 
 # Grab the release tag for the latest release
