@@ -10,13 +10,13 @@
     "@semantic-release/gitlab": "13.2.0",
     "commitizen": "4.3.0",
     "conventional-changelog-conventionalcommits": "8.0.0",
-    "husky": "9.1.1",
+    "husky": "9.1.4",
     "inquirer": "9.3.6",
     "prettier": "3.3.3",
     "semantic-release": "24.0.0",
     "semantic-release-license": "1.0.3",
     "semantic-release-telegram-bot": "2.0.1",
-    "renovate": "38.8.4"
+    "renovate": "38.8.5"
   },
   "scripts": {
     "prettier": "prettier --check --ignore-unknown \"**/*.*\"",
