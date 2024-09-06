@@ -25,7 +25,7 @@
 
 ## Quick reference
 - Documentation:
-   - [Install 2.x using Docker](https://wiki.strausmann.net/docker/bedrock-connect/install)
+  - [Install 2.x using Docker](https://wiki.strausmann.net/docker/bedrock-connect/install)
 - Where to get help: [on Discord](https://discord.gg/4EzvB33xJH)
 - Where to file issues: [https://github.com/strausmann/minecraft-bedrock-connect](https://github.com/strausmann/minecraft-bedrock-connect)
 - Maintained by: [strausmann](https://git.strausmann.de/strausmann)
@@ -34,10 +34,10 @@
 
 ## ⭐ Features
 
-* Running Bedrock Connect as a Docker Container
-* Can be used with MySQL Database as backend
-* Configuration via ENV variables
-* Use of the custom_servers via json file possible
+- Running Bedrock Connect as a Docker Container
+- Can be used with MySQL Database as backend
+- Configuration via ENV variables
+- Use of the custom_servers via json file possible
 
 ## Environment Variables
 
@@ -84,7 +84,7 @@ docker run -d --restart=always -p 19132:19132 -e NODB=true -v bedrock-connect:/d
 
 #### Exposed Ports
 
-* UDP 19132 : the Bedrock server port. NOTE that you must append /udp when exposing the port, such as <code>-p 19132:19132/udp</code>
+- UDP 19132 : the Bedrock server port. NOTE that you must append /udp when exposing the port, such as <code>-p 19132:19132/udp</code>
 
 ### 🐳 Deploying with Docker Compose
 
