@@ -2,7 +2,7 @@
   "name": "bedrock-connect",
   "devDependencies": {
     "@codedependant/semantic-release-docker": "5.0.3",
-    "@commitlint/cli": "19.4.0",
+    "@commitlint/cli": "19.4.1",
     "@commitlint/config-conventional": "19.4.1",
     "@commitlint/cz-commitlint": "19.4.0",
     "@semantic-release/changelog": "6.0.3",
@@ -10,7 +10,7 @@
     "@semantic-release/gitlab": "13.2.1",
     "commitizen": "4.3.0",
     "conventional-changelog-conventionalcommits": "8.0.0",
-    "husky": "9.1.4",
+    "husky": "9.1.5",
     "inquirer": "9.3.6",
     "prettier": "3.3.3",
     "semantic-release": "24.1.0",
