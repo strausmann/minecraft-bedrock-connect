@@ -18,6 +18,12 @@ mysql_host=${MYSQL_HOST:-localhost}
 mysql_db=${MYSQL_DB:-bedrock-connect}
 mysql_user=${MYSQL_USER:-bedrock}
 mysql_pass=${MYSQL_PASS:-bedrock}
+db_type=${DB_TYPE:-mysql}
+db_host=${DB_HOST:-$MYSQL_HOST}
+db_db=${DB_DB:-$MYSQL_DB}
+db_user=${DB_USER:-$MYSQL_USER}
+db_pass=${DB_PASS:-$MYSQL_PASS}
+auto_reconnect=${AUTO_RECONNECT:-false}
 server_limit=${SERVER_LIMIT:-100}
 port=${PORT:-19132}
 nodb=${NODB:-false}
@@ -47,13 +53,18 @@ echo "Downloading now Bedrock Connect JAR - version: ${brc_version}"
 easy-add --var version=${brc_version} --from https://github.com/Pugmatt/BedrockConnect/releases/download/{{.version}}/${brc_source_zipfile} --file ${brc_source_file} -to /docker/brc
 chmod 664 /docker/brc/BedrockConnect-1.0-SNAPSHOT.jar
 
+# Conditional inclusion of db_ parameters based on NODB value
+if [[ "$nodb" = "true" ]]; then
+    echo "NODB is true: Database variables will be excluded from Java command."
+    db_params=""  # Exclude database-related parameters
+else
+    echo "NODB is false: Including database variables in Java command."
+    db_params="db_type=${db_type} db_host=${db_host} db_db=${db_db} db_user=${db_user} db_pass=${db_pass} auto_reconnect=${auto_reconnect}"
+fi
+
 echo "Bedrock Connect version: ${brc_version}"
 java -Xms${java_xms} -Xmx${java_xmx} -jar /docker/brc/BedrockConnect-1.0-SNAPSHOT.jar \
     server_limit=${server_limit} \
-    mysql_host=${mysql_host} \
-    mysql_db=${mysql_db} \
-    mysql_user=${mysql_user} \
-    mysql_pass=${mysql_pass} \
     kick_inactive=${kick_inactive} \
     user_servers=${user_servers} \
     featured_servers=${featured_servers} \
@@ -64,4 +75,5 @@ java -Xms${java_xms} -Xmx${java_xmx} -jar /docker/brc/BedrockConnect-1.0-SNAPSHO
     nodb=${nodb} \
     ${whitelist} \
     ${language} \
-    ${custom_servers}
+    ${custom_servers} \
+    ${db_params}
