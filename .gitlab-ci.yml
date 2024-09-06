@@ -126,9 +126,11 @@ release:
     # Trigger eines Scheduled Task
     - if: '$CI_PIPELINE_SOURCE == "schedule"'
     # Trigger bei jedem Push in einen Branch, bis auf den Main Branch
-    - if: '$CI_COMMIT_BRANCH != $CI_DEFAULT_BRANCH'
+    - if: '$CI_COMMIT_BRANCH'
+      when: never
     # Trigger nach einem Commit in einen Merge Request
     - if: '$CI_PIPELINE_SOURCE == "merge_request_event"'
+      when: never
     # Niemals doppelte Pipelines wenn man einen Merge Request erstellt hat
     - if: '$CI_COMMIT_BRANCH && $CI_OPEN_MERGE_REQUESTS'
       when: never
