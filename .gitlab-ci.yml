@@ -31,13 +31,8 @@ mega-linter:
   tags:
     - dind
   rules:
-    # Trigger bei jedem Push in einen Branch, bis auf den Main Branch
-    - if: '$CI_COMMIT_BRANCH'
-    # Trigger nach einem Commit in einen Merge Request
-    - if: '$CI_PIPELINE_SOURCE == "merge_request_event"'
-    # Niemals doppelte Pipelines wenn man einen Merge Request erstellt hat
-    - if: '$CI_COMMIT_BRANCH && $CI_OPEN_MERGE_REQUESTS'
-      when: never
+    # Trigger bei jedem Push in einen Branch
+    - if: $CI_PIPELINE_SOURCE == "push" && $CI_COMMIT_BRANCH
 
 .create_multi_arch_image:
   image: docker:27.2.0
