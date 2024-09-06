@@ -16,7 +16,7 @@ ARG APT_UPDATE=20240711.1 \
 ARG BIN_EASY_ADD_VERSION=0.8.7
 
 # renovate: datasource=github-releases depName=itzg/mc-monitor versioning=loose
-ARG BIN_MC_MONITOR_VERSION=0.12.13
+ARG BIN_MC_MONITOR_VERSION=0.13.0
 
 # renovate: datasource=github-releases depName=itzg/entrypoint-demoter versioning=loose extractVersion=(^v(?<version>.*)$)
 ARG BIN_ENTRYPOINT_DEMOTER_VERSION=0.4.5
