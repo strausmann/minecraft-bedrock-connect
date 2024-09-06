@@ -3,7 +3,7 @@
   "devDependencies": {
     "@codedependant/semantic-release-docker": "5.0.3",
     "@commitlint/cli": "19.4.0",
-    "@commitlint/config-conventional": "19.2.2",
+    "@commitlint/config-conventional": "19.4.1",
     "@commitlint/cz-commitlint": "19.4.0",
     "@semantic-release/changelog": "6.0.3",
     "@semantic-release/git": "10.0.1",
@@ -13,10 +13,10 @@
     "husky": "9.1.4",
     "inquirer": "9.3.6",
     "prettier": "3.3.3",
-    "semantic-release": "24.0.0",
+    "semantic-release": "24.1.0",
     "semantic-release-license": "1.0.3",
     "semantic-release-telegram-bot": "2.0.1",
-    "renovate": "38.25.4"
+    "renovate": "38.70.0"
   },
   "scripts": {
     "prettier": "prettier --check --ignore-unknown \"**/*.*\"",
