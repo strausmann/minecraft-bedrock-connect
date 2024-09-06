@@ -46,10 +46,12 @@ The following arguments can be placed in the startup command to ajust settings:
 | Argument  | Description | Default Value |
 | ------------- | ------------- | ------------- |
 | BRC_VERSION | The Bedrock Connect version is used when the container is started. For example, 1.15 for the Bedrock Connect version 1.15. It does not mean the Minecraft server version. | latest |
-| MYSQL_HOST  | MySQL Host  | localhost |
-| MYSQL_DB | MySQL Database Name  | bedrock-connect |
-| MYSQL_USER | MySQL Username  | root |
-| MYSQL_PASS | MySQL Password  |  |
+| DB_TYPE  | Database Type (accepts values mysql, postgres, mariadb, or none)  | mysql |
+| DB_HOST  | Database Host  | localhost |
+| DB_DB | Database Name  | bedrock-connect |
+| DB_USER | Database Username  | root |
+| DB_PASS | Database Password  |  |
+| AUTO_RECONNECT | If true, Make Mysql and MairaDB auto reconnect to the database when disconnected  | false |
 | SERVER_LIMIT | How many servers a new player can have in their serverlist  | 100 |
 | NODB | If true, use JSON files for data instead of MySQL | false |
 | KICK_INACTIVE | If true, players will be kicked after 10 minutes of inactivity with the serverlist UI | true |
@@ -95,9 +97,9 @@ services:
     image: strausmann/minecraft-bedrock-connect:2
     restart: always
     environment:
-      NODB: "true"
-      CUSTOM_SERVERS: "/config/serverlist.json"
-      SERVER_LIMIT: 25
+      - NODB=true
+      - CUSTOM_SERVERS=/config/serverlist.json
+      - SERVER_LIMIT=25
     ports:
       - 19132:19132/udp
     volumes:
@@ -106,7 +108,6 @@ services:
 volumes:
   bedrockconnect:
     driver: local
-
 ```
 
 ### 🐳 Deploying with Docker Compose and MySQL Backend
@@ -118,12 +119,13 @@ services:
     image: strausmann/minecraft-bedrock-connect:2
     restart: always
     environment:
-      MYSQL_HOST: "db"
-      MYSQL_USER: "bedrock"
-      MYSQL_PASS: "bedrock"
-      MYSQL_DB: "bedrock"
-      CUSTOM_SERVERS: "/config/serverlist.json"
-      SERVER_LIMIT: 25
+      - DB_TYPE=mysql
+      - DB_HOST=db
+      - DB_USER=bedrock
+      - DB_PASS=bedrock
+      - DB_DB=bedrock
+      - CUSTOM_SERVERS=/config/serverlist.json
+      - SERVER_LIMIT=25
     ports:
       - 19132:19132/udp
     depends_on:
@@ -152,7 +154,6 @@ volumes:
     driver: local
   bedrockconnect_database:
     driver: local
-
 ```
 
 ## Volumes

@@ -16,7 +16,7 @@ end_of_line = lf
 [*.md]
 max_line_length = off
 trim_trailing_whitespace = false
-indent_size = 1
+indent_size = 2
 
 [{*.{json,yml,yaml},.{babel,husky,prettier}rc}]
 indent_size = 2
