@@ -28,11 +28,16 @@ mega-linter:
       - megalinter-reports
     expire_in: 1 week
   allow_failure: false
-  rules:
-    - if: $CI_PIPELINE_SOURCE == "merge_request_event"
-    - if: $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH
   tags:
     - dind
+  rules:
+    # Trigger bei jedem Push in einen Branch, bis auf den Main Branch
+    - if: '$CI_COMMIT_BRANCH'
+    # Trigger nach einem Commit in einen Merge Request
+    - if: '$CI_PIPELINE_SOURCE == "merge_request_event"'
+    # Niemals doppelte Pipelines wenn man einen Merge Request erstellt hat
+    - if: '$CI_COMMIT_BRANCH && $CI_OPEN_MERGE_REQUESTS'
+      when: never
 
 .create_multi_arch_image:
   image: docker:27.2.0
@@ -92,15 +97,11 @@ docker_build:
         docker manifest inspect ${DOCKERHUB_IMAGE}:${CI_COMMIT_REF_SLUG}
       fi
   rules:
-    - if: '$CI_PIPELINE_SOURCE == "merge_request_event"'
-      when: never
-    - if: '$CI_COMMIT_TAG'
-      changes:
-        - image/**/*
+    # Trigger bei jedem Push in einen Branch, bis auf den Main Branch
     - if: '$CI_COMMIT_BRANCH != $CI_DEFAULT_BRANCH'
-      changes:
-        - image/Dockerfile
-        - .gitlab-ci.yml
+    # Trigger nach einem Commit in einen Merge Request
+    - if: '$CI_PIPELINE_SOURCE == "merge_request_event"'
+    # Niemals doppelte Pipelines wenn man einen Merge Request erstellt hat
     - if: '$CI_COMMIT_BRANCH && $CI_OPEN_MERGE_REQUESTS'
       when: never
 
