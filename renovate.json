@@ -1,8 +1,6 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
-  "extends": [
-    "local>renovate/renovate-config"
-  ],
+  "extends": ["local>renovate/renovate-config"],
   "vulnerabilityAlerts": {
     "labels": ["security"],
     "automerge": true
