@@ -5,6 +5,24 @@ All notable changes to the **Bedrock Connect** Docker Image, published on Docker
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [2.5.0](https://git.strausmann.de/minecraft/bedrock-connect/compare/2.4.2...2.5.0) (2024-09-09)
+
+### ✨ Features
+
+* **image:** Change mysql_ to db_ and add auto_reconnect ([f39e90f](https://git.strausmann.de/minecraft/bedrock-connect/commit/f39e90fe1ac43cb0593d3c1466e2f9b97aa50d38)), closes [#33](https://git.strausmann.de/minecraft/bedrock-connect/issues/33)
+
+### 🐛 Bug Fixes
+
+* **ci:** Fixe the Rules for the Pipeline "docker_build" ([5a5146f](https://git.strausmann.de/minecraft/bedrock-connect/commit/5a5146f4c14d822e7755f1157cf01844541772cb))
+* **deps:** update dependency itzg/mc-monitor to v0.14.0 ([33bb6ba](https://git.strausmann.de/minecraft/bedrock-connect/commit/33bb6ba85f931a590a1238cc30c8ef45a9e48a81))
+* **deps:** Update openjdk base image ([a68b0cd](https://git.strausmann.de/minecraft/bedrock-connect/commit/a68b0cd7250a45f79a808875b01897d40404528b))
+* **image:** Update dependencies and README.md ([c94843f](https://git.strausmann.de/minecraft/bedrock-connect/commit/c94843f7c86a80acb52576c5579ff622340fba9e))
+
+### ♻️ Chores
+
+* **deps:** update dependency renovate to v38.72.0 ([1bd5c88](https://git.strausmann.de/minecraft/bedrock-connect/commit/1bd5c883895743d54694dd525fabda9c0924a3a2))
+* **deps:** update dependency renovate to v38.72.1 ([f45425a](https://git.strausmann.de/minecraft/bedrock-connect/commit/f45425a3551a7d043bb6f4cc79cb58ba9627c648))
+
 ## [2.4.2](https://git.strausmann.de/minecraft/bedrock-connect/compare/2.4.1...2.4.2) (2024-09-07)
 
 ### 🐛 Bug Fixes
