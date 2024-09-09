@@ -65,6 +65,14 @@ mega-linter:
     # Starting QEMU User Static Container and Build the MultiArch Container
     - docker run --rm --privileged multiarch/qemu-user-static --reset -p yes
     - docker buildx create --driver=docker-container --use --name job-$CI_JOB_ID
+    - |
+      if [[ "$CI_COMMIT_BRANCH" == "$CI_DEFAULT_BRANCH" ]]; then
+        # Get a CVE report for the built image and fail the pipeline when critical or high CVEs are detected
+        docker scout cves "$CI_REGISTRY_IMAGE${tag}" --exit-code --only-severity critical,high
+      else
+        # Compare image from branch with latest image from the default branch and fail if new critical or high CVEs are detected
+        docker scout compare "$CI_REGISTRY_IMAGE${tag}" --to "$CI_REGISTRY_IMAGE:latest" --exit-code --only-severity critical,high --ignore-unchanged
+      fi
     - docker buildx inspect --bootstrap
   after_script:
     - docker logout
