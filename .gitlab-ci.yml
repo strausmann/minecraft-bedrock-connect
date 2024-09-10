@@ -125,9 +125,11 @@ sonarcloud-check:
       - .sonar/cache
   script:
     - sonar-scanner
-  only:
-    - merge_requests
-    - main
+  tags:
+    - dind
+  rules:
+    # Trigger bei jedem Push in einen Branch
+    - if: $CI_PIPELINE_SOURCE == "push" && $CI_COMMIT_BRANCH
 
 release:
   image: node:21.7.3@sha256:4b232062fa976e3a966c49e9b6279efa56c8d207a67270868f51b3d155c4e33d
