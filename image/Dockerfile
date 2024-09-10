@@ -45,6 +45,8 @@ RUN apt-get update \
     perl \
     krb5 \
     libgcrypt20 \
+    glibc \
+    shadow \
     gcc-12 \
     nghttp2 \
     || true \
