@@ -1,7 +1,7 @@
 ARG BUILD_FROM=openjdk:24-ea-jdk-slim-bookworm
 FROM ${BUILD_FROM}
 
-ARG APT_UPDATE=20240902.1 \
+ARG APT_UPDATE=20240910.1 \
     UID=1000 \
     GID=1000 \
     UNAME=bdc \
@@ -13,13 +13,13 @@ ARG APT_UPDATE=20240902.1 \
     VCS_REF
 
 # renovate: datasource=github-releases depName=itzg/easy-add versioning=loose
-ARG BIN_EASY_ADD_VERSION=0.8.7
+ARG BIN_EASY_ADD_VERSION=0.8.8
 
 # renovate: datasource=github-releases depName=itzg/mc-monitor versioning=loose
-ARG BIN_MC_MONITOR_VERSION=0.14.0
+ARG BIN_MC_MONITOR_VERSION=0.14.1
 
 # renovate: datasource=github-releases depName=itzg/entrypoint-demoter versioning=loose extractVersion=(^v(?<version>.*)$)
-ARG BIN_ENTRYPOINT_DEMOTER_VERSION=0.4.5
+ARG BIN_ENTRYPOINT_DEMOTER_VERSION=0.4.6
 
 # renovate: datasource=repology depName=debian12/curl versioning=debian
 ARG DEBIAN_CURL_VERSION=7.88.1-10+deb12u7
