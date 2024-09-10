@@ -13,7 +13,7 @@ ARG APT_UPDATE=20240910.1 \
     VCS_REF
 
 # renovate: datasource=github-releases depName=itzg/easy-add versioning=loose
-ARG BIN_EASY_ADD_VERSION=0.8.7
+ARG BIN_EASY_ADD_VERSION=0.8.8
 
 # renovate: datasource=github-releases depName=itzg/mc-monitor versioning=loose
 ARG BIN_MC_MONITOR_VERSION=0.14.0
