@@ -2,9 +2,6 @@ ARG BUILD_FROM=openjdk:24-ea-jdk-slim-bookworm
 FROM ${BUILD_FROM}
 
 ARG APT_UPDATE=20240910.1 \
-    UID=1000 \
-    GID=1000 \
-    UNAME=bdc \
     BRC_VERSION \
     TARGETARCH \
     CI_BUILD \
@@ -12,6 +9,10 @@ ARG APT_UPDATE=20240910.1 \
     BUILD_VERSION \
     VCS_REF \
     BUILD_FROM
+
+ARG USERNAME=bedrock
+ARG USER_UID=1000
+ARG USER_GID=$USER_UID
 
 # renovate: datasource=github-releases depName=itzg/easy-add versioning=loose
 ARG BIN_EASY_ADD_VERSION=0.8.8
@@ -45,9 +46,12 @@ RUN apt-get update \
     jq="${DEBIAN_JQ_VERSION}" \
     nano="${DEBIAN_NANO_VERSION}" \
     procps="${DEBIAN_PROCPS_VERSION}" \
+    sudo \
     && DEBIAN_FRONTEND=noninteractive apt-get upgrade -y \
     && apt-get clean \
-    && rm -rf /var/lib/apt/lists/*
+    && rm -rf /var/lib/apt/lists/* \
+    && echo $USERNAME ALL=\(root\) NOPASSWD:ALL > /etc/sudoers.d/$USERNAME \
+    && chmod 0440 /etc/sudoers.d/$USERNAME
 
 ADD https://github.com/itzg/easy-add/releases/download/${BIN_EASY_ADD_VERSION}/easy-add_linux_${TARGETARCH} /usr/local/bin/easy-add
 
@@ -56,15 +60,19 @@ RUN mkdir -p /docker/brc && mkdir -p /config && chmod 664 /config \
     && easy-add --var version=${BIN_ENTRYPOINT_DEMOTER_VERSION} --var app=entrypoint-demoter --file {{.app}} --from https://github.com/itzg/{{.app}}/releases/download/v{{.version}}/{{.app}}_{{.version}}_linux_${TARGETARCH}.tar.gz \
     && easy-add --var version=${BIN_MC_MONITOR_VERSION} --var app=mc-monitor --file {{.app}} --from https://github.com/itzg/{{.app}}/releases/download/{{.version}}/{{.app}}_{{.version}}_linux_${TARGETARCH}.tar.gz
 
+RUN groupadd --gid $USER_GID $USERNAME \
+    && useradd --uid $USER_UID --gid $USER_GID -m $USERNAME \
+    && chown $USERNAME:$USERNAME /docker/brc
+
 COPY *.sh /opt/
 
 EXPOSE 19132/udp
 
-VOLUME [ "/data" ]
+USER $USERNAME
 
-WORKDIR /data
+WORKDIR /home/$USERNAME
 
-ENTRYPOINT ["/usr/local/bin/entrypoint-demoter", "--match", "/data", "--debug", "--stdin-on-term", "stop", "/opt/bedrock-entry.sh"]
+ENTRYPOINT ["/usr/local/bin/entrypoint-demoter", "--match", "/home/bedrock", "--debug", "--stdin-on-term", "stop", "/opt/bedrock-entry.sh"]
 
 HEALTHCHECK --start-period=1m CMD /usr/local/bin/mc-monitor status-bedrock --host 127.0.0.1 --port 19132
 
