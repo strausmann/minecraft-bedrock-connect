@@ -1,7 +1,7 @@
 ARG BUILD_FROM=openjdk:24-ea-jdk-slim-bookworm
 FROM ${BUILD_FROM}
 
-ARG APT_UPDATE=20240902.1 \
+ARG APT_UPDATE=20240910.1 \
     UID=1000 \
     GID=1000 \
     UNAME=bdc \
