@@ -10,7 +10,8 @@ ARG APT_UPDATE=20240910.1 \
     CI_BUILD \
     BUILD_DATE \
     BUILD_VERSION \
-    VCS_REF
+    VCS_REF \
+    BUILD_FROM
 
 # renovate: datasource=github-releases depName=itzg/easy-add versioning=loose
 ARG BIN_EASY_ADD_VERSION=0.8.8
