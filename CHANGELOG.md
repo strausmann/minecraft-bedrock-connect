@@ -5,6 +5,24 @@ All notable changes to the **Bedrock Connect** Docker Image, published on Docker
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [2.5.1](https://git.strausmann.de/minecraft/bedrock-connect/compare/2.5.0...2.5.1) (2024-09-10)
+
+### 🐛 Bug Fixes
+
+* **deps:** update dependencies by apt ([7ed2ab5](https://git.strausmann.de/minecraft/bedrock-connect/commit/7ed2ab595adcebdd80ec943d2b8a654842175467))
+* **deps:** update dependency itzg/easy-add to v0.8.8 ([b6e25e8](https://git.strausmann.de/minecraft/bedrock-connect/commit/b6e25e8184281576267e9ec05ecb9ecd06fe762a))
+* **deps:** update dependency itzg/entrypoint-demoter to v0.4.6 ([464ca16](https://git.strausmann.de/minecraft/bedrock-connect/commit/464ca16787a8657d83419aa38b227438407d7e26))
+* **deps:** update dependency itzg/mc-monitor to v0.14.1 ([edb2e35](https://git.strausmann.de/minecraft/bedrock-connect/commit/edb2e355c08cd47bf9b1220c70d6f2d8c9284205))
+
+### ♻️ Chores
+
+* **deps:** update dependency renovate to v38.72.2 ([6bd1590](https://git.strausmann.de/minecraft/bedrock-connect/commit/6bd159073e6790e299077d28af25df6a7dc99584))
+
+### 🦊 CI/CD
+
+* **scout:** Integrate Docker Scout in the build process ([2a893a7](https://git.strausmann.de/minecraft/bedrock-connect/commit/2a893a7ce0f763d7009490ac3b661643efdca885)), closes [#34](https://git.strausmann.de/minecraft/bedrock-connect/issues/34)
+* **sonarcloud:** Integrate Sonarcloud in the build process ([91ddf2a](https://git.strausmann.de/minecraft/bedrock-connect/commit/91ddf2a1dedd006c61dd3fbcda64ff84a406b26b))
+
 ## [2.5.0](https://git.strausmann.de/minecraft/bedrock-connect/compare/2.4.2...2.5.0) (2024-09-09)
 
 ### ✨ Features
