@@ -16,7 +16,7 @@
     "semantic-release": "24.1.1",
     "semantic-release-license": "1.0.3",
     "semantic-release-telegram-bot": "2.0.1",
-    "renovate": "38.94.2"
+    "renovate": "38.94.3"
   },
   "scripts": {
     "prettier": "prettier --check --ignore-unknown \"**/*.*\"",
