@@ -5,6 +5,43 @@ All notable changes to the **Bedrock Connect** Docker Image, published on Docker
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [2.5.2](https://git.strausmann.de/minecraft/bedrock-connect/compare/2.5.1...2.5.2) (2024-10-07)
+
+### 🐛 Bug Fixes
+
+* **deps:** update dependency npm to v10.9.0 ([1d362b3](https://git.strausmann.de/minecraft/bedrock-connect/commit/1d362b3a0cbb84ffaf9b80f63c2f09a5194a0c70))
+
+### ♻️ Chores
+
+* **deps:** update dependency renovate to v38.101.0 ([6a518a9](https://git.strausmann.de/minecraft/bedrock-connect/commit/6a518a960e4864626ede2f815e29f27ceb053b0f))
+* **deps:** update dependency renovate to v38.101.1 ([e2e29a9](https://git.strausmann.de/minecraft/bedrock-connect/commit/e2e29a9c41797778057b521216e964cde49ff1ab))
+* **deps:** update dependency renovate to v38.105.0 ([bf19bda](https://git.strausmann.de/minecraft/bedrock-connect/commit/bf19bda8665dbef0b62c60239e2cf5a7d33189d1))
+* **deps:** update dependency renovate to v38.105.2 ([39a11a8](https://git.strausmann.de/minecraft/bedrock-connect/commit/39a11a84250b9bec887e575423a0bd415f13ef60))
+* **deps:** update dependency renovate to v38.106.4 ([2d5205a](https://git.strausmann.de/minecraft/bedrock-connect/commit/2d5205afd8da5883434db5b4ff8cfcf01549975e))
+* **deps:** update dependency renovate to v38.107.1 ([b1d6e29](https://git.strausmann.de/minecraft/bedrock-connect/commit/b1d6e29c3459e86b2c34e08a05afddbbfddf20a7))
+* **deps:** update dependency renovate to v38.110.2 ([5bc9946](https://git.strausmann.de/minecraft/bedrock-connect/commit/5bc99461bed9f0553035d9bf77811a6c566061fb))
+* **deps:** update dependency renovate to v38.74.1 ([cd920d0](https://git.strausmann.de/minecraft/bedrock-connect/commit/cd920d09a308015bf1116d409ad52e31f5632bae))
+* **deps:** update dependency renovate to v38.77.6 ([92046bd](https://git.strausmann.de/minecraft/bedrock-connect/commit/92046bd6ba870b69ea4e8e5ecccaf6f2206edf6b))
+* **deps:** update dependency renovate to v38.79.0 ([00481b5](https://git.strausmann.de/minecraft/bedrock-connect/commit/00481b568f1268b50d7a3c535ea80b17d74837fa))
+* **deps:** update dependency renovate to v38.80.0 ([b22ad45](https://git.strausmann.de/minecraft/bedrock-connect/commit/b22ad450e04fdec5dbbd7d439d7473c60143f063))
+* **deps:** update dependency renovate to v38.84.0 ([9e830b8](https://git.strausmann.de/minecraft/bedrock-connect/commit/9e830b8f3e4a65f86ab1f22d0b93a74eeb8143f7))
+* **deps:** update dependency renovate to v38.86.0 ([0376bb6](https://git.strausmann.de/minecraft/bedrock-connect/commit/0376bb65c36c62fde940bca46b5fefd6b13b94e5))
+* **deps:** update dependency renovate to v38.88.2 ([0713387](https://git.strausmann.de/minecraft/bedrock-connect/commit/0713387f4c507c486a962fef89b3391c3058104a))
+* **deps:** update dependency renovate to v38.91.1 ([aff83fa](https://git.strausmann.de/minecraft/bedrock-connect/commit/aff83fa76ba6cdc4751ee2cf27e7595ab2ba5456))
+* **deps:** update dependency renovate to v38.91.4 ([90ba927](https://git.strausmann.de/minecraft/bedrock-connect/commit/90ba927f0ae1cd707141e1234c3a7d608f14ae31))
+* **deps:** update dependency renovate to v38.93.0 ([571da42](https://git.strausmann.de/minecraft/bedrock-connect/commit/571da4225c8edefd67193ebb168ca84e372fd9ed))
+* **deps:** update dependency renovate to v38.93.2 ([258b0d3](https://git.strausmann.de/minecraft/bedrock-connect/commit/258b0d328fcbbffd88dc3110074a78a17010564d))
+* **deps:** update dependency renovate to v38.94.2 ([8dadd30](https://git.strausmann.de/minecraft/bedrock-connect/commit/8dadd30ef473a39a26aad600b1d39fd88de15324))
+* **deps:** update dependency renovate to v38.94.3 ([3377458](https://git.strausmann.de/minecraft/bedrock-connect/commit/33774587040a78836f709d1226eec1ca9aa8be49))
+* **deps:** update dependency renovate to v38.95.4 ([d9ece74](https://git.strausmann.de/minecraft/bedrock-connect/commit/d9ece74a7d3ff71bda9da1efa484a7ca36a88918))
+* **deps:** update dependency renovate to v38.97.1 ([3b87f1f](https://git.strausmann.de/minecraft/bedrock-connect/commit/3b87f1fe26c51d4c6abd5f6e8b8ee331bfa055ca))
+* **deps:** update devdependencies (non-major) ([901dad9](https://git.strausmann.de/minecraft/bedrock-connect/commit/901dad9275574c57679f4916a3e4e17f6331d087))
+* **deps:** update devdependencies (non-major) ([14ec453](https://git.strausmann.de/minecraft/bedrock-connect/commit/14ec453b4a68e87edb571848e6c006a2930a9b80))
+* **deps:** update devdependencies (non-major) ([3103d8e](https://git.strausmann.de/minecraft/bedrock-connect/commit/3103d8e09f61f5584bc4eb4bb5821f9308d53045))
+* **deps:** update docker docker tag to v27.2.1 ([9b3f74e](https://git.strausmann.de/minecraft/bedrock-connect/commit/9b3f74ec74f75745de213e2ffa3a14f839d4283f))
+* **deps:** update docker docker tag to v27.3.0 ([26a563b](https://git.strausmann.de/minecraft/bedrock-connect/commit/26a563b978eb4e755bab778f1f59b452676beafe))
+* **deps:** update docker docker tag to v27.3.1 ([434af0e](https://git.strausmann.de/minecraft/bedrock-connect/commit/434af0e5d6eb07658a37ab137de5a063b630c81e))
+
 ## [2.5.1](https://git.strausmann.de/minecraft/bedrock-connect/compare/2.5.0...2.5.1) (2024-09-10)
 
 ### 🐛 Bug Fixes
