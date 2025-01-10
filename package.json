@@ -2,21 +2,18 @@
   "name": "bedrock-connect",
   "devDependencies": {
     "@codedependant/semantic-release-docker": "5.0.3",
-    "@commitlint/cli": "19.5.0",
-    "@commitlint/config-conventional": "19.5.0",
-    "@commitlint/cz-commitlint": "19.5.0",
+    "@commitlint/cli": "19.6.1",
+    "@commitlint/config-conventional": "19.6.0",
+    "@commitlint/cz-commitlint": "19.6.1",
     "@semantic-release/changelog": "6.0.3",
     "@semantic-release/git": "10.0.1",
-    "@semantic-release/gitlab": "13.2.1",
+    "@semantic-release/gitlab": "13.2.3",
     "commitizen": "4.3.1",
     "conventional-changelog-conventionalcommits": "8.0.0",
-    "husky": "9.1.6",
-    "inquirer": "9.3.7",
-    "prettier": "3.3.3",
-    "semantic-release": "24.2.0",
+    "prettier": "3.4.2",
+    "semantic-release": "24.2.1",
     "semantic-release-license": "1.0.3",
-    "semantic-release-telegram-bot": "2.0.1",
-    "renovate": "39.15.3"
+    "semantic-release-telegram-bot": "2.0.1"
   },
   "scripts": {
     "prettier": "prettier --check --ignore-unknown \"**/*.*\"",
@@ -29,6 +26,6 @@
     }
   },
   "dependencies": {
-    "npm": "10.9.0"
+    "npm": "11.0.0"
   }
 }
