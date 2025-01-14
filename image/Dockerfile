@@ -1,7 +1,7 @@
 ARG BUILD_FROM=openjdk:24-ea-jdk-slim-bookworm
 FROM ${BUILD_FROM}
 
-ARG APT_UPDATE=20240910.1 \
+ARG APT_UPDATE=20250114.1 \
     BRC_VERSION \
     TARGETARCH \
     CI_BUILD \
@@ -24,7 +24,7 @@ ARG BIN_MC_MONITOR_VERSION=0.15.0
 ARG BIN_ENTRYPOINT_DEMOTER_VERSION=0.4.6
 
 # renovate: datasource=repology depName=debian12/curl versioning=debian
-ARG DEBIAN_CURL_VERSION=7.88.1-10+deb12u7
+ARG DEBIAN_CURL_VERSION=7.88.1-10+deb12u8
 
 # renovate: datasource=repology depName=debian12/unzip versioning=debian
 ARG DEBIAN_UNZIP_VERSION=6.0-28
