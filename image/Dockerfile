@@ -18,7 +18,7 @@ ARG USER_GID=$USER_UID
 ARG BIN_EASY_ADD_VERSION=0.8.8
 
 # renovate: datasource=github-releases depName=itzg/mc-monitor versioning=loose
-ARG BIN_MC_MONITOR_VERSION=0.15.0
+ARG BIN_MC_MONITOR_VERSION=0.15.1
 
 # renovate: datasource=github-releases depName=itzg/entrypoint-demoter versioning=loose extractVersion=(^v(?<version>.*)$)
 ARG BIN_ENTRYPOINT_DEMOTER_VERSION=0.4.6
