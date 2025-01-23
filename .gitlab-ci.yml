@@ -135,7 +135,7 @@ sonarcloud-check:
     - if: $CI_PIPELINE_SOURCE == "push" && $CI_COMMIT_BRANCH
 
 release:
-  image: node:22.11.0@sha256:5c76d05034644fa8ecc9c2aa84e0a83cd981d0ef13af5455b87b9adf5b216561
+  image: node:22.13.1@sha256:217e082c8497dd55b5bf9643c216cbafee2ed3c41cc7074ad440187deff2c64b
   stage: release
   cache:
     key:
