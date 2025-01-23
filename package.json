@@ -1,7 +1,7 @@
 {
   "name": "bedrock-connect",
   "devDependencies": {
-    "@codedependant/semantic-release-docker": "5.0.4",
+    "@codedependant/semantic-release-docker": "5.1.0",
     "@commitlint/cli": "19.6.1",
     "@commitlint/config-conventional": "19.6.0",
     "@commitlint/cz-commitlint": "19.6.1",
