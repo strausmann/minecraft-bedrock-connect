@@ -17,6 +17,13 @@
         "ARG BUILD_FROM=(?<depName>.*?):(?<currentValue>.*?)\\s+"
       ],
       "datasourceTemplate": "docker"
+    },
+    {
+      "fileMatch": ["(^|/)\\.gitlab-ci\\.yml$"],
+      "matchStringsStrategy": "any",
+      "matchStrings": ["BUILDX_VERSION:\\s+\"(?<currentValue>v[0-9.]+)\""],
+      "datasourceTemplate": "github-releases",
+      "depNameTemplate": "docker/buildx"
     }
   ],
   "packageRules": [
@@ -39,6 +46,16 @@
       "semanticCommitType": "fix",
       "semanticCommitScope": "deps",
       "pinDigests": false,
+      "automerge": true
+    },
+    {
+      "description": "Update Docker Buildx Version",
+      "groupName": "Docker Buildx updates",
+      "matchDatasources": ["github-releases"],
+      "matchPackageNames": ["docker/buildx"],
+      "semanticCommitType": "chore",
+      "semanticCommitScope": "deps",
+      "pinDigests": true,
       "automerge": true
     }
   ]
