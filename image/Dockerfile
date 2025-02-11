@@ -1,7 +1,8 @@
-ARG BUILD_FROM=openjdk:24-ea-jdk-slim-bookworm
+# renovate: datasource=docker depName=openjdk versioning=loose
+ARG BUILD_FROM=openjdk:24-ea-jdk-slim-bookworm@sha256:526390de8c0d9607e8d8a8f39d9fb192c50b29e065db2251aae0e4ee3c1e3f26
 FROM ${BUILD_FROM}
 
-ARG APT_UPDATE=20250114.1 \
+ARG APT_UPDATE=20250211.1 \
     BRC_VERSION \
     TARGETARCH \
     CI_BUILD \
