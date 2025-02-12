@@ -65,6 +65,7 @@ mega-linter:
     - docker buildx inspect --bootstrap
   after_script:
     - docker logout
+    - docker rm buildx_buildkit_job-${CI_JOB_ID}0 --force || true
   tags:
     - cq-sans-dind
 
