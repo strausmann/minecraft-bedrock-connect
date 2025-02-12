@@ -16,13 +16,13 @@ ARG USER_UID=1000
 ARG USER_GID=$USER_UID
 
 # renovate: datasource=github-releases depName=itzg/easy-add versioning=loose
-ARG BIN_EASY_ADD_VERSION=0.8.8
+ARG BIN_EASY_ADD_VERSION=0.8.9
 
 # renovate: datasource=github-releases depName=itzg/mc-monitor versioning=loose
-ARG BIN_MC_MONITOR_VERSION=0.15.2
+ARG BIN_MC_MONITOR_VERSION=0.15.3
 
 # renovate: datasource=github-releases depName=itzg/entrypoint-demoter versioning=loose extractVersion=(^v(?<version>.*)$)
-ARG BIN_ENTRYPOINT_DEMOTER_VERSION=0.4.6
+ARG BIN_ENTRYPOINT_DEMOTER_VERSION=0.4.7
 
 # renovate: datasource=repology depName=debian12/curl versioning=debian
 ARG DEBIAN_CURL_VERSION=7.88.1-10+deb12u8
