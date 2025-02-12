@@ -5,6 +5,29 @@ All notable changes to the **Bedrock Connect** Docker Image, published on Docker
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [2.5.8](https://git.strausmann.de/minecraft/bedrock-connect/compare/2.5.7...2.5.8) (2025-02-12)
+
+### 🐛 Bug Fixes
+
+* **deps:** update itzg ([3c470fb](https://git.strausmann.de/minecraft/bedrock-connect/commit/3c470fbb54f5191af46dab3b29db4cffcf95e28a))
+
+### ♻️ Chores
+
+* **deps:** update dependency docker/buildx to v0.20.1 ([60af0dc](https://git.strausmann.de/minecraft/bedrock-connect/commit/60af0dca192491471706fa13fad3eb550aeb9eba))
+* **deps:** update dependency prettier to v3.5.0 ([1f083f9](https://git.strausmann.de/minecraft/bedrock-connect/commit/1f083f953bcc04b4101e3b4e1991567e28cde5d5))
+* **deps:** update dependency semantic-release to v24.2.2 ([3cb0d4d](https://git.strausmann.de/minecraft/bedrock-connect/commit/3cb0d4d4df491000a7fd6e2a396df787ad506cb5))
+* **deps:** Update Gitpod dependencies and base image ([9eb7f5d](https://git.strausmann.de/minecraft/bedrock-connect/commit/9eb7f5d88d350d54a7e161d7161c4fd9def0a0b5))
+* **deps:** update node dependencies ([96521a9](https://git.strausmann.de/minecraft/bedrock-connect/commit/96521a9574418e0aa2feb9523d2f687d5eb3f9aa))
+* **deps:** update node.js to 5145c88 ([5fbb08f](https://git.strausmann.de/minecraft/bedrock-connect/commit/5fbb08f221089c64c6eaba5343134997a51c87c2))
+
+### 🛠 Build
+
+* **deps:** Pin BUILD_FROM Image to MultiArch Image ([41ee15f](https://git.strausmann.de/minecraft/bedrock-connect/commit/41ee15fe54428ec8df08b74a1660340490fe0a66))
+
+### 🦊 CI/CD
+
+* **deps:** Update buildx renovate detection ([6cf8750](https://git.strausmann.de/minecraft/bedrock-connect/commit/6cf8750cbfe78606956da6f0a65451554daa4124))
+
 ## [2.5.7](https://git.strausmann.de/minecraft/bedrock-connect/compare/2.5.6...2.5.7) (2025-02-05)
 
 ### 🐛 Bug Fixes
