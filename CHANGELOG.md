@@ -5,6 +5,24 @@ All notable changes to the **Bedrock Connect** Docker Image, published on Docker
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [2.5.9](https://git.strausmann.de/minecraft/bedrock-connect/compare/2.5.8...2.5.9) (2025-04-09)
+
+### 🐛 Bug Fixes
+
+* **deps:** update dependency npm to v11.3.0 ([2e351e7](https://git.strausmann.de/minecraft/bedrock-connect/commit/2e351e7f53d2ce991e783e4aba1beabbdc3084ad))
+
+### ♻️ Chores
+
+* **deps:** update dependency docker/buildx to v0.21.0 ([1ea77bd](https://git.strausmann.de/minecraft/bedrock-connect/commit/1ea77bde07a4221c9e9547749e2fe1b81efbe56a))
+* **deps:** update dependency docker/buildx to v0.21.1 ([4b73368](https://git.strausmann.de/minecraft/bedrock-connect/commit/4b73368ddbbc4d4cf19fe8e5b65814b27a13790a))
+* **deps:** update dependency prettier to v3.5.1 ([d2bf4ca](https://git.strausmann.de/minecraft/bedrock-connect/commit/d2bf4ca4f2f38e380bffc8c51e224725de5b2b06))
+* **deps:** update dependency prettier to v3.5.2 ([e4d60f5](https://git.strausmann.de/minecraft/bedrock-connect/commit/e4d60f5a97c7e2314742017c18af69c9a56fdeaa))
+* **deps:** update dependency semantic-release to v24.2.3 ([82af226](https://git.strausmann.de/minecraft/bedrock-connect/commit/82af226dc53d22f83b2f6827cea930433e855f98))
+* **deps:** update docker docker tag to v28 ([a29f595](https://git.strausmann.de/minecraft/bedrock-connect/commit/a29f595e44ec53490e21e75295a481761f170456))
+* **deps:** update docker docker tag to v28.0.1 ([e2ea675](https://git.strausmann.de/minecraft/bedrock-connect/commit/e2ea6754646c5da34aaf932c1dffd45c24ba2482))
+* **deps:** update node.js to f6b9c31 ([aebed34](https://git.strausmann.de/minecraft/bedrock-connect/commit/aebed34fc8186c8629438a3bf12739f3566f8a32))
+* **deps:** update node.js to v22.14.0 ([be6b578](https://git.strausmann.de/minecraft/bedrock-connect/commit/be6b578ec1ed5e1ff4645e7a8f95378766139ffb))
+
 ## [2.5.8](https://git.strausmann.de/minecraft/bedrock-connect/compare/2.5.7...2.5.8) (2025-02-12)
 
 ### 🐛 Bug Fixes
