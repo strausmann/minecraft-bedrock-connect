@@ -9,7 +9,7 @@ variables:
   http_proxy: ''
   https_proxy: ''
   no_proxy: ''
-  BUILDX_VERSION: "v0.21.3"  # 🛠 Version von Renovate aktualisieren lassen
+  BUILDX_VERSION: "v0.22.0"  # 🛠 Version von Renovate aktualisieren lassen
 
 mega-linter:
   stage: lint
