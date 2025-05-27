@@ -5,6 +5,27 @@ All notable changes to the **Bedrock Connect** Docker Image, published on Docker
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [2.5.10](https://git.strausmann.de/minecraft/bedrock-connect/compare/2.5.9...2.5.10) (2025-05-27)
+
+### 🐛 Bug Fixes
+
+* **deps:** update dependency npm to v11.4.1 ([f14803c](https://git.strausmann.de/minecraft/bedrock-connect/commit/f14803c87b958cf2e56b646c51ae0b226cdba513))
+* **deps:** update itzg ([27fdbeb](https://git.strausmann.de/minecraft/bedrock-connect/commit/27fdbeb6b9b0cc677c05378cafce13ffff16da19))
+
+### ♻️ Chores
+
+* **deps:** update dependency conventional-changelog-conventionalcommits to v9 ([77308db](https://git.strausmann.de/minecraft/bedrock-connect/commit/77308db8e08913d904c7ce7793c06f2b61793a02))
+* **deps:** update dependency docker/buildx to v0.21.3 ([a425d26](https://git.strausmann.de/minecraft/bedrock-connect/commit/a425d265dda04f8eafc63baa140405c11c862a43))
+* **deps:** update dependency docker/buildx to v0.22.0 ([2029470](https://git.strausmann.de/minecraft/bedrock-connect/commit/202947078ceb6e4c5801e3515ed7a7190f147ed0))
+* **deps:** update dependency docker/buildx to v0.24.0 ([b2b017b](https://git.strausmann.de/minecraft/bedrock-connect/commit/b2b017b9a78da397b17c089edb82bf4636fcd427))
+* **deps:** update devdependencies (non-major) ([1bf2c3e](https://git.strausmann.de/minecraft/bedrock-connect/commit/1bf2c3e5653414bf1b4ecf850d2e3a0cd30b5032))
+* **deps:** update devdependencies (non-major) ([54a18e0](https://git.strausmann.de/minecraft/bedrock-connect/commit/54a18e0c17923313c476c4c652b203983ed30e07))
+* **deps:** update devdependencies (non-major) to v19.8.1 ([e4bf4d9](https://git.strausmann.de/minecraft/bedrock-connect/commit/e4bf4d94a0cab0add30dfa852684f0ea392efd19))
+* **deps:** update docker docker tag to v28.0.4 ([e7c9598](https://git.strausmann.de/minecraft/bedrock-connect/commit/e7c95982c4e3c460316e830cb1d2b1e5ad303bf0))
+* **deps:** update node.js to e5ddf89 ([bd52b1f](https://git.strausmann.de/minecraft/bedrock-connect/commit/bd52b1f298efcfb90524c998af852a8dd1a2534a))
+* **deps:** update node.js to v22.15.0 ([6feb026](https://git.strausmann.de/minecraft/bedrock-connect/commit/6feb0269aad9b81a9a3c3e0669e94d4547cd4d5b))
+* **deps:** update node.js to v22.16.0 ([8683c9b](https://git.strausmann.de/minecraft/bedrock-connect/commit/8683c9b045f9d67ad93139c066058b13dfd4dcac))
+
 ## [2.5.9](https://git.strausmann.de/minecraft/bedrock-connect/compare/2.5.8...2.5.9) (2025-04-09)
 
 ### 🐛 Bug Fixes
