@@ -36,9 +36,9 @@ mega-linter:
     - if: $CI_PIPELINE_SOURCE == "push" && $CI_COMMIT_BRANCH
 
 .create_multi_arch_image:
-  image: docker:28.0.1
+  image: docker:28.0.4
   services:
-    - name: docker:28.0.1-dind
+    - name: docker:28.0.4-dind
       command: ['--experimental']
       alias: 'docker'
   variables:
