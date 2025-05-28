@@ -27,6 +27,9 @@ ARG BIN_ENTRYPOINT_DEMOTER_VERSION=0.4.7
 # renovate: datasource=repology depName=debian12/curl versioning=debian
 ARG DEBIAN_CURL_VERSION=7.88.1-10+deb12u8
 
+# renovate: suite=bockworm depName=curl
+ARG CURL_VERSION=7.88.1-10+deb12u8
+
 # renovate: datasource=repology depName=debian12/unzip versioning=debian
 ARG DEBIAN_UNZIP_VERSION=6.0-28
 
