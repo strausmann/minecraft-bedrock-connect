@@ -5,38 +5,6 @@
     "labels": ["security"],
     "automerge": true
   },
-  "customManagers": [
-    {
-      "customType": "regex",
-      "managerFilePatterns": ["(^|/)Dockerfile$"],
-      "matchStrings": [
-        "#\\s*renovate:\\s*?(suite=(?<suite>.*?))?\\s*depName=(?<depName>.*?)?\\sENV .*?_VERSION=(?<currentValue>.*)"
-      ],
-      "registryUrlTemplate": "https://deb.debian.org/debian?suite={{#if suite }}{{suite}}{{else}}stable{{/if}}&components=main,contrib,non-free&binaryArch=amd64",
-      "datasourceTemplate": "deb"
-    }
-  ],
-  "regexManagers": [
-    {
-      "fileMatch": [
-        "(^|/|\\.)Dockerfile$",
-        "(^|/)Dockerfile\\.[^/]*$",
-        "(^|/)(\\.gitpod\\.)Dockerfile$"
-      ],
-      "matchStringsStrategy": "any",
-      "matchStrings": [
-        "ARG BUILD_FROM=(?<depName>.*?):(?<currentValue>.*?)\\s+"
-      ],
-      "datasourceTemplate": "docker"
-    },
-    {
-      "fileMatch": ["(^|/)\\.gitlab-ci\\.yml$"],
-      "matchStringsStrategy": "any",
-      "matchStrings": ["BUILDX_VERSION:\\s+\"(?<currentValue>v[0-9.]+)\""],
-      "datasourceTemplate": "github-releases",
-      "depNameTemplate": "docker/buildx"
-    }
-  ],
   "packageRules": [
     {
       "description": "Definition of the dev image.",
