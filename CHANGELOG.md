@@ -5,6 +5,28 @@ All notable changes to the **Bedrock Connect** Docker Image, published on Docker
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [2.6.0](https://git.strausmann.de/minecraft/bedrock-connect/compare/2.5.10...2.6.0) (2025-06-17)
+
+### ✨ Features
+
+* **env:** Add new ENV Vars MOTD and DEBUG by BedrockConnect Release v1.56 ([d051654](https://git.strausmann.de/minecraft/bedrock-connect/commit/d0516542b7614447721a893b56e14d0d097608be))
+
+### 🐛 Bug Fixes
+
+* **deps:** update dependency curl to 7.88.1-10+deb12u12 ([773ab33](https://git.strausmann.de/minecraft/bedrock-connect/commit/773ab338ef4e1218444bdadba25199fe90dae2b0))
+
+### ♻️ Chores
+
+* **deps:** ignore trivy alert cve-2025-5889 ([3d2eae8](https://git.strausmann.de/minecraft/bedrock-connect/commit/3d2eae8cac3251cb6c15e8a84cac220d4d66f3b3))
+* **deps:** pin gitpod/workspace-node docker tag to ed977af ([608d61c](https://git.strausmann.de/minecraft/bedrock-connect/commit/608d61c2d7b615e08f69ea98991743080c3d79f6))
+* **deps:** revert update dependency brace-expansion to 2.0.2 ([700c060](https://git.strausmann.de/minecraft/bedrock-connect/commit/700c060699633bb9df30820654945bdd8787b1ea))
+* **deps:** update dependency brace-expansion to 2.0.2 ([cfae2d3](https://git.strausmann.de/minecraft/bedrock-connect/commit/cfae2d3e03247e4a14507a23bba3f49fad00c043))
+* **deps:** update docker docker tag to v28.1.1 ([611a25c](https://git.strausmann.de/minecraft/bedrock-connect/commit/611a25cc22989cf65bbd7a5bceee80878ae178d7))
+* **deps:** update docker docker tag to v28.2.1 ([03d2964](https://git.strausmann.de/minecraft/bedrock-connect/commit/03d2964095b0ab294e9087e00ef86459a6138069))
+* **deps:** update gitpod image ([f1d2591](https://git.strausmann.de/minecraft/bedrock-connect/commit/f1d25918d854af8d478c0aab82edf5ae1bc23d3a))
+* **deps:** update makefile ([7a2a016](https://git.strausmann.de/minecraft/bedrock-connect/commit/7a2a016661cafd398556d6f7d0a200f51e96991f))
+* **deps:** update node dependencies ([f877630](https://git.strausmann.de/minecraft/bedrock-connect/commit/f877630be55a8d6b018e99445f208cc0bfd15be3))
+
 ## [2.5.10](https://git.strausmann.de/minecraft/bedrock-connect/compare/2.5.9...2.5.10) (2025-05-27)
 
 ### 🐛 Bug Fixes
