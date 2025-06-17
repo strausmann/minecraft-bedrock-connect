@@ -28,7 +28,7 @@ ARG BIN_ENTRYPOINT_DEMOTER_VERSION=0.4.7
 ARG DEBIAN_CURL2_VERSION=7.88.1-10+deb12u8
 
 # renovate: datasource=deb suite=bookworm depName=curl versioning=debian
-ARG DEBIAN_CURL_VERSION=7.88.1-10+deb12u8
+ARG DEBIAN_CURL_VERSION=7.88.1-10+deb12u12
 
 # renovate: datasource=repology depName=debian12/unzip versioning=debian
 ARG DEBIAN_UNZIP_VERSION=6.0-28
