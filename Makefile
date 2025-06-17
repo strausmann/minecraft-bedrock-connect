@@ -18,7 +18,7 @@ build-nocache:
 	docker build -t $(NAME) --no-cache --rm image
 
 test:
-	docker run --rm --init -it -e BRC_VERSION=1.39 -e NODB=true -e MYSQL_DB=Bjoern -e NODB=true -e SERVER_LIMIT=85 -e DEBUG=true --name=brc $(NAME):$(VERSION)
+	docker run --rm --init -it -e BRC_VERSION=1.56 -e MYSQL_DB=Bjoern -e SERVER_LIMIT=85 -e DEBUG=true --name=brc $(NAME):$(VERSION)
 
 tag:
 	docker tag $(NAME):$(NAME):$(VERSION)
