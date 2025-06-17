@@ -1,4 +1,4 @@
-ARG BUILD_FROM=gitpod/workspace-node:2025-02-10-10-54-28@sha256:ed977af45c8df79ddeeaf2f615419d7b8f5b842edcafc31d2d5abd897e72ffd9
+ARG BUILD_FROM=gitpod/workspace-node:2025-06-16-15-20-00@sha256:b39a5802cc3ce7893349f0c98119c4184f7cc35a62bee6b04ca19851d7d62797
 FROM ${BUILD_FROM}
 
 ENV force_rebuild 202502111100
