@@ -1,5 +1,5 @@
 NAME = strausmann/minecraft-bedrock-connect
-VERSION = 2.5.0-beta
+VERSION = scout-test
 #BRC_VERSION = `curl --silent "https://api.github.com/repos/Pugmatt/BedrockConnect/releases/latest" | jq -r .tag_name`
 
 .PHONY: default build build-nocache test tag-latest push push-latest release scout git-tag-version
@@ -35,7 +35,7 @@ push-latest:
 release: build test tag-latest push push-latest
 
 scout:
-	docker scout cves
+	docker scout cves --only-fixed --org strausmann
 
 git-tag-version: release
 	git tag -a v$(VERSION) -m "v$(VERSION)"

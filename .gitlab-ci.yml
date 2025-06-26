@@ -84,7 +84,7 @@ docker_build:
         # Build Multi Arch Images and push to dockerhub
         docker buildx build --provenance=true --sbom=true --build-arg BUILD_VERSION=$CI_COMMIT_REF_NAME --build-arg BUILD_DATE=$(date -u +'%Y-%m-%dT%H:%M:%SZ') --build-arg VCS_REF=$CI_COMMIT_SHORT_SHA --build-arg CI_BUILD=$CI_PIPELINE_ID --push --platform $BUILDPLATFORM --tag $DOCKERHUB_IMAGE:$CI_COMMIT_TAG --tag $DOCKERHUB_IMAGE:$MAJOR_VERSION --tag $DOCKERHUB_IMAGE:$MAJOR_MINOR_VERSION --tag $DOCKERHUB_IMAGE:latest image
         # Compare image from branch with latest image from the default branch and fail if new critical or high CVEs are detected
-        docker scout compare "${DOCKERHUB_IMAGE}:${CI_COMMIT_TAG}" --to "$CI_REGISTRY_IMAGE:latest" --exit-code --only-severity critical,high --ignore-unchanged
+        docker scout compare "${DOCKERHUB_IMAGE}:${CI_COMMIT_TAG}" --to "$CI_REGISTRY_IMAGE:latest" --exit-on vulnerability --only-severity critical,high --ignore-unchanged --only-fixed --org strausmann
         # Inspect Docker Manifest
         docker manifest inspect $DOCKERHUB_IMAGE:$CI_COMMIT_TAG
         docker manifest inspect $DOCKERHUB_IMAGE:$MAJOR_VERSION
@@ -95,7 +95,7 @@ docker_build:
         # Build Multi Arch Images and push to dockerhub
         docker buildx build --provenance=true --sbom=true --build-arg BUILD_VERSION=$CI_COMMIT_REF_NAME --build-arg BUILD_DATE=$(date -u +'%Y-%m-%dT%H:%M:%SZ') --build-arg VCS_REF=$CI_COMMIT_SHORT_SHA --build-arg CI_BUILD=$CI_PIPELINE_ID --push --platform $BUILDPLATFORM --tag $DOCKERHUB_IMAGE:$CI_COMMIT_REF_SLUG  image
         # Get a CVE report for the built image and fail the pipeline when critical or high CVEs are detected
-        docker scout cves "${DOCKERHUB_IMAGE}:${CI_COMMIT_REF_SLUG}" --exit-code --only-severity critical,high
+        docker scout cves "${DOCKERHUB_IMAGE}:${CI_COMMIT_REF_SLUG}" --exit-code --only-severity critical,high --only-fixed --org strausmann
         # Inspect Docker Manifest
         docker manifest inspect ${DOCKERHUB_IMAGE}:${CI_COMMIT_REF_SLUG}
       fi
