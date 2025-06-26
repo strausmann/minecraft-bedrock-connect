@@ -5,6 +5,22 @@ All notable changes to the **Bedrock Connect** Docker Image, published on Docker
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [2.6.1](https://git.strausmann.de/minecraft/bedrock-connect/compare/2.6.0...2.6.1) (2025-06-26)
+
+### 🐛 Bug Fixes
+
+* **deps:** update image dependencies ([8a41835](https://git.strausmann.de/minecraft/bedrock-connect/commit/8a4183505bb995ff31f523e739d0211327ea099c))
+* **deps:** update itzg ([cafe35b](https://git.strausmann.de/minecraft/bedrock-connect/commit/cafe35b45217969c33e53503b48ec2854bd7dfdf))
+
+### ♻️ Chores
+
+* **deps:** update dependency prettier to v3.6.1 ([5b6aa31](https://git.strausmann.de/minecraft/bedrock-connect/commit/5b6aa3197189f8935e79b13ab6923cefbd54cbc8))
+* **make:** Update Makefile ([09c1259](https://git.strausmann.de/minecraft/bedrock-connect/commit/09c12595f3d8a0e47eec9b616589bd2a9d715ab6))
+
+### 🛠 Build
+
+* **scout:** Update Scout checks in gitlab pipeline jobs ([e008f6d](https://git.strausmann.de/minecraft/bedrock-connect/commit/e008f6d065e6294f68eaec462099df7443816b24))
+
 ## [2.6.0](https://git.strausmann.de/minecraft/bedrock-connect/compare/2.5.10...2.6.0) (2025-06-17)
 
 ### ✨ Features
