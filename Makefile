@@ -35,7 +35,7 @@ push-latest:
 release: build test tag-latest push push-latest
 
 scout:
-	docker scout cves
+	docker scout cves --only-fixed --org strausmann
 
 git-tag-version: release
 	git tag -a v$(VERSION) -m "v$(VERSION)"
