@@ -2,7 +2,7 @@
 ARG BUILD_FROM=openjdk:24-ea-jdk-slim-bookworm@sha256:526390de8c0d9607e8d8a8f39d9fb192c50b29e065db2251aae0e4ee3c1e3f26
 FROM ${BUILD_FROM}
 
-ARG APT_UPDATE=20250211.1 \
+ARG APT_UPDATE=20250625.1 \
     BRC_VERSION \
     TARGETARCH \
     CI_BUILD \
@@ -23,9 +23,6 @@ ARG BIN_MC_MONITOR_VERSION=0.15.6
 
 # renovate: datasource=github-releases depName=itzg/entrypoint-demoter versioning=loose extractVersion=(^v(?<version>.*)$)
 ARG BIN_ENTRYPOINT_DEMOTER_VERSION=0.4.8
-
-# renovate: datasource=repology depName=debian12/curl versioning=debian
-ARG DEBIAN_CURL2_VERSION=7.88.1-10+deb12u8
 
 # renovate: datasource=deb suite=bookworm depName=curl versioning=debian
 ARG DEBIAN_CURL_VERSION=7.88.1-10+deb12u12
