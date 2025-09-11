@@ -1,8 +1,8 @@
 # renovate: datasource=docker depName=openjdk versioning=loose
-ARG BUILD_FROM=openjdk:24-ea-jdk-slim-bookworm@sha256:526390de8c0d9607e8d8a8f39d9fb192c50b29e065db2251aae0e4ee3c1e3f26
+ARG BUILD_FROM=openjdk:26-jdk-slim-trixie
 FROM ${BUILD_FROM}
 
-ARG APT_UPDATE=20250826.1 \
+ARG APT_UPDATE=202500911.1 \
     BRC_VERSION \
     TARGETARCH \
     CI_BUILD \
@@ -25,19 +25,19 @@ ARG BIN_MC_MONITOR_VERSION=0.15.6
 ARG BIN_ENTRYPOINT_DEMOTER_VERSION=0.4.8
 
 # renovate: datasource=deb suite=bookworm depName=curl versioning=debian
-ARG DEBIAN_CURL_VERSION=7.88.1-10+deb12u12
+ARG DEBIAN_CURL_VERSION=8.14.1-2
 
-# renovate: datasource=repology depName=debian12/unzip versioning=debian
-ARG DEBIAN_UNZIP_VERSION=6.0-28
+# renovate: datasource=repology depName=debian13/unzip versioning=debian
+ARG DEBIAN_UNZIP_VERSION=6.0-29
 
-# renovate: datasource=repology depName=debian12/jq versioning=debian
-ARG DEBIAN_JQ_VERSION=1.6-2.1
+# renovate: datasource=repology depName=debian13/jq versioning=debian
+ARG DEBIAN_JQ_VERSION=1.7.1-6+deb13u1
 
-# renovate: datasource=repology depName=debian12/nano versioning=debian
-ARG DEBIAN_NANO_VERSION=7.2-1+deb12u1
+# renovate: datasource=repology depName=debian13/nano versioning=debian
+ARG DEBIAN_NANO_VERSION=8.4-1
 
-# renovate: datasource=repology depName=debian12/procps versioning=debian
-ARG DEBIAN_PROCPS_VERSION=2:4.0.2-3
+# renovate: datasource=repology depName=debian13/procps versioning=debian
+ARG DEBIAN_PROCPS_VERSION=2:4.0.4-9
 
 RUN apt-get update \
     && DEBIAN_FRONTEND=noninteractive apt-get -y purge \
