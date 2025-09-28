@@ -22,7 +22,7 @@ ARG BIN_EASY_ADD_VERSION=0.8.11
 ARG BIN_MC_MONITOR_VERSION=0.15.7
 
 # renovate: datasource=github-releases depName=itzg/entrypoint-demoter versioning=loose extractVersion=(^v(?<version>.*)$)
-ARG BIN_ENTRYPOINT_DEMOTER_VERSION=0.4.8
+ARG BIN_ENTRYPOINT_DEMOTER_VERSION=0.4.9
 
 # renovate: datasource=deb suite=bookworm depName=curl versioning=debian
 ARG DEBIAN_CURL_VERSION=8.14.1-2
