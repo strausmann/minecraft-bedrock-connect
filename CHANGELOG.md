@@ -5,6 +5,16 @@ All notable changes to the **Bedrock Connect** Docker Image, published on Docker
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [2.6.8](https://git.strausmann.de/minecraft/bedrock-connect/compare/2.6.7...2.6.8) (2025-09-29)
+
+### 🐛 Bug Fixes
+
+* **deps:** update dependency itzg/entrypoint-demoter to v0.4.9 ([d872b43](https://git.strausmann.de/minecraft/bedrock-connect/commit/d872b43ca9f78d69a1e359a2e7a297d35958a9af))
+
+### ♻️ Chores
+
+* **deps:** update commitlint monorepo to v20 ([4f6dfe5](https://git.strausmann.de/minecraft/bedrock-connect/commit/4f6dfe511d8bfe01ff78adc93c1870c5b9f81867))
+
 ## [2.6.7](https://git.strausmann.de/minecraft/bedrock-connect/compare/2.6.6...2.6.7) (2025-09-27)
 
 ### 🐛 Bug Fixes
