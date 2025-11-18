@@ -5,6 +5,22 @@ All notable changes to the **Bedrock Connect** Docker Image, published on Docker
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [2.6.10](https://git.strausmann.de/minecraft/bedrock-connect/compare/2.6.9...2.6.10) (2025-11-18)
+
+### 🐛 Bug Fixes
+
+* **deps:** Update openjdk base image ([baccdaa](https://git.strausmann.de/minecraft/bedrock-connect/commit/baccdaae736a61e7f8e8a513c16916abf373b5db))
+
+### ♻️ Chores
+
+* **deps:** update dependency semantic-release to v25 ([1e36acc](https://git.strausmann.de/minecraft/bedrock-connect/commit/1e36acc4a17889ee1e4983ff82cc19f8f31f7397))
+* **deps:** update dependency semantic-release to v25.0.1 ([4a897fc](https://git.strausmann.de/minecraft/bedrock-connect/commit/4a897fc12e5ac9f76a974bb26dd3a529198c3433))
+* **deps:** update docker docker tag to v28.5.1 ([cb7ad36](https://git.strausmann.de/minecraft/bedrock-connect/commit/cb7ad36a91e5b209749708baf18d2400ae8763a3))
+* **deps:** update node.js to 23c24e8 ([73d3873](https://git.strausmann.de/minecraft/bedrock-connect/commit/73d3873ed797fda3ddd3e994de3dd8f5148b4366))
+* **deps:** update node.js to v22.21.0 ([185eccd](https://git.strausmann.de/minecraft/bedrock-connect/commit/185eccd406bfce8bfbc2793f56293a835479276d))
+* **deps:** update node.js to v24 ([1942197](https://git.strausmann.de/minecraft/bedrock-connect/commit/194219784fd3474fa6223647338bbf94c1ce82c1))
+* **deps:** update node.js to v24.11.0 ([fbd8991](https://git.strausmann.de/minecraft/bedrock-connect/commit/fbd89913f603dcdb70253f9aa0bb0c2cdabfb63f))
+
 ## [2.6.9](https://git.strausmann.de/minecraft/bedrock-connect/compare/2.6.8...2.6.9) (2025-10-09)
 
 ### 🐛 Bug Fixes
