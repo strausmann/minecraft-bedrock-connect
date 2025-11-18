@@ -1,8 +1,8 @@
 # renovate: datasource=docker depName=openjdk versioning=loose
-ARG BUILD_FROM=openjdk:26-jdk-slim-trixie
+ARG BUILD_FROM=openjdk:26-ea-slim-trixie
 FROM ${BUILD_FROM}
 
-ARG APT_UPDATE=202500911.1 \
+ARG APT_UPDATE=20251118.1 \
     BRC_VERSION \
     TARGETARCH \
     CI_BUILD \
