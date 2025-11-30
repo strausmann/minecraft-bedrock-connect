@@ -5,6 +5,17 @@ All notable changes to the **Bedrock Connect** Docker Image, published on Docker
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [2.6.13](https://git.strausmann.de/minecraft/bedrock-connect/compare/2.6.12...2.6.13) (2025-11-30)
+
+### 🐛 Bug Fixes
+
+* **deps:** update dependency itzg/mc-monitor to v0.16.0 ([dbaa99c](https://git.strausmann.de/minecraft/bedrock-connect/commit/dbaa99c214544eea1c6234e3467ff2e1225fc30c))
+
+### ♻️ Chores
+
+* **deps:** update dependency prettier to v3.7.2 ([84f0462](https://git.strausmann.de/minecraft/bedrock-connect/commit/84f046292ffe546df45ddaf41452b6724c360a4f))
+* **deps:** update node.js to v24.11.1 ([c2b0980](https://git.strausmann.de/minecraft/bedrock-connect/commit/c2b09807d26b92927061782762ff72f59eb879da))
+
 ## [2.6.12](https://git.strausmann.de/minecraft/bedrock-connect/compare/2.6.11...2.6.12) (2025-11-27)
 
 ### 🐛 Bug Fixes
