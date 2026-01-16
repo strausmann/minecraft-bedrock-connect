@@ -10,6 +10,7 @@ variables:
   https_proxy: ''
   no_proxy: ''
   BUILDX_VERSION: "v0.24.0"  # 🛠 Version von Renovate aktualisieren lassen
+  DOCKER_API_VERSION: "1.44"
 
 mega-linter:
   stage: lint
