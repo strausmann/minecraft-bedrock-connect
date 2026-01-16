@@ -1,3 +1,4 @@
+---
 services:
   bedrockconnect:
     image: strausmann/minecraft-bedrock-connect
