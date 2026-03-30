@@ -24,8 +24,8 @@ ARG BIN_MC_MONITOR_VERSION=0.16.0
 # renovate: datasource=github-releases depName=itzg/entrypoint-demoter versioning=loose extractVersion=(^v(?<version>.*)$)
 ARG BIN_ENTRYPOINT_DEMOTER_VERSION=0.4.9
 
-# renovate: datasource=deb suite=bookworm depName=curl versioning=debian
-ARG DEBIAN_CURL_VERSION=8.14.1-2
+# renovate: datasource=repology depName=debian13/curl versioning=debian
+ARG DEBIAN_CURL_VERSION=8.14.1-2+deb13u2
 
 # renovate: datasource=repology depName=debian13/unzip versioning=debian
 ARG DEBIAN_UNZIP_VERSION=6.0-29
@@ -56,13 +56,10 @@ RUN apt-get update \
     jq="${DEBIAN_JQ_VERSION}" \
     nano="${DEBIAN_NANO_VERSION}" \
     procps="${DEBIAN_PROCPS_VERSION}" \
-    sudo \
     unzip="${DEBIAN_UNZIP_VERSION}" \
     && DEBIAN_FRONTEND=noninteractive apt-get upgrade -y \
     && apt-get clean \
-    && rm -rf /var/lib/apt/lists/* \
-    && echo "$USERNAME" ALL=\(root\) NOPASSWD:ALL > /etc/sudoers.d/"$USERNAME" \
-    && chmod 0440 /etc/sudoers.d/"$USERNAME"
+    && rm -rf /var/lib/apt/lists/*
 
 ADD https://github.com/itzg/easy-add/releases/download/${BIN_EASY_ADD_VERSION}/easy-add_linux_${TARGETARCH} \
     /usr/local/bin/easy-add

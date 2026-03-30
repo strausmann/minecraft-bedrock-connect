@@ -42,7 +42,7 @@ global_packet_limit=${GLOBAL_PACKET_LIMIT:-100000}
 java_xms=${JAVA_XMS:-256M}
 java_xmx=${JAVA_XMX:-256M}
 
-[[ ! -z "$MOTD" ]] && motd="whitelist=${MOTD}" && echo "whitelist set to ${MOTD}" || echo "motd disabled"
+[[ ! -z "$MOTD" ]] && motd="motd=${MOTD}" && echo "motd set to ${MOTD}" || echo "motd disabled"
 [[ ! -z "$WHITELIST" ]] && whitelist="whitelist=${WHITELIST}" && echo "whitelist set to ${WHITELIST}" || echo "whitelist disabled"
 [[ ! -z "$LANGUAGE" ]] && language="language=${LANGUAGE}" && echo "language set to ${LANGUAGE}" || echo "language disabled"
 [[ ! -z "$CUSTOM_SERVERS" ]] && custom_servers="custom_servers=${CUSTOM_SERVERS}" && echo "custom_servers set to ${CUSTOM_SERVERS}" || echo "custom_servers disabled"

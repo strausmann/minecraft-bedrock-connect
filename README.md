@@ -35,9 +35,12 @@
 ## ⭐ Features
 
 - Running Bedrock Connect as a Docker Container
-- Can be used with MySQL Database as backend
+- Can be used with MySQL/MariaDB/PostgreSQL Database as backend
 - Configuration via ENV variables
 - Use of the custom_servers via json file possible
+- Built-in healthcheck (mc-monitor, UDP 19132)
+- Runs as non-root user (`bedrock`, UID 1000)
+- Multi-architecture support: `amd64` and `arm64`
 
 ## Environment Variables
 
@@ -49,11 +52,11 @@ The following arguments can be placed in the startup command to ajust settings:
 | DB_TYPE             | Database Type (accepts values **mysql**, **postgres**, **mariadb**, or **none**)                                                                                                                                             | none            |
 | DB_HOST             | Database Host                                                                                                                                                                                                                | localhost       |
 | DB_DB               | Database Name                                                                                                                                                                                                                | bedrock-connect |
-| DB_USER             | Database Username                                                                                                                                                                                                            | root            |
-| DB_PASS             | Database Password                                                                                                                                                                                                            |                 |
+| DB_USER             | Database Username                                                                                                                                                                                                            | bedrock         |
+| DB_PASS             | Database Password                                                                                                                                                                                                            | bedrock         |
 | AUTO_RECONNECT      | If true, Make Mysql and MairaDB auto reconnect to the database when disconnected                                                                                                                                             | false           |
 | SERVER_LIMIT        | How many servers a new player can have in their serverlist                                                                                                                                                                   | 100             |
-| NODB                | If true, use JSON files for data instead of MySQL                                                                                                                                                                            | true            |
+| NODB                | If true, use JSON files for data instead of MySQL                                                                                                                                                                            | false           |
 | KICK_INACTIVE       | If true, players will be kicked after 10 minutes of inactivity with the serverlist UI                                                                                                                                        | true            |
 | CUSTOM_SERVERS      | Sets the path to a custom server file, for specifying your servers in the list for all players. See [custom servers](https://github.com/Pugmatt/BedrockConnect#defining-custom-servers).                                     |                 |
 | USER_SERVERS        | If true, players can add and remove servers on the serverlist. If false, the options are hidden.                                                                                                                             | true            |
@@ -64,11 +67,13 @@ The following arguments can be placed in the startup command to ajust settings:
 | LANGUAGE            | Specify a file containing language customizations. See [guide for changing wording](https://github.com/Pugmatt/BedrockConnect?tab=readme-ov-file#wordinglanguage).                                                           |                 |
 | DEBUG               | If true, debug level logs will display in the program output.                                                                                                                                                                | true            |
 | MOTD                | Specify a text file containing wording for a MOTD (Message of the day) screen. Message shows before showing the server list.                                                                                                 |                 |
-| MOTD_FIRST_JOIN     | If true, MOTD screen (if one is set) will display to new players. If false, it will only display to returning players.                                                                                                       |                 |
+| MOTD_FIRST_JOIN     | If true, MOTD screen (if one is set) will display to new players. If false, it will only display to returning players.                                                                                                       | true            |
 | MOTD_COOLDOWN       | Number of days to wait until showing MOTD (if one is set) to a player after they already viewed it once. (Value of 0 shows every time)                                                                                       | 0               |
 | STORE_DISPLAY_NAMES | If true, player displays names will be included in the stored player data.                                                                                                                                                   | true            |
 | PACKET_LIMIT        | Number of datagram packets each address can send within one tick (10ms)                                                                                                                                                      | 200             |
 | GLOBAL_PACKET_LIMIT | Number of all datagrams that will be handled within one tick (10ms) before server starts dropping any incoming data.                                                                                                         | 100000          |
+| JAVA_XMS            | JVM minimum heap size                                                                                                                                                                                                        | 256M            |
+| JAVA_XMX            | JVM maximum heap size                                                                                                                                                                                                        | 256M            |
 
 ## 🔧 How to Install
 
@@ -85,14 +90,14 @@ For an installation without Docker, please follow the instructions from [Pugmatt
 docker volume create bedrock-connect
 
 # Start the container
-docker run -d --restart=always -p 19132:19132 -e NODB=true -v bedrock-connect:/data --name bedrock-connect strausmann/minecraft-bedrock-connect:2
+docker run -d --restart=always -p 19132:19132/udp -e NODB=true -v bedrock-connect:/config --name bedrock-connect strausmann/minecraft-bedrock-connect:2
 ```
 
 #### Exposed Ports
 
 - UDP 19132 : the Bedrock server port. NOTE that you must append /udp when exposing the port, such as <code>-p 19132:19132/udp</code>
 
-### 🐳 Deploying with Docker Compose
+### 🐳 Deploying with Docker Compose (without Database)
 
 ```yaml
 ---
@@ -101,6 +106,7 @@ services:
     image: strausmann/minecraft-bedrock-connect:2
     restart: always
     environment:
+      - NODB=true
       - CUSTOM_SERVERS=/config/serverlist.json
       - SERVER_LIMIT=25
     ports:
@@ -113,7 +119,7 @@ volumes:
     driver: local
 ```
 
-### 🐳 Deploying with Docker Compose and MySQL Backend
+### 🐳 Deploying with Docker Compose and MariaDB Backend
 
 ```yaml
 ---

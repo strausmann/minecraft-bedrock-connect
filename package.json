@@ -24,7 +24,5 @@
       "path": "@commitlint/cz-commitlint"
     }
   },
-  "dependencies": {
-    "npm": "11.8.0"
-  }
+  "dependencies": {}
 }
