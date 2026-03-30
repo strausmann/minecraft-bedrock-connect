@@ -10,6 +10,7 @@ variables:
   https_proxy: ''
   no_proxy: ''
   BUILDX_VERSION: "v0.24.0"  # 🛠 Version von Renovate aktualisieren lassen
+  DOCKER_API_VERSION: "1.44"
 
 mega-linter:
   stage: lint
@@ -139,7 +140,7 @@ sonarcloud-check:
     - if: $CI_PIPELINE_SOURCE == "push" && $CI_COMMIT_BRANCH
 
 release:
-  image: node:24.11.1@sha256:aa648b387728c25f81ff811799bbf8de39df66d7e2d9b3ab55cc6300cb9175d9
+  image: node:24.12.0@sha256:20988bcdc6dc76690023eb2505dd273bdeefddcd0bde4bfd1efe4ebf8707f747
   stage: release
   cache:
     key:
