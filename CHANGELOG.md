@@ -5,6 +5,31 @@ All notable changes to the **Bedrock Connect** Docker Image, published on Docker
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [2.7.0](https://git.strausmann.de/minecraft/bedrock-connect/compare/2.6.14...2.7.0) (2026-03-30)
+
+### ✨ Features
+
+* **ci:** Docker Hub Branch-Tag Cleanup bei MR-Merge ([#42](https://git.strausmann.de/minecraft/bedrock-connect/issues/42)) ([b6a3ce1](https://git.strausmann.de/minecraft/bedrock-connect/commit/b6a3ce1f4529d33d9c9e0f4d5aefb83eac43709a))
+
+### 🐛 Bug Fixes
+
+* **ci:** Docker Scout informational statt blocking ([00ea0c5](https://git.strausmann.de/minecraft/bedrock-connect/commit/00ea0c51239d312414a3f2422960155374fee964))
+* **ci:** QEMU binfmt Race-Condition tolerieren ([088718c](https://git.strausmann.de/minecraft/bedrock-connect/commit/088718cd79310c087788bbbabf2d3a721437c75f))
+* Code-Review Findings ([#37](https://git.strausmann.de/minecraft/bedrock-connect/issues/37), [#38](https://git.strausmann.de/minecraft/bedrock-connect/issues/38), [#39](https://git.strausmann.de/minecraft/bedrock-connect/issues/39), [#40](https://git.strausmann.de/minecraft/bedrock-connect/issues/40), [#41](https://git.strausmann.de/minecraft/bedrock-connect/issues/41)) ([1f6f0dd](https://git.strausmann.de/minecraft/bedrock-connect/commit/1f6f0ddb36ce8d81831b1a6d8d7429136059dd33))
+* **deps:** resolve 8 HIGH npm vulnerabilities ([cea15de](https://git.strausmann.de/minecraft/bedrock-connect/commit/cea15de6a408772fa17b204f7be2948478cbc745))
+* **deps:** update dependency itzg/mc-monitor to v0.16.1 ([4c7e90b](https://git.strausmann.de/minecraft/bedrock-connect/commit/4c7e90b74df221ca0e5a243e3a77a496a9409edc))
+
+### ♻️ Chores
+
+* **ci:** Remove Docker Proxy ([0217742](https://git.strausmann.de/minecraft/bedrock-connect/commit/021774283cc7091ac27617b32d987310a0663f45))
+* **deps:** update devdependencies (non-major) ([5bbcdbc](https://git.strausmann.de/minecraft/bedrock-connect/commit/5bbcdbc551c591e79f9c2ad44045c745e23494d0))
+* **deps:** update docker docker tag to v29.3.1 ([1322ca6](https://git.strausmann.de/minecraft/bedrock-connect/commit/1322ca6c8046ecf87bb972f0a99b4f05679dcc03))
+* **deps:** update node.js to v24.12.0 ([2c91c83](https://git.strausmann.de/minecraft/bedrock-connect/commit/2c91c83638d56f9195e0a7f3135b322c1305cf65))
+
+### 🦊 CI/CD
+
+* SonarCloud auf allow_failure setzen (Token-Problem) ([5178892](https://git.strausmann.de/minecraft/bedrock-connect/commit/5178892346da6c0fba1383dac2e4df47c6789f02))
+
 ## [2.6.14](https://git.strausmann.de/minecraft/bedrock-connect/compare/2.6.13...2.6.14) (2026-01-28)
 
 ### 🐛 Bug Fixes
