@@ -4,6 +4,7 @@ stages:
   - build
   - test
   - release
+  - cleanup
 
 variables:
   http_proxy: ''
@@ -167,3 +168,74 @@ release:
     # Niemals doppelte Pipelines wenn man einen Merge Request erstellt hat
     - if: '$CI_COMMIT_BRANCH && $CI_OPEN_MERGE_REQUESTS'
       when: never
+
+# Löscht den Branch-Tag aus Docker Hub wenn ein MR nach main gemergt wird.
+# Der Tag entspricht dem CI_COMMIT_REF_SLUG des Source-Branches.
+docker_hub_tag_cleanup:
+  image: alpine:3
+  stage: cleanup
+  before_script:
+    - apk add --no-cache curl jq
+  script:
+    - |
+      NAMESPACE="${DOCKERHUB_NAMESPACE:-strausmann}"
+      REPO_NAME="minecraft-bedrock-connect"
+
+      # Source-Branch aus dem Merge-Commit ermitteln
+      MERGE_MSG=$(git log -1 --pretty=%s)
+      echo "Merge commit: ${MERGE_MSG}"
+
+      # Branch-Slug aus CI_MERGE_REQUEST_SOURCE_BRANCH_NAME oder Commit-Message
+      if [ -n "${CI_MERGE_REQUEST_SOURCE_BRANCH_NAME:-}" ]; then
+        BRANCH_SLUG=$(echo "$CI_MERGE_REQUEST_SOURCE_BRANCH_NAME" | tr '[:upper:]' '[:lower:]' | sed 's/[^a-z0-9]/-/g; s/--*/-/g; s/^-//; s/-$//' | cut -c1-63)
+      else
+        echo "Kein MR-Kontext — kein Tag zu löschen."
+        exit 0
+      fi
+
+      echo "Branch-Slug Tag zum Löschen: ${BRANCH_SLUG}"
+
+      # Sicherheitscheck: Protected Tags nie löschen
+      if echo "$BRANCH_SLUG" | grep -qE '^(latest|beta|alpha|main|[0-9]+|[0-9]+\.[0-9]+|[0-9]+\.[0-9]+\.[0-9]+)$'; then
+        echo "PROTECTED: $BRANCH_SLUG wird nicht gelöscht."
+        exit 0
+      fi
+
+      # Docker Hub Login
+      HUB_TOKEN=$(curl -sf -X POST "https://hub.docker.com/v2/users/login/" \
+        -H "Content-Type: application/json" \
+        -d "{\"username\":\"${DOCKER_REGISTRY_USER}\",\"password\":\"${DOCKER_REGISTRY_PASSWORD}\"}" \
+        | jq -r '.token')
+
+      if [ -z "$HUB_TOKEN" ] || [ "$HUB_TOKEN" = "null" ]; then
+        echo "WARNING: Docker Hub Login fehlgeschlagen, Tag nicht gelöscht."
+        exit 0
+      fi
+
+      # Prüfe ob Tag existiert
+      HTTP_CHECK=$(curl -sf -o /dev/null -w "%{http_code}" \
+        "https://hub.docker.com/v2/repositories/${NAMESPACE}/${REPO_NAME}/tags/${BRANCH_SLUG}/" \
+        -H "Authorization: Bearer ${HUB_TOKEN}")
+
+      if [ "$HTTP_CHECK" != "200" ]; then
+        echo "Tag '${BRANCH_SLUG}' existiert nicht auf Docker Hub (HTTP ${HTTP_CHECK}). Nichts zu tun."
+        exit 0
+      fi
+
+      # Tag löschen
+      HTTP_CODE=$(curl -sf -o /dev/null -w "%{http_code}" -X DELETE \
+        "https://hub.docker.com/v2/repositories/${NAMESPACE}/${REPO_NAME}/tags/${BRANCH_SLUG}/" \
+        -H "Authorization: Bearer ${HUB_TOKEN}")
+
+      if [ "$HTTP_CODE" = "204" ]; then
+        echo "Tag '${BRANCH_SLUG}' erfolgreich aus Docker Hub gelöscht."
+      else
+        echo "WARNING: Tag-Löschung fehlgeschlagen (HTTP ${HTTP_CODE})."
+      fi
+  allow_failure: true
+  tags:
+    - dind
+  rules:
+    # Trigger nur auf main nach einem Merge (nicht bei direkten Pushes)
+    - if: '$CI_COMMIT_BRANCH == "main" && $CI_MERGE_REQUEST_SOURCE_BRANCH_NAME'
+      when: always
