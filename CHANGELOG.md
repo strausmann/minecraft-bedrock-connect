@@ -5,6 +5,20 @@ All notable changes to the **Bedrock Connect** Docker Image, published on Docker
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [2.7.3](https://git.strausmann.de/minecraft/bedrock-connect/compare/2.7.2...2.7.3) (2026-07-02)
+
+### 🐛 Bug Fixes
+
+* **deps:** update itzg ([6cea78c](https://git.strausmann.de/minecraft/bedrock-connect/commit/6cea78c473949773faab883efc3675e787aa1fad))
+
+### ♻️ Chores
+
+* **deps:** update devdependencies (non-major) ([d51b484](https://git.strausmann.de/minecraft/bedrock-connect/commit/d51b48418fc42d05e9981a5501791319fc1c1216))
+* **deps:** update devdependencies (non-major) ([6ad1fd3](https://git.strausmann.de/minecraft/bedrock-connect/commit/6ad1fd3a17a0a153d7c4c949d715e84a65dbeaff))
+* **deps:** update devdependencies (non-major) ([6b853c6](https://git.strausmann.de/minecraft/bedrock-connect/commit/6b853c6737426bbb54da3f0bf3c0de5f9924eb4a))
+* **deps:** update docker docker tag to v29.5.3 ([9b80952](https://git.strausmann.de/minecraft/bedrock-connect/commit/9b8095231d8bde2b6e1e25abc3d7a6778c75dbf4))
+* **deps:** update docker docker tag to v29.6.1 ([8b42846](https://git.strausmann.de/minecraft/bedrock-connect/commit/8b42846d478428ea2365003406e63e46534e3d35))
+
 ## [2.7.2](https://git.strausmann.de/minecraft/bedrock-connect/compare/2.7.1...2.7.2) (2026-05-31)
 
 ### 🐛 Bug Fixes
