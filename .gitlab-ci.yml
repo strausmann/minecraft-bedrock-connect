@@ -170,6 +170,27 @@ release:
     - if: '$CI_COMMIT_BRANCH && $CI_OPEN_MERGE_REQUESTS'
       when: never
 
+release:dry-run:
+  image: node:24.18.0@sha256:392e1e23f34da768d8d1f4e502b64f200d3be3465934d4b7930f57d7e2fc1989
+  stage: release
+  cache:
+    key:
+      files:
+        - package-lock.json
+    paths:
+      - .npm/
+  before_script:
+    - npm ci --cache .npm --prefer-offline
+  script:
+    # Vorschau der Release Notes: aktuellen Ref als Release-Branch behandeln,
+    # damit semantic-release trotz Feature-Branch generateNotes ausfuehrt.
+    - npx --no-install semantic-release --dry-run --branches "$CI_COMMIT_REF_NAME"
+  allow_failure: true
+  rules:
+    # Nur auf Feature-Branch-Pushes: nicht main, und nicht im MR-Event-Kontext
+    # (semantic-release ueberspringt Releases im MR-Kontext).
+    - if: '$CI_PIPELINE_SOURCE == "push" && $CI_COMMIT_BRANCH && $CI_COMMIT_BRANCH != $CI_DEFAULT_BRANCH'
+
 # Löscht den Branch-Tag aus Docker Hub wenn ein MR nach main gemergt wird.
 # Der Tag entspricht dem CI_COMMIT_REF_SLUG des Source-Branches.
 docker_hub_tag_cleanup:
