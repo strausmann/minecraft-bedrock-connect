@@ -11,7 +11,7 @@
     "commitizen": "4.3.2",
     "conventional-changelog-conventionalcommits": "10.2.1",
     "prettier": "3.9.5",
-    "semantic-release": "25.0.5",
+    "semantic-release": "25.0.6",
     "semantic-release-license": "1.0.3"
   },
   "scripts": {
