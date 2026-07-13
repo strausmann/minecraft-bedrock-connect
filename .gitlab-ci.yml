@@ -34,7 +34,7 @@ mega-linter:
     expire_in: 1 week
   allow_failure: false
   tags:
-    - dind
+    - build
   rules:
     # Trigger bei jedem Push in einen Branch
     - if: $CI_PIPELINE_SOURCE == "push" && $CI_COMMIT_BRANCH
@@ -67,13 +67,14 @@ mega-linter:
     # Starting QEMU User Static Container and Build the MultiArch Container
     # || true: binfmt "File exists" errors are benign when multiple jobs share a runner
     - docker run --rm --privileged multiarch/qemu-user-static --reset -p yes || true
-    - docker buildx create --driver=docker-container --use --name job-$CI_JOB_ID
+    - docker context create tls-environment
+    - docker buildx create --driver=docker-container --use --name job-$CI_JOB_ID tls-environment
     - docker buildx inspect --bootstrap
   after_script:
     - docker logout
     - docker rm buildx_buildkit_job-${CI_JOB_ID}0 --force || true
   tags:
-    - cq-sans-dind
+    - build
 
 docker_build:
   extends: .create_multi_arch_image
@@ -141,7 +142,7 @@ sonarcloud-check:
   script:
     - sonar-scanner
   tags:
-    - dind
+    - build
   rules:
     # Trigger bei jedem Push in einen Branch
     - if: $CI_PIPELINE_SOURCE == "push" && $CI_COMMIT_BRANCH
@@ -262,7 +263,7 @@ docker_hub_tag_cleanup:
       fi
   allow_failure: true
   tags:
-    - dind
+    - build
   rules:
     # Trigger nur auf main nach einem Merge (nicht bei direkten Pushes)
     - if: '$CI_COMMIT_BRANCH == "main" && $CI_MERGE_REQUEST_SOURCE_BRANCH_NAME'
