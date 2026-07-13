@@ -108,16 +108,22 @@ docker_build:
         docker manifest inspect ${DOCKERHUB_IMAGE}:${CI_COMMIT_REF_SLUG}
       fi
   rules:
-    # Trigger bei jedem Push in einen Branch, wenn sich Container Image ändert
-    - if: $CI_PIPELINE_SOURCE == "push" && $CI_COMMIT_BRANCH
-      changes:
-        - image/**/*
-        - .gitlab-ci.yml
-    # Trigger bei einem TAG Release, wenn sich Container Image ändert
+    # Release-Tag: immer bauen (versioniertes Image + latest), unabhängig von geänderten Files
     - if: '$CI_COMMIT_TAG'
+    # Default-Branch (main): bauen, wenn sich image-relevante Files ggü. dem Vorgänger-Commit geändert haben
+    - if: '$CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH'
       changes:
-        - image/**/*
-        - .gitlab-ci.yml
+        paths:
+          - image/**/*
+          - .gitlab-ci.yml
+    # Feature-Branch: nur bauen, wenn sich image-relevante Files ggü. main geändert haben
+    # (compare_to macht den Vergleich deterministisch — verhindert "neuer Branch => changes immer true")
+    - if: '$CI_PIPELINE_SOURCE == "push" && $CI_COMMIT_BRANCH'
+      changes:
+        paths:
+          - image/**/*
+          - .gitlab-ci.yml
+        compare_to: 'refs/heads/main'
 
 sonarcloud-check:
   allow_failure: true
