@@ -24,19 +24,19 @@ ARG BIN_MC_MONITOR_VERSION=0.16.11
 # renovate: datasource=github-releases depName=itzg/entrypoint-demoter versioning=loose extractVersion=(^v(?<version>.*)$)
 ARG BIN_ENTRYPOINT_DEMOTER_VERSION=0.5.0
 
-# renovate: datasource=repology depName=debian13/curl versioning=debian
+# renovate: datasource=deb depName=curl versioning=deb registryUrl=https://deb.debian.org/debian?suite=trixie&components=main&binaryArch=amd64
 ARG DEBIAN_CURL_VERSION=8.14.1-2+deb13u4
 
-# renovate: datasource=repology depName=debian13/unzip versioning=debian
+# renovate: datasource=deb depName=unzip versioning=deb registryUrl=https://deb.debian.org/debian?suite=trixie&components=main&binaryArch=amd64
 ARG DEBIAN_UNZIP_VERSION=6.0-29
 
-# renovate: datasource=repology depName=debian13/jq versioning=debian
+# renovate: datasource=deb depName=jq versioning=deb registryUrl=https://deb.debian.org/debian?suite=trixie&components=main&binaryArch=amd64
 ARG DEBIAN_JQ_VERSION=1.7.1-6+deb13u2
 
-# renovate: datasource=repology depName=debian13/nano versioning=debian
+# renovate: datasource=deb depName=nano versioning=deb registryUrl=https://deb.debian.org/debian?suite=trixie&components=main&binaryArch=amd64
 ARG DEBIAN_NANO_VERSION=8.4-1+deb13u1
 
-# renovate: datasource=repology depName=debian13/procps versioning=debian
+# renovate: datasource=deb depName=procps versioning=deb registryUrl=https://deb.debian.org/debian?suite=trixie&components=main&binaryArch=amd64
 ARG DEBIAN_PROCPS_VERSION=2:4.0.4-9
 
 RUN apt-get update \
