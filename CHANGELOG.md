@@ -7,9 +7,35 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [2.7.6](https://git.strausmann.de/minecraft/bedrock-connect/compare/2.7.5...2.7.6) (2026-07-09)
 
+### 🐛 Bug Fixes
+
+* **deps:** update dependency itzg/mc-monitor to v0.16.10 ([82fa095](https://git.strausmann.de/minecraft/bedrock-connect/commit/82fa095c5d1c4c8226775fb55319e92d59d3c0b9))
+
+### ♻️ Chores
+
+* **deps:** update devdependencies (non-major) ([b4339f7](https://git.strausmann.de/minecraft/bedrock-connect/commit/b4339f755af1197015a67837fe7fd628f8a67113))
+
 ## [2.7.5](https://git.strausmann.de/minecraft/bedrock-connect/compare/2.7.4...2.7.5) (2026-07-08)
 
+### 🐛 Bug Fixes
+
+* **deps:** update dependency itzg/entrypoint-demoter to v0.5.0 ([2ac45a4](https://git.strausmann.de/minecraft/bedrock-connect/commit/2ac45a4690004bb1d93da8a6b459207f5ed6ea04))
+
+### ♻️ Chores
+
+* **deps:** update node.js to 392e1e2 ([29314df](https://git.strausmann.de/minecraft/bedrock-connect/commit/29314dfa8e934dbf3771854499b0296500cc2efe))
+
 ## [2.7.4](https://git.strausmann.de/minecraft/bedrock-connect/compare/2.7.3...2.7.4) (2026-07-07)
+
+### 🐛 Bug Fixes
+
+* **deps:** dependencies curl, jq, nano, apt source ([819601b](https://git.strausmann.de/minecraft/bedrock-connect/commit/819601b1618e3c5357e809b9ccb32c319cad837a))
+
+### ♻️ Chores
+
+* **deps:** update dependency conventional-changelog-conventionalcommits to v10 ([92a2bc0](https://git.strausmann.de/minecraft/bedrock-connect/commit/92a2bc09f180494a213be7e2bcb1e76d1e1a2968))
+* **deps:** update node.js to f22d6a1 ([6e36202](https://git.strausmann.de/minecraft/bedrock-connect/commit/6e362029b726814f3ddf92e9ac38ab4f7aff8567))
+* **deps:** update node.js to v24.18.0 ([da977e4](https://git.strausmann.de/minecraft/bedrock-connect/commit/da977e4d0799d4bfeaf481898cb536f584f6ec9a))
 
 ## [2.7.3](https://git.strausmann.de/minecraft/bedrock-connect/compare/2.7.2...2.7.3) (2026-07-02)
 
