@@ -25,7 +25,7 @@ ARG BIN_MC_MONITOR_VERSION=0.16.10
 ARG BIN_ENTRYPOINT_DEMOTER_VERSION=0.5.0
 
 # renovate: datasource=repology depName=debian13/curl versioning=debian
-ARG DEBIAN_CURL_VERSION=8.14.1-2+deb13u3
+ARG DEBIAN_CURL_VERSION=8.14.1-2+deb13u4
 
 # renovate: datasource=repology depName=debian13/unzip versioning=debian
 ARG DEBIAN_UNZIP_VERSION=6.0-29
