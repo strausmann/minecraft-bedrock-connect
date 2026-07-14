@@ -5,6 +5,8 @@ All notable changes to the **Bedrock Connect** Docker Image, published on Docker
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [2.7.8](https://git.strausmann.de/minecraft/bedrock-connect/compare/2.7.7...2.7.8) (2026-07-14)
+
 ## [2.7.7](https://git.strausmann.de/minecraft/bedrock-connect/compare/2.7.6...2.7.7) (2026-07-13)
 
 ## [2.7.6](https://git.strausmann.de/minecraft/bedrock-connect/compare/2.7.5...2.7.6) (2026-07-09)
