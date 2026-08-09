@@ -7,9 +7,57 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [2.7.9](https://git.strausmann.de/minecraft/bedrock-connect/compare/2.7.8...2.7.9) (2026-08-03)
 
+### 🐛 Bug Fixes
+
+* **deps:** update dependency itzg/mc-monitor to v0.17.0 ([0ae17ca](https://git.strausmann.de/minecraft/bedrock-connect/commit/0ae17caed8984fcbaad4f6bafb9e9964d206a45a))
+
+### ♻️ Chores
+
+* **deps:** update dependency @semantic-release/changelog to v7 ([d021f12](https://git.strausmann.de/minecraft/bedrock-connect/commit/d021f12135e0f393c14d1d06b2be13f5409b74ee))
+* **deps:** update dependency @semantic-release/git to v11 ([8c5c9f3](https://git.strausmann.de/minecraft/bedrock-connect/commit/8c5c9f383b792bc32f202603cd77e03ac6d1edc5))
+* **deps:** update dependency @semantic-release/git to v11.0.1 ([72e9c1e](https://git.strausmann.de/minecraft/bedrock-connect/commit/72e9c1e4038e9c2bcaf555ecb71975865fa36a84))
+* **deps:** update dependency prettier to v3.9.6 ([06a1962](https://git.strausmann.de/minecraft/bedrock-connect/commit/06a1962659449be6574fa8b1e73a8a54de7e7a27))
+* **deps:** update dependency semantic-release to v25.0.8 ([52213a0](https://git.strausmann.de/minecraft/bedrock-connect/commit/52213a0e79c889735f7f4517944e06a86519d8e4))
+* **deps:** update docker docker tag to v29.6.2 ([184f786](https://git.strausmann.de/minecraft/bedrock-connect/commit/184f786085b5cf8d2c424212d9a6abf44cf90389))
+* **deps:** update docker docker tag to v29.7.0 ([956b38c](https://git.strausmann.de/minecraft/bedrock-connect/commit/956b38cbb261d34cebe591bc97c196170f9cb2fa))
+* **deps:** update node.js to 5711a0d ([ca34538](https://git.strausmann.de/minecraft/bedrock-connect/commit/ca34538b7b239041c90fb337a5a3acfb892ff645))
+* **deps:** update node.js to v24.18.1 ([bf64f3d](https://git.strausmann.de/minecraft/bedrock-connect/commit/bf64f3d7544c4bd4f41d9e44f76511a9248cfae9))
+
 ## [2.7.8](https://git.strausmann.de/minecraft/bedrock-connect/compare/2.7.7...2.7.8) (2026-07-14)
 
+### 🐛 Bug Fixes
+
+* **deps:** update dependency itzg/entrypoint-demoter to v0.5.1 ([d7cd036](https://git.strausmann.de/minecraft/bedrock-connect/commit/d7cd036a4b1be3c573375c3ea8fa264fd8648213))
+
+### ♻️ Chores
+
+* **deps:** update dependency semantic-release to v25.0.7 ([7a09ee6](https://git.strausmann.de/minecraft/bedrock-connect/commit/7a09ee699ce96b490f9ed153480d0fc5894e7289))
+
 ## [2.7.7](https://git.strausmann.de/minecraft/bedrock-connect/compare/2.7.6...2.7.7) (2026-07-13)
+
+### 🐛 Bug Fixes
+
+* **deps:** update dependency debian13/curl to 8.14.1-2+deb13u4 ([61ecbba](https://git.strausmann.de/minecraft/bedrock-connect/commit/61ecbba0a1a101502c2cb1bb4fea0bae73796468))
+* **deps:** update dependency itzg/easy-add to 0.8.15 ([41f2dbb](https://git.strausmann.de/minecraft/bedrock-connect/commit/41f2dbbfe8e77c5c31174dedab8e1c51beea33ac))
+* **deps:** update dependency itzg/mc-monitor to 0.16.11 ([436f0c7](https://git.strausmann.de/minecraft/bedrock-connect/commit/436f0c7e3abc2b5427bada8d4bdf86f3d2fe072f))
+* **release:** migrate release-notes types to conventional-changelog v10 effect schema ([95df14f](https://git.strausmann.de/minecraft/bedrock-connect/commit/95df14f5c75abb9650ccba4987433301c764fb3b))
+
+### 📚 Docs
+
+* **changelog:** backfill leere Release Notes 2.7.4–2.7.6 ([f798326](https://git.strausmann.de/minecraft/bedrock-connect/commit/f7983263ccd130a1eb77c92bf5edeb46799e0a56)), closes [#45](https://git.strausmann.de/minecraft/bedrock-connect/issues/45)
+
+### ♻️ Chores
+
+* **deps:** update dependency prettier to v3.9.5 ([9652056](https://git.strausmann.de/minecraft/bedrock-connect/commit/965205607ad2637c7d5738dbf6e6d0cade5fe9f2))
+* **deps:** update dependency semantic-release to v25.0.6 ([c48f267](https://git.strausmann.de/minecraft/bedrock-connect/commit/c48f267c567227e1e27298002df6b25389c95c40))
+
+### 🦊 CI/CD
+
+* bedrock-connect-Jobs auf Proxmox-Runner (Tag build) + buildx-TLS-Fix ([7e1d8df](https://git.strausmann.de/minecraft/bedrock-connect/commit/7e1d8df3bd558e093926fdaf835a97d5c05ae3e7)), references [#46](https://git.strausmann.de/minecraft/bedrock-connect/issues/46)
+* **deps:** Renovate Debian-Pakete auf native deb-Datasource umstellen ([7e59344](https://git.strausmann.de/minecraft/bedrock-connect/commit/7e5934434bb2dd627742f7f73651b3514401c969)), references [#44](https://git.strausmann.de/minecraft/bedrock-connect/issues/44) [#46](https://git.strausmann.de/minecraft/bedrock-connect/issues/46)
+* docker_build auf dind-Runner schwenken (weg von cq-sans-dind) ([7a464a5](https://git.strausmann.de/minecraft/bedrock-connect/commit/7a464a5d2fa183f41a20b7529529286cc168914a)), references [#46](https://git.strausmann.de/minecraft/bedrock-connect/issues/46)
+* docker_build nur bei image-relevanten Änderungen bauen ([5e0a57d](https://git.strausmann.de/minecraft/bedrock-connect/commit/5e0a57dae6e8b7ee8e1e607214d2d565f3a1e522)), references [#46](https://git.strausmann.de/minecraft/bedrock-connect/issues/46)
+* **release:** add semantic-release dry-run preview job for feature branches ([479b599](https://git.strausmann.de/minecraft/bedrock-connect/commit/479b599352398307966e633673bb92b792a9523a))
 
 ## [2.7.6](https://git.strausmann.de/minecraft/bedrock-connect/compare/2.7.5...2.7.6) (2026-07-09)
 

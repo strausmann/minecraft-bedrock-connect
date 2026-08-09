@@ -24,5 +24,8 @@
       "path": "@commitlint/cz-commitlint"
     }
   },
-  "dependencies": {}
+  "dependencies": {},
+  "overrides": {
+    "conventional-changelog-writer": "9.2.0"
+  }
 }
