@@ -26,6 +26,6 @@
   },
   "dependencies": {},
   "overrides": {
-    "conventional-changelog-writer": "9.2.0"
+    "conventional-changelog-writer": "9.2.1"
   }
 }
