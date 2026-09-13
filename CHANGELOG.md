@@ -5,6 +5,31 @@ All notable changes to the **Bedrock Connect** Docker Image, published on Docker
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [2.7.10](https://git.strausmann.de/minecraft/bedrock-connect/compare/2.7.9...2.7.10) (2026-09-13)
+
+### 🐛 Bug Fixes
+
+* **deps:** update dependency itzg/easy-add to v0.8.16 ([65973ee](https://git.strausmann.de/minecraft/bedrock-connect/commit/65973eec62ac8895075aa02d8fa2a36a5f88f8fb))
+* **release:** render changelog on ccc@10 via conventional-changelog-writer@9 override ([1f7c854](https://git.strausmann.de/minecraft/bedrock-connect/commit/1f7c85481c0a362cd4970c5950a0d06f8ad5ba80)), references [release-notes-generator#1021](https://git.strausmann.de/release-notes-generator/issues/1021)
+
+### 📚 Docs
+
+* **changelog:** backfill fehlende Release-Notes fuer 2.7.7/2.7.8/2.7.9 ([7500dd5](https://git.strausmann.de/minecraft/bedrock-connect/commit/7500dd5283f918941fe9c22a095d5e58e9437419))
+
+### ♻️ Chores
+
+* **deps:** update apt-dependencies ([40182b0](https://git.strausmann.de/minecraft/bedrock-connect/commit/40182b00057da779c4cc95a81bc6a2395171c3ea))
+* **deps:** update dependency @codedependant/semantic-release-docker to v8 ([bd883c4](https://git.strausmann.de/minecraft/bedrock-connect/commit/bd883c4881a759bc388cacdb02d9fe105d9bf9ca))
+* **deps:** update dependency conventional-changelog-conventionalcommits to v10.3.0 ([4cc8b65](https://git.strausmann.de/minecraft/bedrock-connect/commit/4cc8b651e0f3e4a7583a5610be1076ef7c1782aa))
+* **deps:** update dependency conventional-changelog-conventionalcommits to v10.4.0 ([a36bfae](https://git.strausmann.de/minecraft/bedrock-connect/commit/a36bfaed3f046b92224ae006a3bc433a4ddc356f))
+* **deps:** update dependency conventional-changelog-writer to v9.2.1 ([6bcbcb1](https://git.strausmann.de/minecraft/bedrock-connect/commit/6bcbcb1e8173d697ac0afcd927f66af7698c7135))
+* **deps:** update dependency semantic-release to v25.0.9 ([6d18944](https://git.strausmann.de/minecraft/bedrock-connect/commit/6d189446f548a1c3880bdd43f3525e2e8f0f6754))
+* **deps:** update devdependencies (non-major) to v21.2.2 ([c553b67](https://git.strausmann.de/minecraft/bedrock-connect/commit/c553b67b4bce6724e1be7a1b303fe990bbf88918))
+* **deps:** update docker docker tag to v29.7.1 ([8db8f39](https://git.strausmann.de/minecraft/bedrock-connect/commit/8db8f393ce89db9b7ff8c60bd3307797621f0af4))
+* **deps:** update node.js to 934240a ([f2287f7](https://git.strausmann.de/minecraft/bedrock-connect/commit/f2287f758ece30d6991cb01970627e581d4e2a35))
+* **deps:** update node.js to da42216 ([74415bb](https://git.strausmann.de/minecraft/bedrock-connect/commit/74415bba173eee2de83054109fa3e2afd9bc7829))
+* **deps:** update node.js to v24.19.0 ([b004495](https://git.strausmann.de/minecraft/bedrock-connect/commit/b004495762164e8f7fef05eaae33c364d76decbb))
+
 ## [2.7.9](https://git.strausmann.de/minecraft/bedrock-connect/compare/2.7.8...2.7.9) (2026-08-03)
 
 ### 🐛 Bug Fixes
