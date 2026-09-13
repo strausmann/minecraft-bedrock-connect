@@ -25,13 +25,13 @@ ARG BIN_MC_MONITOR_VERSION=0.17.0
 ARG BIN_ENTRYPOINT_DEMOTER_VERSION=0.5.1
 
 # renovate: datasource=deb depName=curl versioning=deb registryUrl=https://deb.debian.org/debian?suite=trixie&components=main&binaryArch=amd64
-ARG DEBIAN_CURL_VERSION=8.14.1-2+deb13u4
+ARG DEBIAN_CURL_VERSION=8.14.1-2+deb13u5
 
 # renovate: datasource=deb depName=unzip versioning=deb registryUrl=https://deb.debian.org/debian?suite=trixie&components=main&binaryArch=amd64
-ARG DEBIAN_UNZIP_VERSION=6.0-29
+ARG DEBIAN_UNZIP_VERSION=6.0-29+deb13u1
 
 # renovate: datasource=deb depName=jq versioning=deb registryUrl=https://deb.debian.org/debian?suite=trixie&components=main&binaryArch=amd64
-ARG DEBIAN_JQ_VERSION=1.7.1-6+deb13u2
+ARG DEBIAN_JQ_VERSION=1.7.1-6+deb13u3
 
 # renovate: datasource=deb depName=nano versioning=deb registryUrl=https://deb.debian.org/debian?suite=trixie&components=main&binaryArch=amd64
 ARG DEBIAN_NANO_VERSION=8.4-1+deb13u1
