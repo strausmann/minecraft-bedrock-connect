@@ -16,10 +16,10 @@ ARG USER_UID=1000
 ARG USER_GID=$USER_UID
 
 # renovate: datasource=github-releases depName=itzg/easy-add versioning=loose
-ARG BIN_EASY_ADD_VERSION=0.8.16
+ARG BIN_EASY_ADD_VERSION=0.8.17
 
 # renovate: datasource=github-releases depName=itzg/mc-monitor versioning=loose
-ARG BIN_MC_MONITOR_VERSION=0.17.0
+ARG BIN_MC_MONITOR_VERSION=0.17.1
 
 # renovate: datasource=github-releases depName=itzg/entrypoint-demoter versioning=loose extractVersion=(^v(?<version>.*)$)
 ARG BIN_ENTRYPOINT_DEMOTER_VERSION=0.5.1
