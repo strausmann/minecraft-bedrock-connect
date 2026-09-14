@@ -5,6 +5,17 @@ All notable changes to the **Bedrock Connect** Docker Image, published on Docker
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [2.7.11](https://git.strausmann.de/minecraft/bedrock-connect/compare/2.7.10...2.7.11) (2026-09-14)
+
+### 🐛 Bug Fixes
+
+* **deps:** update itzg ([78e45e6](https://git.strausmann.de/minecraft/bedrock-connect/commit/78e45e6aac9173fb23da361fb51c0255f20494d3))
+
+### ♻️ Chores
+
+* **deps:** update docker docker tag to v29.7.2 ([8d5bb2f](https://git.strausmann.de/minecraft/bedrock-connect/commit/8d5bb2f62bdd2ca30780aa9310f0b356c13a23dc))
+* **deps:** update node.js to 4196d66 ([bdf1884](https://git.strausmann.de/minecraft/bedrock-connect/commit/bdf1884cb59df8a258266e6bf132305f3f5002ee))
+
 ## [2.7.10](https://git.strausmann.de/minecraft/bedrock-connect/compare/2.7.9...2.7.10) (2026-09-13)
 
 ### 🐛 Bug Fixes
