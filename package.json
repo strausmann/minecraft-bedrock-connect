@@ -2,9 +2,9 @@
   "name": "bedrock-connect",
   "devDependencies": {
     "@codedependant/semantic-release-docker": "8.0.0",
-    "@commitlint/cli": "21.2.2",
-    "@commitlint/config-conventional": "21.2.2",
-    "@commitlint/cz-commitlint": "21.2.2",
+    "@commitlint/cli": "21.2.3",
+    "@commitlint/config-conventional": "21.2.3",
+    "@commitlint/cz-commitlint": "21.2.3",
     "@semantic-release/changelog": "7.0.0",
     "@semantic-release/git": "11.0.1",
     "@semantic-release/gitlab": "13.3.3",
